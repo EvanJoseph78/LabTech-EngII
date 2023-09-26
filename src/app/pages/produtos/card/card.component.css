@@ -1,0 +1,21 @@
+.product-page {
+  display: flex;
+  justify-content: center;
+}
+
+.product-grid {
+  /* border: 1px solid red; */
+  width: 1140px;
+  min-height: 100vh;
+  display: flex;
+}
+
+.product-grid__box-filtros {
+  border: 1px solid green;
+  min-width: 195px;
+}
+
+.product-grid__box-products {
+  border: 1px solid purple;
+  min-width: 945px;
+}

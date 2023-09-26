@@ -6,14 +6,19 @@
     />
   </div>
   <div class="title-bar__nav-link">
-    <ol>
-      <a [routerLink]="['/']"><li>Home</li></a>
-      <!-- router link permite rotas single page -->
-      <a [routerLink]="['/produtos']"><li>Loja Virtual</li></a>
-      <a href="#"><li>Próteses</li></a>
-      <a href="#"><li>Serviços</li></a>
-      <a href="#"><li>Contato</li></a>
-    </ol>
+    <!-- router link permite rotas single page -->
+    <a
+      [routerLink]="['/']"
+      [routerLinkActive]="['activated']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a [routerLink]="['/produtos']" [routerLinkActive]="['activated']"
+      >Loja Virtual</a
+    >
+    <a [routerLink]="['/produtos']" [routerLinkActive]="['/']">Próteses</a>
+    <a href="#">Serviços</a>
+    <a href="#">Contato</a>
   </div>
 
   <div class="title-bar__nav-buttons">
