@@ -1,0 +1,51 @@
+.card-produto {
+  /* border: 1px solid salmon; */
+  width: 236.25px;
+  height: 343px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-container > img {
+  max-width: 100%; /* Defina a largura máxima da imagem como 100% */
+  height: auto; /* Isso mantém a proporção original da imagem */
+  /* Outros estilos específicos da imagem, se necessário */
+}
+
+.nome-produto > h3 {
+  color: rgb(65, 65, 65);
+  text-align: center;
+  text-transform: uppercase;
+  font-family: montserrat, Sans-serif;
+  text-overflow: ellipsis; /* Adiciona reticências (...) quando o texto é cortado */
+  overflow: hidden; /* Esconde o conteúdo que excede o espaço disponível */
+  -webkit-line-clamp: 2; /* Limita o texto a no máximo duas quebras de linha (em navegadores baseados no WebKit) */
+  display: -webkit-box; /* Define o elemento como um bloco de caixa flexível (em navegadores baseados no WebKit) */
+  -webkit-box-orient: vertical; /* Orienta o bloco de caixa verticalmente (em navegadores baseados no WebKit) */
+}
+
+.preco > p {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: montserrat, Sans-serif;
+  font-weight: 750;
+}
+
+.parcelas {
+  border: 1px solid black;
+  display: flex;
+  gap: 5px;
+  text-align: center;
+  font-family: montserrat, Sans-serif;
+  padding: 5px;
+}
+
+.parcelas > .numero-parcelas {
+  font-weight: 700;
+}
+
+.parcelas > .preco-parcela {
+  font-weight: 700;
+}

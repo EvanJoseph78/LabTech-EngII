@@ -16,6 +16,8 @@
 }
 
 .product-grid__box-products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   border: 1px solid purple;
   min-width: 945px;
 }
