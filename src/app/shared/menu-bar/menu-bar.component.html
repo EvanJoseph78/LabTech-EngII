@@ -1,4 +1,3 @@
-
 <div class="title-bar__component">
   <div class="title-bar__component-image_container">
     <img
@@ -8,12 +7,12 @@
   </div>
   <div class="title-bar__nav-link">
     <ol>
-      <a href=""><li>Clinica</li></a>
-      <a href=""><li>Próteses</li></a>
-      <a href=""><li>Produtos</li></a>
-      <a href=""><li>Serviços</li></a>
-      <a href=""><li>Loja Virtual</li></a>
-      <a href=""><li>Contato</li></a>
+      <a [routerLink]="['/']"><li>Home</li></a>
+      <!-- router link permite rotas single page -->
+      <a [routerLink]="['/produtos']"><li>Loja Virtual</li></a>
+      <a href="#"><li>Próteses</li></a>
+      <a href="#"><li>Serviços</li></a>
+      <a href="#"><li>Contato</li></a>
     </ol>
   </div>
 

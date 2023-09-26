@@ -1,7 +1,7 @@
 .title-bar__component {
   /* position: fixed; */
   height: 90px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   margin-left: 10px;
   margin-right: 10px;
   display: flex;
