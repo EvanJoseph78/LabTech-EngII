@@ -1,6 +1,6 @@
 export const dataFake = [
   {
-    id: 0,
+    id: "1",
     nome: 'Meia Coto Algodão Prothetic Sock',
     preco: 63.02,
     imagemProduto:
