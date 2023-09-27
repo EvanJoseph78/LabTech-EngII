@@ -16,8 +16,8 @@
 }
 
 .product-grid__box-products {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border: 1px solid purple;
-  min-width: 945px;
+  display: grid; /* Define o elemento com a classe .product-grid__box-products como um grid container */
+  grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas de largura igual*/
+  border: 1px solid purple; /* Adiciona uma borda de 1px sólida roxa ao redor do grid container */
+  min-width: 945px; /* Define a largura mínima do grid container como 945 pixels */
 }

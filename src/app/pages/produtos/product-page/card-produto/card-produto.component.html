@@ -1,23 +1,24 @@
 <div class="card-produto">
-  <div class="image-container">
-    <img
-      src="https://acdn.mitiendanube.com/stores/001/097/946/products/articulacao-protetica-de-joelho-3r80-11-3d30f02f26fa2ffb9d15844040244923-320-0.webp"
-      alt=""
-    />
-  </div>
+  <a [routerLink]="[produtoId]"
+    ><div class="image-container">
+      <img [src]="[imagemProduto]" alt="" />
+    </div>
+  </a>
 
-  <div class="nome-produto">
-    <h3>Meia Coto Algodão Prothetic Sock Branca 451F2 - Ottobock</h3>
-  </div>
+  <a>
+    <div class="nome-produto">
+      <h3>{{ produtoNome }}</h3>
+    </div>
+  </a>
 
   <div class="preco">
-    <p>R$ 63,02</p>
+    <p>R$ {{produtoPreco}}</p>
   </div>
 
   <div class="parcelas">
-    <div class="numero-parcelas">6</div>
+    <div class="numero-parcelas">{{parcelaProduto}}</div>
     <div>x de</div>
-    <div class="preco-parcela">R$10,50</div>
+    <div class="preco-parcela">R$ {{precoProdutoParcelado}}</div>
     <div>sem juros</div>
   </div>
 </div>
