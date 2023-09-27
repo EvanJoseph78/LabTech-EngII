@@ -15,6 +15,7 @@
 }
 
 .nome-produto > h3 {
+  min-height: 51.4px;
   color: rgb(65, 65, 65);
   text-align: center;
   text-transform: uppercase;

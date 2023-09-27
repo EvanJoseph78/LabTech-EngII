@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-produto',
@@ -6,15 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./card-produto.component.css'],
 })
 export class CardProdutoComponent {
-  produtoId: number = 5;
-  produtoNome: string = 'Meia Coto Algodão Prothetic Sock';
-  produtoPreco: number = 163.02;
-  imagemProduto: string =
-    'https://acdn.mitiendanube.com/stores/001/097/946/products/articulacao-protetica-de-joelho-3r80-11-3d30f02f26fa2ffb9d15844040244923-320-0.webp';
+  @Input()
+  produtoId: number = 0;
+  @Input()
+  produtoNome: string = '';
+  @Input()
+  produtoPreco: number = 1;
+  @Input()
+  imagemProduto: string = '';
   parcelaProduto: number = 0;
   precoProdutoParcelado: string = '0';
 
   constructor() {
+    
+  }
+
+  ngOnChanges() {
     if (this.produtoPreco <= 100) {
       this.parcelaProduto = Math.floor(this.produtoPreco / 10);
     } else {
