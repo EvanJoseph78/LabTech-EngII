@@ -7,6 +7,7 @@ import { ProdutoPageInfoComponent } from './produto-page/produto-page-info/produ
 
 @NgModule({
   declarations: [ProdutoPageComponent, ProdutoPageInfoComponent],
+  exports: [ProdutoPageComponent],
   imports: [CommonModule, AppRoutingModule],
 })
 export class ProdutoModule {}
