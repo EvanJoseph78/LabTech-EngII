@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { dataFake } from '../../../data/DataFake';
-
 
 @Component({
   selector: 'app-produto-page',
@@ -11,11 +10,12 @@ import { dataFake } from '../../../data/DataFake';
 export class ProdutoPageComponent implements OnInit {
   private id: string | null = '0';
 
+  @Input()
   imagemProduto: string = '';
+  @Input()
   nomeProduto: string = '';
+  @Input()
   precoProduto: number = 0;
-
-
 
   constructor(
     private parametrizador: ActivatedRoute,
