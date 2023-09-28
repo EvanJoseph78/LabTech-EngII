@@ -1,0 +1,85 @@
+.produto-box {
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+}
+
+.produto-container {
+  /* border: 1px solid rebeccapurple; */
+  width: 1140px;
+  min-height: 100vh;
+  display: flex;
+}
+
+.produto-container-left {
+  /* border: 1px solid orangered; */
+  min-width: 682px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-container > img {
+  max-width: 653px; /* Defina a largura máxima da imagem como 100% */
+  max-height: 550px;
+}
+
+.produto-container-right {
+  /* border: 1px solid blue; */
+  min-width: 458px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.produto-container-right > h3 {
+  font-size: 24px;
+  min-height: 51.4px;
+  color: rgb(65, 65, 65);
+  text-align: justify;
+  text-transform: uppercase;
+  font-family: montserrat, Sans-serif;
+  text-overflow: ellipsis; /* Adiciona reticências (...) quando o texto é cortado */
+  overflow: hidden; /* Esconde o conteúdo que excede o espaço disponível */
+  -webkit-line-clamp: 2; /* Limita o texto a no máximo duas quebras de linha (em navegadores baseados no WebKit) */
+  display: -webkit-box; /* Define o elemento como um bloco de caixa flexível (em navegadores baseados no WebKit) */
+  -webkit-box-orient: vertical; /* Orienta o bloco de caixa verticalmente (em navegadores baseados no WebKit) */
+}
+
+.produto-container-right > p {
+  text-align: justify;
+  font-size: 32px;
+  text-transform: uppercase;
+  font-family: montserrat, Sans-serif;
+  font-weight: 550;
+}
+
+.produto-container-right > h5 {
+  color: gray;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.produto-container-right > hr {
+  border: 1px solid rgba(0, 0, 0, 0.434);
+}
+
+.parcelas {
+  display: flex;
+  justify-content: center;
+  max-width: 229px;
+  border: 1px solid black;
+  display: flex;
+  gap: 5px;
+  text-align: center;
+  font-family: montserrat, Sans-serif;
+  padding: 5px;
+}
+
+.parcelas > .numero-parcelas {
+  font-weight: 700;
+}
+
+.parcelas > .preco-parcela {
+  font-weight: 700;
+}

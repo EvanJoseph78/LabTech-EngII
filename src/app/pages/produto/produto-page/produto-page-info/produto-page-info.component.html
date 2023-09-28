@@ -1,1 +1,23 @@
-<p>produto-page-info works!</p>
+<div class="produto-box">
+  <div class="produto-container">
+    <div class="produto-container-left">
+      <div class="image-container">
+        <img src="{{ imagemProduto }}" alt="" />
+      </div>
+    </div>
+
+    <div class="produto-container-right">
+      <h3>{{ nomeProduto }}</h3>
+      <p>R$ {{ precoProduto }}</p>
+      <div class="parcelas">
+        <div class="numero-parcelas">6</div>
+        <div>x de</div>
+        <div class="preco-parcela">R$ 10.00</div>
+        <div>sem juros</div>
+      </div>
+      <h4>5% de desconto no pix</h4>
+      <h5>Ver meios de pagamento</h5>
+      <hr />
+    </div>
+  </div>
+</div>

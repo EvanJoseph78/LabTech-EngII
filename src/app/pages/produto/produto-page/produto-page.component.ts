@@ -36,5 +36,8 @@ export class ProdutoPageComponent implements OnInit {
     console.log(result.descricao);
     console.log(result.imagemProduto);
     console.log(result.nome);
+    this.imagemProduto = result.imagemProduto;
+    this.nomeProduto = result.nome;
+    this.precoProduto = result.preco;
   }
 }
