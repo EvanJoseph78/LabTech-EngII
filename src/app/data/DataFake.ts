@@ -54,4 +54,15 @@ export const dataFake = [
       'Origem Produto': 'Japão',
     },
   },
+  {
+    id: '64545612',
+    nome: 'Câmera Digital',
+    preco: 299.99,
+    imagemProduto:
+      'https://acdn.mitiendanube.com/stores/001/097/946/products/99b141-b6cb640f8f00fafcaf15844913950745-320-0.webp',
+    descricao: 'Uma câmera de alta qualidade para fotografias incríveis.',
+    fichaTecnica: {
+      'Origem Produto': 'Japão',
+    },
+  },
 ];

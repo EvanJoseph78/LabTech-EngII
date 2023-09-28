@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { dataFake } from '../../../data/DataFake';
 
@@ -16,10 +16,11 @@ export class ProdutoPageComponent implements OnInit {
   nomeProduto: string = '';
   @Input()
   precoProduto: number = 0;
-
   constructor(
     private parametrizador: ActivatedRoute,
-    private navegador: Router
+    private navegador: Router,
+    private renderer: Renderer2,
+    private el: ElementRef
   ) {}
 
   ngOnInit(): void {
@@ -28,14 +29,16 @@ export class ProdutoPageComponent implements OnInit {
     });
 
     this.definirValoresParaComponent(this.id);
+
+    this.renderer.setProperty(this.el.nativeElement, 'scrollTop', 0); // deveria rolar a página para o topo
   }
 
   definirValoresParaComponent(id: string | null) {
     const result = dataFake.filter((produto) => produto.id == id)[0];
-    console.log(result.id);
-    console.log(result.descricao);
-    console.log(result.imagemProduto);
-    console.log(result.nome);
+    // console.log(result.id);
+    // console.log(result.descricao);
+    // console.log(result.imagemProduto);
+    // console.log(result.nome);
     this.imagemProduto = result.imagemProduto;
     this.nomeProduto = result.nome;
     this.precoProduto = result.preco;

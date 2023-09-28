@@ -5,6 +5,14 @@
     </div>
     <div class="product-grid__box-products">
       <app-card-produto
+        *ngFor="let produto of produtos"
+        [produtoId]="produto.id"
+        [imagemProduto]="produto.imagemProduto"
+        [produtoNome]="produto.nome"
+        [produtoPreco]="produto.preco"
+      ></app-card-produto>
+
+      <!-- <app-card-produto
         [produtoId]="1"
         [imagemProduto]="
           'https://acdn.mitiendanube.com/stores/001/097/946/products/articulacao-protetica-de-joelho-3r80-11-3d30f02f26fa2ffb9d15844040244923-320-0.webp'
@@ -38,7 +46,7 @@
         "
         [produtoNome]="'Produto 5'"
         [produtoPreco]="199.0"
-      ></app-card-produto>
+      ></app-card-produto> -->
     </div>
   </div>
 </div>

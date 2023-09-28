@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class CardProdutoComponent {
   @Input()
-  produtoId: number = 0;
+  produtoId: string = '';
   @Input()
   produtoNome: string = '';
   @Input()
@@ -17,9 +17,7 @@ export class CardProdutoComponent {
   parcelaProduto: number = 0;
   precoProdutoParcelado: string = '0';
 
-  constructor() {
-    
-  }
+  constructor() {}
 
   ngOnChanges() {
     if (this.produtoPreco <= 100) {
