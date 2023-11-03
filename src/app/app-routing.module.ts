@@ -5,6 +5,7 @@ import { TitleComponent } from './pages/index/title/title.component';
 import { ProductPage } from './pages/produtos/product-page/product-page.component';
 import { ProdutoPageComponent } from './pages/produto/produto-page/produto-page.component';
 import { ProtesesComponent } from './pages/proteses/proteses/proteses.component';
+import { ServicosComponent } from './pages/servicos/servicos/servicos.component';
 
 // Onde as rotas são criadas
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
     pathMatch: 'prefix',
   },
   { path: 'proteses', component: ProtesesComponent, pathMatch: 'prefix' }, // redireciona para a rota principal
+  { path: 'servicos', component: ServicosComponent, pathMatch: 'prefix' }, // redireciona para a rota principal
   { path: '**', redirectTo: '' }, // redireciona para a rota principal
 ];
 
