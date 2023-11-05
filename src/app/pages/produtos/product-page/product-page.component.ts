@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { dataFake } from '../../../data/DataFake';
+import { ProdutosService } from 'src/app/shared/service/produtos.service';
+import { Produto } from 'src/app/shared/models/produtos.model';
 
 @Component({
   selector: 'app-card',
@@ -9,10 +11,15 @@ import { dataFake } from '../../../data/DataFake';
   styleUrls: ['./product-page.component.css'],
 })
 export class ProductPage implements OnInit {
-  produtos = dataFake;
-  constructor(private route: ActivatedRoute) {}
+  // produtos = dataFake;
+  produtos: Produto[] = [];
 
-  ngOnInit(): void {
-    // this.route.paramMap.subscribe((value) => console.log(value));
+  constructor(private produtosService: ProdutosService) {}
+
+  ngOnInit() {
+    this.produtosService.getProducts().subscribe((dados) => {
+      this.produtos = dados.produtos;
+      console.log(this.produtos);
+    });
   }
 }
