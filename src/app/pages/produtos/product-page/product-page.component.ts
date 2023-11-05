@@ -14,12 +14,12 @@ export class ProductPage implements OnInit {
   // produtos = dataFake;
   produtos: Produto[] = [];
 
-  constructor(private produtosService: ProdutosService) {}
+  constructor(private produtosService: ProdutosService) { }
 
   ngOnInit() {
     this.produtosService.getProducts().subscribe((dados) => {
       this.produtos = dados.produtos;
-      console.log(this.produtos);
+      // console.log(this.produtos);
     });
   }
 }

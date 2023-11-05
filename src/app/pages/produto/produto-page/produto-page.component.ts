@@ -1,6 +1,8 @@
 import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { dataFake } from '../../../data/DataFake';
+import { Produto } from 'src/app/shared/models/produtos.model';
+import { ProdutosService } from 'src/app/shared/service/produtos.service';
 
 @Component({
   selector: 'app-produto-page',
@@ -8,6 +10,17 @@ import { dataFake } from '../../../data/DataFake';
   styleUrls: ['./produto-page.component.css'],
 })
 export class ProdutoPageComponent implements OnInit {
+  produtos: Produto = {
+    nome: '',
+    descricao: '',
+    idproduto: '',
+    peso: '',
+    quantidade: 0,
+    tamanho: '',
+    urlimg: '',
+    valor: 0,
+  };
+
   private id: string | null = '0';
 
   @Input()
@@ -20,8 +33,9 @@ export class ProdutoPageComponent implements OnInit {
     private parametrizador: ActivatedRoute,
     private navegador: Router,
     private renderer: Renderer2,
-    private el: ElementRef
-  ) {}
+    private el: ElementRef,
+    private produtoService: ProdutosService,
+  ) { }
 
   ngOnInit(): void {
     this.parametrizador.paramMap.subscribe((value) => {
@@ -34,13 +48,19 @@ export class ProdutoPageComponent implements OnInit {
   }
 
   definirValoresParaComponent(id: string | null) {
-    const result = dataFake.filter((produto) => produto.id == id)[0];
+    this.produtoService.getProducts().subscribe((dados) => {
+      this.produtos = dados.produtos[Number(id) - 1];
+      // console.log(this.produtos.urlimg);
+      this.imagemProduto = this.produtos.urlimg;
+      this.nomeProduto = this.produtos.nome;
+      this.precoProduto = this.produtos.valor;
+    });
+
+    // const result = dataFake.filter((produto) => produto.id == id)[0];
+    // const result = dataFake.filter((produto) => produto.id == id)[0];
     // console.log(result.id);
     // console.log(result.descricao);
     // console.log(result.imagemProduto);
     // console.log(result.nome);
-    this.imagemProduto = result.imagemProduto;
-    this.nomeProduto = result.nome;
-    this.precoProduto = result.preco;
   }
 }
