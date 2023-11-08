@@ -2,7 +2,7 @@
   <div class="produto-container">
     <div class="produto-container-left">
       <div class="image-container">
-        <img src="{{ imagemProduto }}" alt="" />
+        <img [src]="[imagemProduto]" (error)="carregarImagemPadrao()" alt="" />
       </div>
     </div>
 
