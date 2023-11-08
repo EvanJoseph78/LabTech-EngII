@@ -49,3 +49,14 @@
   /* margin-left: 10px; */
   border: 1px solid rgba(0, 0, 0, 0.434);
 }
+
+@media (max-width: 1237px) {
+  /* Estilos para largura de tela menor que 1238px */
+  /* Por exemplo, reduza o tamanho do texto, ajuste o layout, ou esconda elementos */
+  .product-grid__box-products {
+    display: grid; /* Define o elemento com a classe .product-grid__box-products como um grid container */
+    grid-template-columns: repeat(2, 1fr); /* Cria 4 colunas de largura igual*/
+    /* border: 1px solid purple; Adiciona uma borda de 1px sólida roxa ao redor do grid container */
+    min-width: 945px; /* Define a largura mínima do grid container como 945 pixels */
+  }
+}
