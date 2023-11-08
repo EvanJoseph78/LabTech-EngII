@@ -17,9 +17,12 @@ export class CardProdutoComponent {
   parcelaProduto: number = 0;
   precoProdutoParcelado: string = '0';
 
-  constructor() {}
+  constructor() {
+    // console.log(this.imagemProduto);
+  }
 
   ngOnChanges() {
+    console.log(this.imagemProduto);
     if (this.produtoPreco <= 100) {
       this.parcelaProduto = Math.floor(this.produtoPreco / 10);
     } else {
@@ -31,5 +34,11 @@ export class CardProdutoComponent {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     });
+  }
+
+  carregarImagemPadrao() {
+    console.log('Evandroo');
+    this.imagemProduto =
+      'https://www.shutterstock.com/shutterstock/photos/2059817444/display_1500/stock-vector-no-image-available-photo-coming-soon-illustration-vector-2059817444.jpg';
   }
 }

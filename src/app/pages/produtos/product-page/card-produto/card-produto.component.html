@@ -1,11 +1,11 @@
 <div class="card-produto">
   <a [routerLink]="[produtoId]"
     ><div class="image-container">
-      <img [src]="[imagemProduto]" alt="" />
+      <img [src]="[imagemProduto]" (error)="carregarImagemPadrao()" alt="" />
     </div>
   </a>
 
-  <a>
+  <a [routerLink]="[produtoId]">
     <div class="nome-produto">
       <h3>{{ produtoNome }}</h3>
     </div>
