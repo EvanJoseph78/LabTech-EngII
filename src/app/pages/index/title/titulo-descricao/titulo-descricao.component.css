@@ -1,0 +1,16 @@
+
+.info{
+    text-align: center;
+    padding-top: 30px;
+}
+
+.info > h2{
+    text-align: start;
+}
+
+.info > p{
+    text-align: justify;
+    padding-top: 20px;
+    font-size: 14px;
+    line-height: 20px;
+}

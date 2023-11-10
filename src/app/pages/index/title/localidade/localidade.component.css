@@ -1,0 +1,11 @@
+.localidade > h2{
+    padding: 20px 0px;
+}
+
+.localidade > p{
+    text-align: justify;
+}
+.mapa {
+    padding-top: 20px;
+    text-align: center;
+}
