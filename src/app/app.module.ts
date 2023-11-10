@@ -9,9 +9,10 @@ import { IndexModule } from './pages/index/index.module';
 import { ProdutosModule } from './pages/produtos/produtos.module';
 import { MenuBarComponent } from './shared/menu-bar/menu-bar.component';
 import { ProdutoModule } from './pages/produto/produto.module';
+import { RodapeComponent } from './shared/rodape/rodape.component';
 
 @NgModule({
-  declarations: [AppComponent, MenuBarComponent],
+  declarations: [AppComponent, MenuBarComponent, RodapeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

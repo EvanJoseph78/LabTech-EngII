@@ -1,0 +1,25 @@
+.rodape {
+    justify-content: space-around;
+    background-color:#1b1b1b;
+    color: #fff;
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.midias > a > img {
+    margin: 5px;
+}
+
+.rodape a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.rodape a:hover {
+    text-decoration: underline;
+}
+
+.contato > p {
+    margin: 3px;
+}
