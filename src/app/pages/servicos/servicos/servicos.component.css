@@ -8,8 +8,7 @@
 }
 
 .servico > h3 {
-  text-align: justify;
-  color: red;
+  text-align: justify; /* Justifica o texto */
 }
 
 .servico {
@@ -23,8 +22,9 @@
 .dupla {
   display: flex;
   flex-direction: row;
-  border: 0.1px solid blue;
-  align-items: center;
+  /* border: 0.1px solid blue; */
+  justify-content: center;
+  gap: 40px;
 }
 
 .imagem-descricao {
@@ -35,6 +35,14 @@
 }
 
 .imagem-descricao > img {
-  max-width: 570px;
-  max-height: 398px;
+  max-width: 550px;
+  max-height: 388px;
+}
+
+.imagem-descricao > p {
+  max-width: 550px;
+  max-height: 388px;
+  text-align: center; /* Justifica o texto */
+
+  /* border: 1px solid red; */
 }
