@@ -6,7 +6,12 @@ import { ImagemDescricaoComponent } from './title/imagem-descricao/imagem-descri
 import { LocalidadeComponent } from './title/localidade/localidade.component';
 
 @NgModule({
-  declarations: [TitleComponent, TituloDescricaoComponent, ImagemDescricaoComponent, LocalidadeComponent],
+  declarations: [
+    TitleComponent,
+    TituloDescricaoComponent,
+    ImagemDescricaoComponent,
+    LocalidadeComponent,
+  ],
   exports: [TitleComponent],
   imports: [CommonModule],
 })

@@ -1,23 +1,24 @@
 .title-bar__component {
+  background-color: #1b1b1b;
   /* position: fixed; */
   height: 90px;
   /* border: 1px solid blue; */
-  margin-left: 10px;
-  margin-right: 10px;
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .title-bar__nav-link a.activated {
-  border-top: 2px solid rgb(0, 0, 0);
-  border-bottom: 2px solid rgb(0, 0, 0);
+  /* border-top: 1px solid rgb(255, 255, 255); */
+  border-bottom: 1px solid rgb(255, 255, 255);
   transition: border 0.1s ease;
 }
 
 .title-bar__nav-link a.activated:hover {
-  border-top: 2px solid rgb(0, 0, 0); /* Barra superior ao passar o mouse */
-  border-bottom: 2px solid rgb(0, 0, 0); /* Barra inferior ao passar o mouse */
+  /* border-top: 2px solid #eb903be2; /* Barra superior ao passar o mouse */
+  border-bottom: 2px solid #eb903be2; /* Barra inferior ao passar o mouse */
 }
 
 .title-bar__component-image_container > img {
@@ -38,14 +39,14 @@
 }
 
 .title-bar__nav-link > a {
-  color: black;
+  color: white;
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
 }
 
 .title-bar__nav-link > a:hover {
-  color: gray;
+  color: #eb903be2;
 }
 
 .search-button > img {

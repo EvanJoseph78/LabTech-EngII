@@ -1,14 +1,18 @@
-body{
-    width: 150vh;
-    margin: auto;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+body {
+  margin-top: 100px;
+  width: 150vh;
+  margin: auto;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-body > h3{
-    padding: 10px 10px;
+.home-page {
+  margin-top: 100px;
 }
 
-.fachada > img{
-    width: 150vh;
+body > h3 {
+  padding: 10px 10px;
 }
 
+.fachada > img {
+  width: 150vh;
+}
