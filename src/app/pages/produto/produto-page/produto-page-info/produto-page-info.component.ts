@@ -38,7 +38,9 @@ export class ProdutoPageInfoComponent {
   }
 
   aumentarQuantidade() {
-    this.quantidade = this.quantidade + 1;
+    if (this.quantidade < this.quantidadeDisponivel) {
+      this.quantidade = this.quantidade + 1;
+    }
   }
 
   diminuirQuantidade() {
