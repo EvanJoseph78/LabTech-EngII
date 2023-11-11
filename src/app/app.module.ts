@@ -10,6 +10,7 @@ import { ProdutosModule } from './pages/produtos/produtos.module';
 import { MenuBarComponent } from './shared/menu-bar/menu-bar.component';
 import { ProdutoModule } from './pages/produto/produto.module';
 import { RodapeComponent } from './shared/rodape/rodape.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, MenuBarComponent, RodapeComponent],
@@ -20,6 +21,7 @@ import { RodapeComponent } from './shared/rodape/rodape.component';
     ProdutosModule,
     ProdutoModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

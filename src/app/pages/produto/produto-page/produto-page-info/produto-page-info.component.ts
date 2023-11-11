@@ -13,8 +13,37 @@ export class ProdutoPageInfoComponent {
   @Input()
   imagemProduto: string = '';
 
+  tamanhoProduto: string = 'P';
+  quantidade: number = 1;
+  quantidadeDisponivel: number = 10;
+
+  constructor() { }
+
   carregarImagemPadrao() {
-    console.log('Evandroo');
     this.imagemProduto = '../../../assets/images/notFound.jpg';
+  }
+
+  definirTamanhoProduto(tamanhoProduto: string) {
+    if (tamanhoProduto == 'P') {
+      this.tamanhoProduto = 'P';
+    }
+
+    if (tamanhoProduto == 'M') {
+      this.tamanhoProduto = 'M';
+    }
+
+    if (tamanhoProduto == 'L') {
+      this.tamanhoProduto = 'L';
+    }
+  }
+
+  aumentarQuantidade() {
+    this.quantidade = this.quantidade + 1;
+  }
+
+  diminuirQuantidade() {
+    if (this.quantidade > 1) {
+      this.quantidade = this.quantidade - 1;
+    }
   }
 }

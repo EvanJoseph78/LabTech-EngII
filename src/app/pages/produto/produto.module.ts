@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { ProdutoPageComponent } from './produto-page/produto-page.component';
@@ -9,6 +10,6 @@ import { ProdutoPageInfoComponent } from './produto-page/produto-page-info/produ
 @NgModule({
   declarations: [ProdutoPageComponent, ProdutoPageInfoComponent],
   exports: [ProdutoPageComponent],
-  imports: [CommonModule, AppRoutingModule],
+  imports: [CommonModule, AppRoutingModule, FormsModule],
 })
-export class ProdutoModule {}
+export class ProdutoModule { }

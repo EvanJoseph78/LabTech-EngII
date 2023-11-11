@@ -18,6 +18,25 @@
       <h4>5% de desconto no pix</h4>
       <h5>Ver meios de pagamento</h5>
       <hr />
+      <h3>TAMANHO: {{ tamanhoProduto }}</h3>
+      <div class="botoes">
+        <button type="" (click)="definirTamanhoProduto('P')">P</button>
+        <button type="" (click)="definirTamanhoProduto('M')">M</button>
+        <button type="" (click)="definirTamanhoProduto('L')">L</button>
+      </div>
+      <h3>QUANTIDADE - (Disponível: {{ quantidadeDisponivel }} )</h3>
+      <div class="quantidade-produto">
+        <button type="" (click)="diminuirQuantidade()">-</button>
+        <input
+          type="text"
+          min="1"
+          max="{{ quantidadeDisponivel }}"
+          value="{{ quantidade }}"
+        />
+        <button type="" (click)="aumentarQuantidade()">+</button>
+      </div>
+
+      <button type="" class="comprar-button">Comprar</button>
     </div>
   </div>
 </div>

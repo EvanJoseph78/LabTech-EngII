@@ -2,6 +2,7 @@
   /* border: 1px solid red; */
   display: flex;
   justify-content: center;
+  margin-top: 150px;
 }
 
 .produto-container {
@@ -82,4 +83,39 @@
 
 .parcelas > .preco-parcela {
   font-weight: 700;
+}
+
+.botoes {
+  display: flex;
+  gap: 10px;
+}
+
+.botoes > button {
+  width: 50px;
+  height: 50px;
+}
+
+.quantidade-produto {
+  display: flex;
+}
+
+.quantidade-produto > input {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  border: 1px solid black;
+}
+
+.quantidade-produto > button {
+  width: 30px;
+  height: 30px;
+}
+
+.botoes-incremento > button {
+  width: 20px;
+  height: 20px;
+}
+
+.comprar-button {
+  height: 40px;
 }
