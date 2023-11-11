@@ -32,6 +32,19 @@
   margin-right: 15px;
 }
 
+.search-container > input {
+  background: #1b1b1b;
+  color: white;
+  height: 25px;
+  border-bottom: 1px solid #eb903be2;
+  outline: none;
+}
+
+.search-input:hover {
+  color: #eb903be2;
+  border: 1px solid #eb903be2;
+}
+
 .title-bar__nav-link {
   display: flex;
   gap: 10px;
