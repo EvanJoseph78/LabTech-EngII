@@ -42,7 +42,11 @@
     </div>
 
     <div class="nav-buttons_image">
-      <a href="#"><img src="../../../assets/menu-bar/carrinho.png" alt="" /></a>
+      <a href="#" (click)="abrirCarrinhoDeCompras()"
+        ><img src="../../../assets/menu-bar/carrinho.png" alt=""
+      /></a>
+
+      <app-carrinho *ngIf="carrinhoAtivo"></app-carrinho>
     </div>
   </div>
 </div>
