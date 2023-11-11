@@ -11,6 +11,7 @@ import { MenuBarComponent } from './shared/menu-bar/menu-bar.component';
 import { ProdutoModule } from './pages/produto/produto.module';
 import { RodapeComponent } from './shared/rodape/rodape.component';
 import { FormsModule } from '@angular/forms';
+import { CarrinhoModule } from './shared/carrinho/carrinho.module';
 
 @NgModule({
   declarations: [AppComponent, MenuBarComponent, RodapeComponent],
@@ -22,8 +23,9 @@ import { FormsModule } from '@angular/forms';
     ProdutoModule,
     HttpClientModule,
     FormsModule,
+    CarrinhoModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
