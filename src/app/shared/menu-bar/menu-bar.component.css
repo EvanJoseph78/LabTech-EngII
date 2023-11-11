@@ -29,6 +29,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 15px;
 }
 
 .title-bar__nav-link {
@@ -49,8 +50,8 @@
   color: #eb903be2;
 }
 
-.search-button > img {
-  max-width: 25px;
+.search-button > a > img {
+  max-width: 20px;
 }
 
 .title-bar__nav-buttons {
@@ -60,5 +61,5 @@
 }
 
 .nav-buttons_image > a > img {
-  max-width: 25px;
+  max-width: 20px;
 }

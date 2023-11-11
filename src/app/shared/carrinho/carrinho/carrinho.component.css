@@ -1,0 +1,10 @@
+.carrinho-compras-container {
+  position: fixed;
+  left: 0;
+  top: 0; /* Opcional: ajuste conforme necessário */
+  height: 100vh;
+  width: 300px; /* Opcional: ajuste conforme necessário */
+  border: 1px solid red;
+  z-index: 1000; /* Opcional: ajuste conforme necessário */
+  overflow-y: auto; /* Opcional: para adicionar uma barra de rolagem se necessário */
+}
