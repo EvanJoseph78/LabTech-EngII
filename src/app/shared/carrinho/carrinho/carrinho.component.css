@@ -6,9 +6,30 @@
   top: 0; /* Opcional: ajuste conforme necessário */
   height: 100vh;
   width: 400px; /* Opcional: ajuste conforme necessário */
-  border: 1px solid red;
+  /* border: 1px solid red; */
   z-index: 1000; /* Opcional: ajuste conforme necessário */
   overflow-y: auto; /* Opcional: para adicionar uma barra de rolagem se necessário */
-  color: red;
-  box-shadow: 0 100px 100px 10000px rgba(0, 0, 0, 0.5); /* Alteração: spread-radius é definido como 0 */
+  /* color: red; */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.carrinho-compras-container__elementos {
+  /* border: 1px solid red; */
+}
+
+.texto {
+  display: flex;
+  justify-content: space-between;
+}
+
+.texto > button {
+  width: 25px;
+  background: none;
+  border: 1.5px solid black;
+}
+
+.texto > button:hover {
+  background-color: #eee;
+  color: #333;
 }

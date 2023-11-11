@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CarrinhoService } from 'src/app/shared/service/carrinho.service';
 
 @Component({
   selector: 'app-produto-page-info',
@@ -16,8 +17,9 @@ export class ProdutoPageInfoComponent {
   tamanhoProduto: string = 'P';
   quantidade: number = 1;
   quantidadeDisponivel: number = 10;
+  carrinhoAtivo: boolean = false;
 
-  constructor() { }
+  constructor(private carrinhoService: CarrinhoService) { }
 
   carregarImagemPadrao() {
     this.imagemProduto = '../../../assets/images/notFound.jpg';
@@ -46,6 +48,17 @@ export class ProdutoPageInfoComponent {
   diminuirQuantidade() {
     if (this.quantidade > 1) {
       this.quantidade = this.quantidade - 1;
+    }
+  }
+
+  abrirCarrinhoDeCompras() {
+    if (this.carrinhoAtivo) {
+    } else {
+      this.carrinhoService
+        .getEstadoCarrinho()
+        .subscribe((estadoCarrinhoComponent) => {
+          this.carrinhoAtivo = estadoCarrinhoComponent;
+        });
     }
   }
 }

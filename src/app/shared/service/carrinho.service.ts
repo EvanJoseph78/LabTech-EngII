@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CarrinhoService {
   // Cria um BehaviorSubject para rastrear o estado do carrinho
-  private carrinhoAtivoSubject = new BehaviorSubject<boolean>(false);
+  private carrinhoAtivoSubject = new BehaviorSubject<boolean>(true);
 
   // Declara uma propriedade carrinhoAtivo do tipo Observable que os componentes podem assinar
   carrinhoAtivo: Observable<boolean> = this.carrinhoAtivoSubject.asObservable();

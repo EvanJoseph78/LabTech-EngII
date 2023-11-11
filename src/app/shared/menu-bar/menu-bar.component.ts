@@ -8,7 +8,7 @@ import { CarrinhoService } from '../service/carrinho.service';
 })
 export class MenuBarComponent {
   constructor(private carrinhoService: CarrinhoService) { }
-  carrinhoAtivo: boolean = true;
+  carrinhoAtivo: boolean = false;
 
   abrirCarrinhoDeCompras() {
     this.carrinhoService
