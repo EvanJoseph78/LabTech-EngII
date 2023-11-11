@@ -118,4 +118,49 @@
 
 .comprar-button {
   height: 40px;
+  background-color: rgba(235, 144, 59);
+}
+
+.container-informacao {
+  display: flex;
+  gap: 10px;
+  width: 630px;
+  margin-top: 50px;
+  /* border: 1px solid red; */
+}
+
+.container-informacao > .descricao {
+  min-width: 315px;
+  /* border: 1px solid blue; */
+}
+
+.container-informacao > .ficha-tecnica {
+  min-width: 315px;
+  /* border: 1px solid blue; */
+}
+
+.descricao > p {
+  text-align: justify;
+  font-size: 12px;
+}
+
+.tabela-ficha-tecnica > .linha1 {
+  background-color: rgba(235, 144, 59, 0.886);
+}
+
+.tabela-ficha-tecnica table {
+  width: 100%;
+  border-collapse: collapse; /* Opcional para remover espaçamento entre células */
+}
+
+.tabela-ficha-tecnica th,
+.tabela-ficha-tecnica td {
+  font-size: 12px;
+  width: 33.33%; /* Divide igualmente o espaço disponível entre as colunas */
+  border: 1px solid #000; /* Estilo de borda (opcional) */
+  padding: 8px; /* Espaçamento interno (opcional) */
+}
+
+.column2 {
+  font-weight: 700;
 }
