@@ -1,4 +1,4 @@
 <app-menu-bar ngClass="menu-bar"></app-menu-bar>
-<!-- <app-carrinho ngClass="carrinho-compras"> </app-carrinho> -->
+<app-carrinho *ngIf="carrinhoAtivo"></app-carrinho>
 <router-outlet></router-outlet>
 <app-rodape ngClass="rodape"> </app-rodape>

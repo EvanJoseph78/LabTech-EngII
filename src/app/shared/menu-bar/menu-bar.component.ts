@@ -7,15 +7,14 @@ import { CarrinhoService } from '../service/carrinho.service';
   styleUrls: ['./menu-bar.component.css'],
 })
 export class MenuBarComponent {
-  // carrinhoAtivo: boolean = CarrinhoService.carrinhoAtivo;
-
-  constructor(private carrinhoService: CarrinhoService) {
-    console.log(carrinhoService.carrinhoAtivo);
-  }
-  carrinhoAtivo: boolean = this.carrinhoService.carrinhoAtivo;
+  constructor(private carrinhoService: CarrinhoService) { }
+  carrinhoAtivo: boolean = true;
 
   abrirCarrinhoDeCompras() {
-    this.carrinhoService.abrirCarrinhoDeCompras();
-    this.carrinhoAtivo = this.carrinhoService.carrinhoAtivo;
+    this.carrinhoService
+      .getEstadoCarrinho()
+      .subscribe((estadoCarrinhoComponent) => {
+        this.carrinhoAtivo = estadoCarrinhoComponent;
+      });
   }
 }

@@ -30,23 +30,20 @@
     </div>
 
     <div class="search-button">
-      <a href="#">
-        <img src="../../../assets/menu-bar/lupa.png" alt="" />
-      </a>
+      <img src="../../../assets/menu-bar/lupa.png" alt="" />
     </div>
 
     <div class="nav-buttons_image">
-      <a href="#">
-        <img src="../../../assets/menu-bar/user.png" alt="" />
-      </a>
+      <img src="../../../assets/menu-bar/user.png" alt="" />
     </div>
 
-    <div class="nav-buttons_image">
-      <a href="#" (click)="abrirCarrinhoDeCompras()"
-        ><img src="../../../assets/menu-bar/carrinho.png" alt=""
-      /></a>
+    <div
+      class="nav-buttons_image carrinho-button"
+      (click)="abrirCarrinhoDeCompras()"
+    >
+      <img src="../../../assets/menu-bar/carrinho.png" alt="" />
 
-      <app-carrinho *ngIf="carrinhoAtivo"></app-carrinho>
+      <!-- <app-carrinho *ngIf="carrinhoAtivo"></app-carrinho> -->
     </div>
   </div>
 </div>

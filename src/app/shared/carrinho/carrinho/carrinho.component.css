@@ -1,11 +1,14 @@
 .carrinho-compras-container {
-  background: rgba(255, 255, 255, 0.5);
+  margin-top: 90px;
+  background: rgba(255, 255, 255);
   position: fixed;
-  left: 0;
+  right: 0; /* Alterado para 'right' */
   top: 0; /* Opcional: ajuste conforme necessário */
   height: 100vh;
-  width: 300px; /* Opcional: ajuste conforme necessário */
+  width: 400px; /* Opcional: ajuste conforme necessário */
   border: 1px solid red;
   z-index: 1000; /* Opcional: ajuste conforme necessário */
   overflow-y: auto; /* Opcional: para adicionar uma barra de rolagem se necessário */
+  color: red;
+  box-shadow: 0 100px 100px 10000px rgba(0, 0, 0, 0.5); /* Alteração: spread-radius é definido como 0 */
 }

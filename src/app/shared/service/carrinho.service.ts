@@ -1,19 +1,31 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CarrinhoService {
-  carrinhoAtivo: boolean = true;
+  // Cria um BehaviorSubject para rastrear o estado do carrinho
+  private carrinhoAtivoSubject = new BehaviorSubject<boolean>(false);
+
+  // Declara uma propriedade carrinhoAtivo do tipo Observable que os componentes podem assinar
+  carrinhoAtivo: Observable<boolean> = this.carrinhoAtivoSubject.asObservable();
 
   constructor() { }
 
-  abrirCarrinhoDeCompras() {
-    if (this.carrinhoAtivo) {
-      console.log('testes');
-      this.carrinhoAtivo = false;
+  /**
+   * Método para obter o estado atual do carrinho e alternar seu valor.
+   * @returns Um Observable que emite o estado atual do carrinho.
+   */
+  getEstadoCarrinho(): Observable<boolean> {
+    // Alterna o valor do BehaviorSubject
+    if (this.carrinhoAtivoSubject.value) {
+      this.carrinhoAtivoSubject.next(false);
     } else {
-      this.carrinhoAtivo = true;
+      this.carrinhoAtivoSubject.next(true);
     }
+
+    // Retorna o Observable associado ao BehaviorSubject
+    return this.carrinhoAtivoSubject.asObservable();
   }
 }

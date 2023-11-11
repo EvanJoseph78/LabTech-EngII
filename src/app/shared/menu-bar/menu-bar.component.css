@@ -26,6 +26,7 @@
 }
 
 .title-bar__nav-buttons {
+  /* border: 1px solid green; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +64,7 @@
   color: #eb903be2;
 }
 
-.search-button > a > img {
+.search-button > img {
   max-width: 20px;
 }
 
@@ -73,6 +74,6 @@
   gap: 10px;
 }
 
-.nav-buttons_image > a > img {
+.nav-buttons_image > img {
   max-width: 20px;
 }
