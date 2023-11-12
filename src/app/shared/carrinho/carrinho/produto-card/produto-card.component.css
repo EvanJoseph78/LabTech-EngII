@@ -1,0 +1,61 @@
+.produto-card {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  border-bottom: 1px solid black;
+}
+
+.box-right {
+  display: flex;
+  border: 1px solid blue;
+  width: 300px;
+}
+
+.box-right > img {
+  margin-right: 10px;
+  max-width: 60px;
+  max-height: 60px;
+}
+
+.box-right > p {
+  text-align: left;
+  font-size: 12px;
+  max-height: 30px;
+}
+
+.box-left {
+  border-right: 0;
+  display: flex;
+}
+
+.box-left > p {
+  font-size: 12px;
+}
+
+.box-left > button {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: 1.5px solid black;
+}
+
+.botoes-incremento {
+  /* border: 1px solid green; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.botoes-incremento > input {
+  border: 1px solid black;
+  width: 25px;
+  height: 25px;
+}
+
+.botoes-incremento > button {
+  background: none;
+  border: 1px solid black;
+  width: 25px;
+  height: 25px;
+}

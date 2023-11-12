@@ -2,14 +2,12 @@
   margin-top: 90px;
   background: rgba(255, 255, 255);
   position: fixed;
-  right: 0; /* Alterado para 'right' */
-  top: 0; /* Opcional: ajuste conforme necessário */
-  height: 100vh;
-  width: 400px; /* Opcional: ajuste conforme necessário */
-  /* border: 1px solid red; */
-  z-index: 1000; /* Opcional: ajuste conforme necessário */
-  overflow-y: auto; /* Opcional: para adicionar uma barra de rolagem se necessário */
-  /* color: red; */
+  right: 0;
+  top: 0; /* Remova ou ajuste esta linha */
+  height: 100%; /* Adicione esta linha para ocupar 100% da altura da viewport */
+  max-height: 90vh;
+  z-index: 1000;
+  overflow-y: auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   padding: 10px;
 }
@@ -42,4 +40,32 @@
 .texto > button:hover {
   background-color: #eee;
   color: #333;
+}
+
+.preco-parcial {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+}
+
+.frete > p {
+  font-size: 12px;
+  border-bottom: 1px solid black;
+}
+
+.valor-total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.botao-comprar {
+  margin-top: 25px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  background: rgba(235, 144, 59);
 }
