@@ -102,7 +102,6 @@ export class ProdutoPageInfoComponent {
   adicionarProduto() {
     this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
       // console.log(this.isProdutoNaLista());
-      console.log(listaPedidos);
       this.isProdutoNaLista().subscribe((isProdutoNaLista) => {
         if (isProdutoNaLista) {
           for (
@@ -112,10 +111,12 @@ export class ProdutoPageInfoComponent {
           ) {
             const element = listaPedidos.lista_produtos[index];
             if ((element.produto_id = Number(this.id))) {
-              listaPedidos.lista_produtos[index].quantidade_produto++;
-              listaPedidos.lista_produtos[index].subtotal =
-                listaPedidos.lista_produtos[index].quantidade_produto *
-                this.produto.valor;
+              element.quantidade_produto =
+                element.quantidade_produto + this.quantidade;
+              element.subtotal =
+                element.quantidade_produto * this.produto.valor;
+              listaPedidos.valor_total =
+                listaPedidos.valor_total + element.subtotal;
             }
           }
         } else {
@@ -127,6 +128,13 @@ export class ProdutoPageInfoComponent {
             subtotal: this.produto.valor * this.quantidade,
           });
         }
+
+        var soma: number = 0;
+        listaPedidos.lista_produtos.forEach((element) => {
+          soma = soma + element.subtotal;
+        });
+        listaPedidos.valor_total = soma;
+        console.log(listaPedidos);
       });
     });
   }
