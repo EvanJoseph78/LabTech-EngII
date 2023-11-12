@@ -22,4 +22,9 @@ export class ProdutoCardComponent {
   @Input()
   preco_produto: number = 0;
   listaPedidos: object = {};
+
+  constructor() {
+    this.subtotal = Number(this.subtotal.toFixed(2));
+    this.preco_produto = Number(this.preco_produto.toFixed(2));
+  }
 }
