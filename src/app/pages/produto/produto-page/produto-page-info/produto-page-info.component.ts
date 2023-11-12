@@ -126,6 +126,7 @@ export class ProdutoPageInfoComponent {
             quantidade_produto: this.quantidade,
             imagem_produto: this.produto.urlimg,
             subtotal: this.produto.valor * this.quantidade,
+            tamanho_produto: this.tamanhoProduto,
           });
         }
 
