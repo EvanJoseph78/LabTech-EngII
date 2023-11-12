@@ -14,8 +14,18 @@
   padding: 10px;
 }
 
-.carrinho-compras-container__elementos {
-  /* border: 1px solid red; */
+.total-produto {
+  margin-top: 30px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.total-produto > p {
+  font-size: 15px;
 }
 
 .texto {
