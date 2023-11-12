@@ -8,18 +8,29 @@
       <p>PRODUTO</p>
       <p>SUBTOTAL</p>
     </div>
-    <app-produto-card></app-produto-card>
+
+    <app-produto-card
+      *ngFor="let produto of ordemDePedido.lista_produtos"
+      [nome_produto]="produto.nome_produto"
+      [srcImagem]="produto.imagem_produto"
+      [preco_produto]="produto.preco_produto"
+      [subtotal]="produto.subtotal"
+      [quantidade_produto]="produto.quantidade_produto"
+      [produto_id]="produto.produto_id"
+      [tamanho_produto]="produto.tamanho_produto"
+    ></app-produto-card>
+
     <div class="preco-parcial">
-      <h5>SUBTOTAL</h5>
-      <h4>R$ 45,00</h4>
+      <h5>SUBTOTAL (sem frete):</h5>
+      <h4>R$ {{ ordemDePedido.valor_total }}</h4>
     </div>
     <div class="frete">
-      <p>Frete grátis para todo o Brasil</p>
+      <p>Promoção de BlackFriday - Frete R$: 10,00 para todo o Brasil</p>
     </div>
 
     <div class="valor-total">
       <h2>Total:</h2>
-      <h2>R$ 1656,00</h2>
+      <h2>R$ {{ valorMaisFrete }}</h2>
     </div>
     <div class="botao-comprar">FINALIZAR COMPRA</div>
   </div>

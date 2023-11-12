@@ -127,6 +127,7 @@ export class ProdutoPageInfoComponent {
             imagem_produto: this.produto.urlimg,
             subtotal: this.produto.valor * this.quantidade,
             tamanho_produto: this.tamanhoProduto,
+            preco_produto: this.produto.valor,
           });
         }
 
@@ -135,7 +136,7 @@ export class ProdutoPageInfoComponent {
           soma = soma + element.subtotal;
         });
         listaPedidos.valor_total = soma;
-        console.log(listaPedidos);
+        // console.log(listaPedidos);
       });
     });
   }

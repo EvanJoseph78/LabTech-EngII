@@ -7,6 +7,7 @@ export interface OrdemPedido {
     imagem_produto: string;
     subtotal: number;
     tamanho_produto: string;
+    preco_produto: number;
   }[];
   valor_total: number;
 }

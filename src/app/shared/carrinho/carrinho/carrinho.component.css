@@ -5,7 +5,7 @@
   right: 0;
   top: 0; /* Remova ou ajuste esta linha */
   height: 100%; /* Adicione esta linha para ocupar 100% da altura da viewport */
-  max-height: 90vh;
+  max-height: 91vh;
   z-index: 1000;
   overflow-y: auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
