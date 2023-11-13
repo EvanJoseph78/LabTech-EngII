@@ -57,4 +57,25 @@ export class ProdutoCardComponent {
       listaPedidos.valor_total = somaValorTotal;
     });
   }
+
+  removerProduto() {
+    this.carrinhoService
+      .getListaPedidosProdutos()
+      .subscribe((listaProdutos) => {
+        console.log(this.produto_id);
+        for (
+          let index = 0;
+          index < listaProdutos.lista_produtos.length;
+          index++
+        ) {
+          const element = listaProdutos.lista_produtos[index];
+          if (element.produto_id == this.produto_id) {
+            console.log('Evandro José' + index);
+            listaProdutos.lista_produtos = listaProdutos.lista_produtos
+              .slice(0, index)
+              .concat(listaProdutos.lista_produtos.slice(index + 1));
+          }
+        }
+      });
+  }
 }
