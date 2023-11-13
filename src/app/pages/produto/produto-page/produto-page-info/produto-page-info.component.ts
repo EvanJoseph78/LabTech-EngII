@@ -88,9 +88,9 @@ export class ProdutoPageInfoComponent {
   }
 
   abrirCarrinhoDeCompras() {
-    this.adicionarProduto();
     if (this.carrinhoAtivo) {
     } else {
+      this.adicionarProduto();
       this.carrinhoService
         .getEstadoCarrinho()
         .subscribe((estadoCarrinhoComponent) => {

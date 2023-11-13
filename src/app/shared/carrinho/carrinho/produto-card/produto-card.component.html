@@ -1,6 +1,6 @@
 <div class="produto-card">
   <div box-right-container>
-    <div class="box-right">
+    <div class="box-left">
       <img [src]="[srcImagem]" src="" alt="img" />
       <p>
         {{ nome_produto }}
@@ -10,13 +10,13 @@
     <p>R$ {{ preco_produto }}</p>
 
     <div class="botoes-incremento">
-      <button type="">-</button>
+      <button type="" (click)="definirQuantidadeProduto('diminuir')">-</button>
       <input type="text" min="1" max="" value="{{ quantidade_produto }}" />
-      <button type="">+</button>
+      <button type="" (click)="definirQuantidadeProduto('aumentar')">+</button>
     </div>
   </div>
 
-  <div class="box-left">
+  <div class="box-right">
     <p>RS: {{ subtotal }}</p>
     <button type="">X</button>
   </div>

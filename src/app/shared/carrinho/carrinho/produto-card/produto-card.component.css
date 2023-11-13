@@ -6,34 +6,38 @@
   border-bottom: 1px solid black;
 }
 
-.box-right {
+.box-left {
   display: flex;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   width: 300px;
 }
 
-.box-right > img {
+.box-left > img {
   margin-right: 10px;
   max-width: 60px;
   max-height: 60px;
+  min-width: 60px;
+  min-height: 60px;
 }
 
-.box-right > p {
+.box-left > p {
   text-align: left;
-  font-size: 12px;
+  font-size: 15px;
+  font-weight: bolder;
   max-height: 30px;
 }
 
-.box-left {
+.box-right {
   border-right: 0;
   display: flex;
 }
 
-.box-left > p {
+.box-right > p {
+  font-weight: bolder;
   font-size: 12px;
 }
 
-.box-left > button {
+.box-right > button {
   margin-left: 10px;
   width: 20px;
   height: 20px;

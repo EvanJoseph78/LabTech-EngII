@@ -24,7 +24,11 @@ export class CarrinhoComponent {
     this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
       // Assumindo que a resposta do serviço segue a estrutura da OrdemPedido
       this.ordemDePedido = listaPedidos;
-      this.valorMaisFrete = Number((listaPedidos.valor_total + 10).toFixed(2));
+      if (listaPedidos.lista_produtos.length > 0) {
+        this.valorMaisFrete = Number(
+          (listaPedidos.valor_total + 10).toFixed(2),
+        );
+      }
     });
   }
   abrirCarrinhoDeCompras() {
