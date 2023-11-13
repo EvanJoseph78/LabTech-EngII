@@ -19,14 +19,11 @@ export class CarrinhoComponent implements DoCheck {
   valorSemFrete: number = 0;
   valorMaisFrete: number = 0;
 
-  constructor(private carrinhoService: CarrinhoService) {
-    this.carrinhoService.getValorTotalPedido().subscribe((valorTotal) => {
-      this.ordemDePedido.valor_total = valorTotal;
-    });
-  }
+  constructor(private carrinhoService: CarrinhoService) { }
 
   ngDoCheck(): void {
     this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
+      console.log(listaPedidos);
       this.ordemDePedido = listaPedidos;
     });
     this.carrinhoService.getValorTotalPedido().subscribe((valorToal) => {

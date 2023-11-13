@@ -52,6 +52,9 @@ export class CarrinhoService {
         valor.lista_produtos.forEach((element) => {
           soma = soma + element.subtotal;
         });
+        this.getListaPedidosProdutos().subscribe((listaProdutos) => {
+          listaProdutos.valor_total = soma;
+        });
         return soma;
       }),
     );
