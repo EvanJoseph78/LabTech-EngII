@@ -22,7 +22,10 @@
 
     <div class="preco-parcial">
       <h5>SUBTOTAL (sem frete):</h5>
-      <h4>R$ {{ ordemDePedido.valor_total }}</h4>
+      <h4>
+        R$
+        {{ ordemDePedido.valor_total | currency: "BRL" : "symbol" : "1.2-2" }}
+      </h4>
     </div>
     <div class="frete">
       <p>Promoção de BlackFriday - Frete R$: 10,00 para todo o Brasil</p>
@@ -30,7 +33,7 @@
 
     <div class="valor-total">
       <h2>Total:</h2>
-      <h2>R$ {{ valorMaisFrete }}</h2>
+      <h2>{{ valorMaisFrete | currency: "BRL" : "symbol" : "1.2-2" }}</h2>
     </div>
     <div class="botao-comprar">FINALIZAR COMPRA</div>
   </div>

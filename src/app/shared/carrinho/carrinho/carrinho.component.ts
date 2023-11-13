@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { CarrinhoService } from '../../service/carrinho.service';
 import { OrdemPedido } from '../../models/ordemPedidoModel';
 
@@ -7,7 +7,7 @@ import { OrdemPedido } from '../../models/ordemPedidoModel';
   templateUrl: './carrinho.component.html',
   styleUrls: ['./carrinho.component.css'],
 })
-export class CarrinhoComponent {
+export class CarrinhoComponent implements DoCheck {
   carrinhoAtivo: boolean = true;
 
   ordemDePedido: OrdemPedido = {
@@ -18,19 +18,21 @@ export class CarrinhoComponent {
 
   valorMaisFrete: number = 0;
 
-  constructor(private carrinhoService: CarrinhoService) { }
-
-  ngOnInit() {
-    this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
-      // Assumindo que a resposta do serviço segue a estrutura da OrdemPedido
-      this.ordemDePedido = listaPedidos;
-      if (listaPedidos.lista_produtos.length > 0) {
-        this.valorMaisFrete = Number(
-          (listaPedidos.valor_total + 10).toFixed(2),
-        );
-      }
+  constructor(private carrinhoService: CarrinhoService) {
+    this.carrinhoService.getValorTotalPedido().subscribe((valorTotal) => {
+      this.ordemDePedido.valor_total = valorTotal;
     });
   }
+
+  ngDoCheck(): void {
+    this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
+      this.ordemDePedido = listaPedidos;
+    });
+    this.carrinhoService.getValorTotalPedido().subscribe((valorToal) => {
+      this.valorMaisFrete = valorToal;
+    });
+  }
+
   abrirCarrinhoDeCompras() {
     this.carrinhoService
       .getEstadoCarrinho()

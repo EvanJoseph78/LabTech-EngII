@@ -3,11 +3,11 @@
     <div class="box-left">
       <img [src]="[srcImagem]" src="" alt="img" />
       <p>
-        {{ nome_produto }}
+        {{ nome_produto | uppercase }}
       </p>
     </div>
 
-    <p>R$ {{ preco_produto }}</p>
+    <p>{{ preco_produto | currency: "BRL" : "symbol" : "1.2-2" }}</p>
 
     <div class="botoes-incremento">
       <button type="" (click)="definirQuantidadeProduto('diminuir')">-</button>
@@ -17,7 +17,7 @@
   </div>
 
   <div class="box-right">
-    <p>RS: {{ subtotal }}</p>
+    <p>{{ subtotal | number: "2.1-2" }}</p>
     <button type="">X</button>
   </div>
 </div>

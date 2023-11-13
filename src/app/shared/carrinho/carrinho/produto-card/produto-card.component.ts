@@ -37,7 +37,7 @@ export class ProdutoCardComponent {
             listaPedidos.lista_produtos[index].quantidade_produto =
               listaPedidos.lista_produtos[index].quantidade_produto + 1;
           } else if (acao == 'diminuir') {
-            if (listaPedidos.lista_produtos[index].quantidade_produto == 0) {
+            if (listaPedidos.lista_produtos[index].quantidade_produto == 1) {
             } else {
               listaPedidos.lista_produtos[index].quantidade_produto =
                 listaPedidos.lista_produtos[index].quantidade_produto - 1;
@@ -49,6 +49,11 @@ export class ProdutoCardComponent {
         }
         somaValorTotal = somaValorTotal + element.subtotal;
       }
+
+      // this.carrinhoService
+      //   .getValorTotalPedido()
+      //   .subscribe((valorTotal) => console.log(valorTotal));
+
       listaPedidos.valor_total = somaValorTotal;
     });
   }

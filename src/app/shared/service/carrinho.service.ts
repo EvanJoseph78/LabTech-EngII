@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { OrdemPedido } from '../models/ordemPedidoModel';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -42,5 +43,17 @@ export class CarrinhoService {
 
   getListaPedidosProdutos(): Observable<OrdemPedido> {
     return this.listaPedidos.asObservable();
+  }
+
+  getValorTotalPedido(): Observable<number> {
+    return this.listaPedidos.pipe(
+      map((valor) => {
+        let soma = 0;
+        valor.lista_produtos.forEach((element) => {
+          soma = soma + element.subtotal;
+        });
+        return soma + 10;
+      }),
+    );
   }
 }
