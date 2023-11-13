@@ -8,4 +8,4 @@ import { ProdutoCardComponent } from './carrinho/produto-card/produto-card.compo
   exports: [CarrinhoComponent],
   imports: [CommonModule],
 })
-export class CarrinhoModule {}
+export class CarrinhoModule { }

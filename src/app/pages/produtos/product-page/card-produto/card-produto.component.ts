@@ -37,7 +37,6 @@ export class CardProdutoComponent {
   }
 
   carregarImagemPadrao() {
-    console.log('Evandroo');
     this.imagemProduto = '../../../assets/images/notFound.jpg';
   }
 }

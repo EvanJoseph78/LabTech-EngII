@@ -32,7 +32,7 @@ export class ProdutoCardComponent {
       var somaValorTotal = 0;
       for (let index = 0; index < listaPedidos.lista_produtos.length; index++) {
         const element = listaPedidos.lista_produtos[index];
-        if ((element.produto_id = this.produto_id)) {
+        if (element.produto_id == this.produto_id) {
           if (acao == 'aumentar') {
             listaPedidos.lista_produtos[index].quantidade_produto =
               listaPedidos.lista_produtos[index].quantidade_produto + 1;
@@ -47,7 +47,6 @@ export class ProdutoCardComponent {
             listaPedidos.lista_produtos[index].preco_produto *
             listaPedidos.lista_produtos[index].quantidade_produto;
         }
-        console.log(listaPedidos.lista_produtos[index].produto_id);
         somaValorTotal = somaValorTotal + element.subtotal;
       }
       listaPedidos.valor_total = somaValorTotal;
