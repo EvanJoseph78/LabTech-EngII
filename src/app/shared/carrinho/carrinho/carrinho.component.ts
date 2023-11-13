@@ -16,6 +16,7 @@ export class CarrinhoComponent implements DoCheck {
     valor_total: 0,
   };
 
+  valorSemFrete: number = 0;
   valorMaisFrete: number = 0;
 
   constructor(private carrinhoService: CarrinhoService) {
@@ -29,7 +30,8 @@ export class CarrinhoComponent implements DoCheck {
       this.ordemDePedido = listaPedidos;
     });
     this.carrinhoService.getValorTotalPedido().subscribe((valorToal) => {
-      this.valorMaisFrete = valorToal;
+      this.valorMaisFrete = valorToal + 10;
+      this.valorSemFrete = valorToal;
     });
   }
 

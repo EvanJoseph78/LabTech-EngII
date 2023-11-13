@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, DoCheck, Input } from '@angular/core';
 import { CarrinhoService } from 'src/app/shared/service/carrinho.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { CarrinhoService } from 'src/app/shared/service/carrinho.service';
   templateUrl: './produto-card.component.html',
   styleUrls: ['./produto-card.component.css'],
 })
-export class ProdutoCardComponent {
+export class ProdutoCardComponent implements DoCheck {
   @Input()
   srcImagem: string = '';
   @Input()
@@ -23,9 +23,10 @@ export class ProdutoCardComponent {
   preco_produto: number = 0;
 
   constructor(private carrinhoService: CarrinhoService) {
-    this.subtotal = Number(this.subtotal.toFixed(2));
     this.preco_produto = Number(this.preco_produto.toFixed(2));
   }
+
+  ngDoCheck(): void { }
 
   definirQuantidadeProduto(acao: string) {
     this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
@@ -47,14 +48,18 @@ export class ProdutoCardComponent {
             listaPedidos.lista_produtos[index].preco_produto *
             listaPedidos.lista_produtos[index].quantidade_produto;
         }
-        somaValorTotal = somaValorTotal + element.subtotal;
+        // somaValorTotal = somaValorTotal + element.subtotal;
       }
 
+      this.carrinhoService.getValorTotalPedido().subscribe((valorTotal) => {
+        console.log(valorTotal);
+        // this.subtotal = valorTotal;
+      });
       // this.carrinhoService
       //   .getValorTotalPedido()
       //   .subscribe((valorTotal) => console.log(valorTotal));
 
-      listaPedidos.valor_total = somaValorTotal;
+      // listaPedidos.valor_total = somaValorTotal;
     });
   }
 

@@ -52,7 +52,7 @@ export class CarrinhoService {
         valor.lista_produtos.forEach((element) => {
           soma = soma + element.subtotal;
         });
-        return soma + 10;
+        return soma;
       }),
     );
   }
