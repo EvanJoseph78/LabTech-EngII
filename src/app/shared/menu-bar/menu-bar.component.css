@@ -18,7 +18,7 @@
 
 .title-bar__nav-link a.activated:hover {
   /* border-top: 2px solid #eb903be2; /* Barra superior ao passar o mouse */
-  border-bottom: 2px solid #eb903be2; /* Barra inferior ao passar o mouse */
+  border-bottom: 2px solid #dba782; /* Barra inferior ao passar o mouse */
 }
 
 .title-bar__component-image_container > img {
@@ -37,13 +37,14 @@
   background: #1b1b1b;
   color: white;
   height: 25px;
-  border-bottom: 1px solid #eb903be2;
+  border-bottom: 1px solid #dba782;
   outline: none;
 }
 
 .search-input:hover {
-  color: #eb903be2;
-  border: 1px solid #eb903be2;
+  color: #dba782;
+  color: --marroom-claro;
+  border: 1px solid #dba782;
 }
 
 .title-bar__nav-link {
@@ -61,7 +62,7 @@
 }
 
 .title-bar__nav-link > a:hover {
-  color: #eb903be2;
+  color: #dba782;
 }
 
 .search-button > img {

@@ -48,18 +48,7 @@ export class ProdutoCardComponent implements DoCheck {
             listaPedidos.lista_produtos[index].preco_produto *
             listaPedidos.lista_produtos[index].quantidade_produto;
         }
-        // somaValorTotal = somaValorTotal + element.subtotal;
       }
-
-      this.carrinhoService.getValorTotalPedido().subscribe((valorTotal) => {
-        console.log(valorTotal);
-        // this.subtotal = valorTotal;
-      });
-      // this.carrinhoService
-      //   .getValorTotalPedido()
-      //   .subscribe((valorTotal) => console.log(valorTotal));
-
-      // listaPedidos.valor_total = somaValorTotal;
     });
   }
 

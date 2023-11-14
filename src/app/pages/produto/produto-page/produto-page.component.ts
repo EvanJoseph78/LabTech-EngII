@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { dataFake } from '../../../data/DataFake';
+import { ActivatedRoute } from '@angular/router';
+// import { dataFake } from '../../../data/DataFake';
 import { Produto } from 'src/app/shared/models/produtos.model';
 import { ProdutosService } from 'src/app/shared/service/produtos.service';
 
@@ -31,7 +31,6 @@ export class ProdutoPageComponent implements OnInit {
   precoProduto: number = 0;
   constructor(
     private parametrizador: ActivatedRoute,
-    private navegador: Router,
     private renderer: Renderer2,
     private el: ElementRef,
     private produtoService: ProdutosService,
@@ -48,12 +47,23 @@ export class ProdutoPageComponent implements OnInit {
   }
 
   definirValoresParaComponent(id: string | null) {
-    this.produtoService.getProducts().subscribe((dados) => {
-      this.produtos = dados.produtos[Number(id) - 1];
-      // console.log(this.produtos.urlimg);
-      this.imagemProduto = this.produtos.urlimg;
-      this.nomeProduto = this.produtos.nome;
-      this.precoProduto = this.produtos.valor;
+    this.produtoService.getListaProdutos().subscribe((dados) => {
+      // console.log(dados);
+      for (let index = 0; index < dados.length; index++) {
+        const element = dados[index];
+        if (element.idproduto == this.id) {
+          console.log(element);
+          this.nomeProduto = element.nome;
+          this.imagemProduto = element.urlimg;
+          this.precoProduto = element.valor;
+        }
+      }
+      //
+      // this.produtos = dados.produtos[Number(id) - 1];
+      // // console.log(this.produtos.urlimg);
+      // this.imagemProduto = this.produtos.urlimg;
+      // this.nomeProduto = this.produtos.nome;
+      // this.precoProduto = this.produtos.valor;
     });
 
     // const result = dataFake.filter((produto) => produto.id == id)[0];

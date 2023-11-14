@@ -5,3 +5,7 @@
   border: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --marrom-claro: #dba782; /* Substitua isso pela cor desejada */
+}

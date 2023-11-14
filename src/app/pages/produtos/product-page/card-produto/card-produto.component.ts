@@ -15,25 +15,20 @@ export class CardProdutoComponent {
   @Input()
   imagemProduto: string = '';
   parcelaProduto: number = 0;
-  precoProdutoParcelado: string = '0';
+  precoProdutoParcelado: number = 0;
 
   constructor() {
     // console.log(this.imagemProduto);
   }
 
   ngOnChanges() {
-    console.log(this.imagemProduto);
     if (this.produtoPreco <= 100) {
       this.parcelaProduto = Math.floor(this.produtoPreco / 10);
     } else {
       this.parcelaProduto = 10;
     }
 
-    const precoParcelado = this.produtoPreco / this.parcelaProduto;
-    this.precoProdutoParcelado = precoParcelado.toLocaleString('pt-BR', {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
+    this.precoProdutoParcelado = this.produtoPreco / this.parcelaProduto;
   }
 
   carregarImagemPadrao() {

@@ -53,7 +53,11 @@ export class CarrinhoService {
           soma = soma + element.subtotal;
         });
         this.getListaPedidosProdutos().subscribe((listaProdutos) => {
-          listaProdutos.valor_total = soma;
+          if (listaProdutos.lista_produtos.length == 0) {
+            listaProdutos.valor_total = 0;
+          } else {
+            listaProdutos.valor_total = soma;
+          }
         });
         return soma;
       }),

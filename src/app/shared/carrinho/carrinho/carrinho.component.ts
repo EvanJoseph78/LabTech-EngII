@@ -1,4 +1,10 @@
-import { Component, DoCheck } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  ElementRef,
+  HostListener,
+  Renderer2,
+} from '@angular/core';
 import { CarrinhoService } from '../../service/carrinho.service';
 import { OrdemPedido } from '../../models/ordemPedidoModel';
 
@@ -8,7 +14,7 @@ import { OrdemPedido } from '../../models/ordemPedidoModel';
   styleUrls: ['./carrinho.component.css'],
 })
 export class CarrinhoComponent implements DoCheck {
-  carrinhoAtivo: boolean = true;
+  carrinhoAtivo: boolean = false;
 
   ordemDePedido: OrdemPedido = {
     client_id: 0,
@@ -19,13 +25,17 @@ export class CarrinhoComponent implements DoCheck {
   valorSemFrete: number = 0;
   valorMaisFrete: number = 0;
 
-  constructor(private carrinhoService: CarrinhoService) { }
-
-  ngDoCheck(): void {
+  constructor(
+    private carrinhoService: CarrinhoService,
+    private elRef: ElementRef,
+    private renderer: Renderer2,
+  ) {
     this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
-      console.log(listaPedidos);
       this.ordemDePedido = listaPedidos;
     });
+  }
+
+  ngDoCheck(): void {
     this.carrinhoService.getValorTotalPedido().subscribe((valorToal) => {
       this.valorMaisFrete = valorToal + 10;
       this.valorSemFrete = valorToal;
@@ -38,5 +48,20 @@ export class CarrinhoComponent implements DoCheck {
       .subscribe((estadoCarrinhoComponent) => {
         this.carrinhoAtivo = estadoCarrinhoComponent;
       });
+  }
+
+  @HostListener('document:click', ['$event'])
+  handleClick(event: Event): void {
+    // Verifica se o clique ocorreu fora do componente
+    if (!this.elRef.nativeElement.contains(event.target)) {
+      // console.log(this.carrinhoAtivo);
+      console.log('Clicado fora do componente');
+    }
+  }
+
+  finalizarCompra() {
+    this.carrinhoService
+      .getListaPedidosProdutos()
+      .subscribe((listaPedidos) => console.log(JSON.stringify(listaPedidos)));
   }
 }
