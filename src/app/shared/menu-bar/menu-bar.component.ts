@@ -1,13 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { CarrinhoService } from '../service/carrinho.service';
+import { ProdutosService } from '../service/produtos.service';
 
 @Component({
   selector: 'app-menu-bar',
   templateUrl: './menu-bar.component.html',
   styleUrls: ['./menu-bar.component.css'],
 })
-export class MenuBarComponent {
-  constructor(private carrinhoService: CarrinhoService) { }
+export class MenuBarComponent implements DoCheck {
+  nomeProdutoPesquisar: string = '';
+
+  constructor(
+    private carrinhoService: CarrinhoService,
+    private produtoService: ProdutosService,
+  ) { }
+
+  ngDoCheck(): void { }
+
   carrinhoAtivo: boolean = false;
 
   abrirCarrinhoDeCompras() {
@@ -16,5 +25,11 @@ export class MenuBarComponent {
       .subscribe((estadoCarrinhoComponent) => {
         this.carrinhoAtivo = estadoCarrinhoComponent;
       });
+  }
+
+  pesquisarProduto() {
+    const valorPesquisa = this.nomeProdutoPesquisar; // Obtém o valor do campo de pesquisa
+
+    this.produtoService.setNomeProdutoPesquisar(valorPesquisa);
   }
 }

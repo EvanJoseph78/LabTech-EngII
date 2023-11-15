@@ -27,10 +27,16 @@
 
   <div class="title-bar__nav-buttons">
     <div class="search-container">
-      <input type="text" class="search-input" placeholder="Pesquisar..." />
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Pesquisar..."
+        value=""
+        [(ngModel)]="nomeProdutoPesquisar"
+      />
     </div>
 
-    <div class="search-button">
+    <div class="search-button" (click)="pesquisarProduto()">
       <img src="../../../assets/menu-bar/lupa.png" alt="" />
     </div>
 

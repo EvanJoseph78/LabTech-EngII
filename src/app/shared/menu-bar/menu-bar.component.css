@@ -65,6 +65,11 @@
   color: #dba782;
 }
 
+.search-button {
+  border: 1px solid blue;
+  cursor: pointer;
+}
+
 .search-button > img {
   max-width: 20px;
 }

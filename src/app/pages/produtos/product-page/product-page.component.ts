@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, DoCheck, OnInit } from '@angular/core';
 
-import { dataFake } from '../../../data/DataFake';
 import { ProdutosService } from 'src/app/shared/service/produtos.service';
 import { Produto } from 'src/app/shared/models/produtos.model';
 
@@ -10,16 +8,32 @@ import { Produto } from 'src/app/shared/models/produtos.model';
   templateUrl: './product-page.component.html',
   styleUrls: ['./product-page.component.css'],
 })
-export class ProductPage implements OnInit {
+export class ProductPage implements OnInit, DoCheck {
   // produtos = dataFake;
   produtos: Produto[] = [];
 
-  constructor(private produtosService: ProdutosService) {}
+  constructor(private produtosService: ProdutosService) { }
 
   ngOnInit() {
     this.produtosService.getProducts().subscribe((dados) => {
-      console.log(dados);
       this.produtos = dados.produtos;
+    });
+  }
+
+  ngDoCheck(): void {
+    this.produtosService.getNomeProdutoPesquisar().subscribe((nome) => {
+      console.log(nome);
+      if (nome == '') {
+      } else {
+        let novaLista: Produto[] = [];
+        this.produtos.forEach((element) => {
+          if (element.nome.toLowerCase().includes(nome.toLowerCase())) {
+            novaLista.push(element);
+          }
+        });
+        console.log(novaLista);
+        this.produtos = novaLista;
+      }
     });
   }
 }

@@ -12,6 +12,8 @@ export class ProdutosService {
 
   private listaProdutos = new BehaviorSubject<Produto[]>([]);
 
+  private nomeProdutoPesquisar = new BehaviorSubject<string>('');
+
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<any> {
@@ -26,5 +28,17 @@ export class ProdutosService {
 
   getListaProdutos(): Observable<Produto[]> {
     return this.listaProdutos.asObservable();
+  }
+
+  getNomeProdutoPesquisar(): Observable<string> {
+    return this.nomeProdutoPesquisar.asObservable();
+  }
+
+  setNomeProdutoPesquisar(valorPesquisa: string): void {
+    // Faça algo com o valorPesquisa, se necessário
+    // console.log('Produto pesquisado no serviço: ', valorPesquisa);
+
+    // Emita o valor usando BehaviorSubject para os assinantes
+    this.nomeProdutoPesquisar.next(valorPesquisa);
   }
 }

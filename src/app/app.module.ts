@@ -30,4 +30,4 @@ import { ProtesesPageModule } from './pages/protesesPage/produtos.module';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
