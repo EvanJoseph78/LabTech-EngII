@@ -11,12 +11,14 @@ import { Produto } from 'src/app/shared/models/produtos.model';
 export class ProductPage implements OnInit, DoCheck {
   // produtos = dataFake;
   produtos: Produto[] = [];
+  produtosAux: Produto[] = [];
 
   constructor(private produtosService: ProdutosService) { }
 
   ngOnInit() {
     this.produtosService.getProducts().subscribe((dados) => {
       this.produtos = dados.produtos;
+      this.produtosAux = dados.produtos;
     });
   }
 
@@ -24,9 +26,10 @@ export class ProductPage implements OnInit, DoCheck {
     this.produtosService.getNomeProdutoPesquisar().subscribe((nome) => {
       console.log(nome);
       if (nome == '') {
+        this.produtos = this.produtosAux;
       } else {
         let novaLista: Produto[] = [];
-        this.produtos.forEach((element) => {
+        this.produtosAux.forEach((element) => {
           if (element.nome.toLowerCase().includes(nome.toLowerCase())) {
             novaLista.push(element);
           }
