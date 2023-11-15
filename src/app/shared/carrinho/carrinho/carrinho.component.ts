@@ -20,6 +20,7 @@ export class CarrinhoComponent implements DoCheck {
     client_id: 0,
     lista_produtos: [],
     valor_total: 0,
+    valor_frete: 0,
   };
 
   valorSemFrete: number = 0;
@@ -36,9 +37,10 @@ export class CarrinhoComponent implements DoCheck {
   }
 
   ngDoCheck(): void {
-    this.carrinhoService.getValorTotalPedido().subscribe((valorToal) => {
-      this.valorMaisFrete = valorToal + 10;
-      this.valorSemFrete = valorToal;
+    this.carrinhoService.getValorTotalPedido().subscribe((valorTotal) => {
+      console.log(valorTotal);
+      this.valorMaisFrete = valorTotal;
+      this.valorSemFrete = valorTotal;
     });
   }
 

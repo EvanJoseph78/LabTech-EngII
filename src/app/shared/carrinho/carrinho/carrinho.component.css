@@ -32,13 +32,14 @@
 }
 
 .texto > button {
+  cursor: pointer;
   width: 25px;
   background: none;
   border: 1.5px solid black;
 }
 
 .texto > button:hover {
-  background-color: #eee;
+  background-color: #f76161;
   color: #333;
 }
 
@@ -66,6 +67,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  background: rgba(235, 144, 59);
+  border-radius: 15px;
+  background: #ffa41c;
+}
+
+.botao-comprar:hover {
+  background-color: #ff8c00; /* Altere para a cor desejada quando estiver no estado hover */
 }

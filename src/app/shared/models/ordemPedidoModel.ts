@@ -10,4 +10,5 @@ export interface OrdemPedido {
     preco_produto: number;
   }[];
   valor_total: number;
+  valor_frete: number;
 }

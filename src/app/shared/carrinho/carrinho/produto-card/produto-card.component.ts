@@ -26,7 +26,7 @@ export class ProdutoCardComponent implements DoCheck {
     this.preco_produto = Number(this.preco_produto.toFixed(2));
   }
 
-  ngDoCheck(): void { }
+  ngDoCheck(): void {}
 
   definirQuantidadeProduto(acao: string) {
     this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
@@ -56,7 +56,7 @@ export class ProdutoCardComponent implements DoCheck {
     this.carrinhoService
       .getListaPedidosProdutos()
       .subscribe((listaProdutos) => {
-        console.log(this.produto_id);
+        // console.log(this.produto_id);
         for (
           let index = 0;
           index < listaProdutos.lista_produtos.length;
@@ -64,7 +64,6 @@ export class ProdutoCardComponent implements DoCheck {
         ) {
           const element = listaProdutos.lista_produtos[index];
           if (element.produto_id == this.produto_id) {
-            console.log('Evandro José' + index);
             listaProdutos.lista_produtos = listaProdutos.lista_produtos
               .slice(0, index)
               .concat(listaProdutos.lista_produtos.slice(index + 1));

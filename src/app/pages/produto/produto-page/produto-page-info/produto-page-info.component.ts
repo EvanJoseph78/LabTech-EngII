@@ -17,6 +17,7 @@ export class ProdutoPageInfoComponent {
   precoProduto: string = '';
   @Input()
   imagemProduto: string = '';
+  descricaoProduto: string = '';
 
   private id: string | null = '0';
 
@@ -50,6 +51,7 @@ export class ProdutoPageInfoComponent {
     this.produtoService.getProducts().subscribe((dados) => {
       // console.log(dados.produtos[Number(this.id) - 1]);
       this.produto = dados.produtos[Number(this.id) - 1];
+      this.descricaoProduto = dados.produtos[Number(this.id) - 1].descricao;
       // console.log(this.produtos.urlimg);
       // this.imagemProduto = this.produto.urlimg;
       // this.nomeProduto = this.produto.nome;
@@ -101,6 +103,7 @@ export class ProdutoPageInfoComponent {
 
   adicionarProduto() {
     this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
+      listaPedidos.valor_frete = 10;
       // console.log(this.isProdutoNaLista());
       this.isProdutoNaLista().subscribe((isProdutoNaLista) => {
         if (isProdutoNaLista) {
@@ -130,13 +133,6 @@ export class ProdutoPageInfoComponent {
             preco_produto: this.produto.valor,
           });
         }
-
-        var soma: number = 0;
-        listaPedidos.lista_produtos.forEach((element) => {
-          soma = soma + element.subtotal;
-        });
-        listaPedidos.valor_total = soma;
-        // console.log(listaPedidos);
       });
     });
   }

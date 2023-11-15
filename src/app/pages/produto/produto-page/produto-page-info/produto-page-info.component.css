@@ -16,19 +16,18 @@
   /* border: 1px solid orange; */
   min-width: 682px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  /* align-items: center; */
   width: 100%; /* Certifique-se de que a div ocupa 100% da largura disponível */
   overflow: hidden; /* Para cortar qualquer parte da imagem que exceda a div */
 }
 
 .imagens {
   display: flex;
-  justify-content: center;
   /* border: 1px solid red; */
-  width: 100%;
+  width: 320px;
   min-width: 320px;
-  min-height: 320px;
+  height: 320px;
 }
 
 .image-container {
@@ -46,24 +45,35 @@
   width: 100%; /* Ocupa 100% da largura da div */
   height: 100%; /* Ocupa 100% da altura da div */
 
+  /* border: 1px solid #d5d9d9; */
+  border-radius: 5px;
   object-fit: cover; /* Preenche a div e corta o excesso mantendo a proporção original */
   object-position: center; /* Alinha o centro da imagem à div (pode ser ajustado conforme necessário) */
 }
 
 .produto-container-right {
   /* border: 1px solid blue; */
-  min-width: 458px;
+  min-width: 242px;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.produto-container-right > h3 {
-  font-size: 24px;
+.box-right {
+  border: 1px solid #d5d9d9;
+  border-radius: 10px; /* Adicione esta linha para bordas arredondadas, ajuste o valor conforme necessário */
+  min-width: 242px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+}
+
+.produto-container-right > .box-right > h3 {
+  font-size: 20px;
   min-height: 51.4px;
   color: rgb(65, 65, 65);
   text-align: justify;
-  text-transform: uppercase;
   font-family: montserrat, Sans-serif;
   text-overflow: ellipsis; /* Adiciona reticências (...) quando o texto é cortado */
   overflow: hidden; /* Esconde o conteúdo que excede o espaço disponível */
@@ -72,7 +82,7 @@
   -webkit-box-orient: vertical; /* Orienta o bloco de caixa verticalmente (em navegadores baseados no WebKit) */
 }
 
-.produto-container-right > p {
+.produto-container-right > .box-right > p {
   text-align: justify;
   font-size: 32px;
   text-transform: uppercase;
@@ -80,13 +90,13 @@
   font-weight: 550;
 }
 
-.produto-container-right > h5 {
+.produto-container-right > .box-right > h5 {
   color: gray;
   text-transform: uppercase;
   text-decoration: underline;
 }
 
-.produto-container-right > hr {
+.produto-container-right > .box-right > hr {
   border: 1px solid rgba(0, 0, 0, 0.434);
 }
 
@@ -112,12 +122,12 @@
 
 .botoes {
   display: flex;
-  gap: 10px;
+  gap: 5px;
 }
 
 .botoes > button {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 }
 
 .quantidade-produto {
@@ -142,15 +152,25 @@
 }
 
 .comprar-button {
+  cursor: pointer;
+  margin-top: 15px;
   height: 40px;
-  background-color: rgba(235, 144, 59);
+  background-color: #ffa41c;
+  border-radius: 15px;
+}
+
+.comprar-button:hover {
+  background-color: #ff8c00; /* Altere para a cor desejada quando estiver no estado hover */
 }
 
 .container-informacao {
+  padding-left: 15px;
+  padding-right: 15px;
   display: flex;
+  flex-direction: column;
   gap: 10px;
   width: 630px;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   /* border: 1px solid red; */
 }
 
@@ -159,29 +179,42 @@
   /* border: 1px solid blue; */
 }
 
-.container-informacao > .ficha-tecnica {
-  min-width: 315px;
-  /* border: 1px solid blue; */
+.descricao > h1 {
+  margin-bottom: 15px;
+}
+
+.descricao > h3 {
+  margin-bottom: 15px;
 }
 
 .descricao > p {
   text-align: justify;
   font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.container-informacao > .ficha-tecnica {
+  display: flex;
+  justify-content: center;
+  min-width: 315px;
+}
+
+.tabela-ficha-tecnica {
+  width: 100%;
 }
 
 .tabela-ficha-tecnica > .linha1 {
-  background-color: rgba(235, 144, 59, 0.886);
+  background-color: rgba(235, 144, 59, 0.5);
 }
 
 .tabela-ficha-tecnica table {
-  width: 100%;
   border-collapse: collapse; /* Opcional para remover espaçamento entre células */
 }
 
 .tabela-ficha-tecnica th,
 .tabela-ficha-tecnica td {
   font-size: 12px;
-  width: 33.33%; /* Divide igualmente o espaço disponível entre as colunas */
+  width: 30%; /* Divide igualmente o espaço disponível entre as colunas */
   border: 1px solid #000; /* Estilo de borda (opcional) */
   padding: 8px; /* Espaçamento interno (opcional) */
 }

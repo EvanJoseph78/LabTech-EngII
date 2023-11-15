@@ -34,7 +34,7 @@ export class ProdutoPageComponent implements OnInit {
     private renderer: Renderer2,
     private el: ElementRef,
     private produtoService: ProdutosService,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.parametrizador.paramMap.subscribe((value) => {
@@ -52,7 +52,6 @@ export class ProdutoPageComponent implements OnInit {
       for (let index = 0; index < dados.length; index++) {
         const element = dados[index];
         if (element.idproduto == this.id) {
-          console.log(element);
           this.nomeProduto = element.nome;
           this.imagemProduto = element.urlimg;
           this.precoProduto = element.valor;
