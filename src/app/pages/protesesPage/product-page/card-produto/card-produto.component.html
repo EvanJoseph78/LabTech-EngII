@@ -1,0 +1,26 @@
+<div class="card-produto">
+  <a [routerLink]="[produtoId]"
+    ><div class="image-container">
+      <img [src]="[imagemProduto]" (error)="carregarImagemPadrao()" alt="" />
+    </div>
+  </a>
+
+  <a [routerLink]="[produtoId]">
+    <div class="nome-produto">
+      <h3>{{ produtoNome }}</h3>
+    </div>
+  </a>
+
+  <div class="preco">
+    <p>{{ produtoPreco | currency: "BRL" : "symbol" : "1.2-2" }}</p>
+  </div>
+
+  <div class="parcelas">
+    <div class="numero-parcelas">{{ parcelaProduto }}</div>
+    <div>x de</div>
+    <div class="preco-parcela">
+      {{ precoProdutoParcelado | currency: "BRL" : "symbol" : "1.2-2" }}
+    </div>
+    <div>sem juros</div>
+  </div>
+</div>

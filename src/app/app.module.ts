@@ -12,6 +12,7 @@ import { ProdutoModule } from './pages/produto/produto.module';
 import { RodapeComponent } from './shared/rodape/rodape.component';
 import { FormsModule } from '@angular/forms';
 import { CarrinhoModule } from './shared/carrinho/carrinho.module';
+import { ProtesesPageModule } from './pages/protesesPage/produtos.module';
 
 @NgModule({
   declarations: [AppComponent, MenuBarComponent, RodapeComponent],
@@ -24,6 +25,7 @@ import { CarrinhoModule } from './shared/carrinho/carrinho.module';
     HttpClientModule,
     FormsModule,
     CarrinhoModule,
+    ProtesesPageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

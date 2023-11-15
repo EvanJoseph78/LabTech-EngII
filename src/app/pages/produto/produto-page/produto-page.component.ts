@@ -19,6 +19,7 @@ export class ProdutoPageComponent implements OnInit {
     tamanho: '',
     urlimg: '',
     valor: 0,
+    categoria: '',
   };
 
   private id: string | null = '0';

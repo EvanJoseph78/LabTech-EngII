@@ -30,6 +30,7 @@ export class ProdutoPageInfoComponent {
     tamanho: '',
     urlimg: '',
     valor: 0,
+    categoria: '',
   };
 
   tamanhoProduto: string = 'P';

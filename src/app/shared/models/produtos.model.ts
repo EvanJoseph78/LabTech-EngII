@@ -7,4 +7,5 @@ export interface Produto {
   tamanho: string;
   urlimg: string;
   valor: number;
+  categoria: string;
 }

@@ -1,0 +1,82 @@
+.card-produto {
+  /* border: 1px solid salmon; */
+  width: 236.25px;
+  height: 343px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-produto > a {
+  text-decoration: none;
+}
+
+.image-container {
+  min-height: 226px;
+  min-width: 226px;
+  width: 100%; /* Certifique-se de que a div ocupa 100% da largura disponível */
+  height: 226px; /* Defina a altura desejada */
+  overflow: hidden; /* Para cortar qualquer parte da imagem que exceda a div */
+}
+
+.image-container > img {
+  border-radius: 2px;
+  max-width: 100%; /* Defina a largura máxima da imagem como 100% */
+  height: auto; /* Isso mantém a proporção original da imagem */
+  min-height: 226px;
+  /* Outros estilos específicos da imagem, se necessário */
+  width: 100%; /* Ocupa 100% da largura da div */
+  height: 100%; /* Ocupa 100% da altura da div */
+  object-fit: cover; /* Preenche a div e corta o excesso mantendo a proporção original */
+  object-position: center; /* Alinha o centro da imagem à div (pode ser ajustado conforme necessário) */
+}
+
+.nome-produto > h3 {
+  min-height: 51.4px;
+  color: rgb(65, 65, 65);
+  text-align: center;
+  /* text-transform: uppercase; */
+  font-family: montserrat, Sans-serif;
+  text-overflow: ellipsis; /* Adiciona reticências (...) quando o texto é cortado */
+  overflow: hidden; /* Esconde o conteúdo que excede o espaço disponível */
+  -webkit-line-clamp: 2; /* Limita o texto a no máximo duas quebras de linha (em navegadores baseados no WebKit) */
+  display: -webkit-box; /* Define o elemento como um bloco de caixa flexível (em navegadores baseados no WebKit) */
+  -webkit-box-orient: vertical; /* Orienta o bloco de caixa verticalmente (em navegadores baseados no WebKit) */
+}
+
+.preco > p {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: montserrat, Sans-serif;
+  font-weight: 750;
+}
+
+.parcelas {
+  background: rgba(219, 167, 130, 0.3); /* Cor com 50% de transparência */
+  border: 1px solid black;
+  display: flex;
+  gap: 5px;
+  text-align: center;
+  font-family: montserrat, Sans-serif;
+  padding: 5px;
+}
+
+.parcelas > .numero-parcelas {
+  font-weight: 700;
+}
+
+.parcelas > .preco-parcela {
+  font-weight: 700;
+}
+
+@media (max-width: 1237px) {
+  /* Estilos para largura de tela menor que 1238px */
+  /* Por exemplo, reduza o tamanho do texto, ajuste o layout, ou esconda elementos */
+  .product-grid__box-products {
+    display: grid; /* Define o elemento com a classe .product-grid__box-products como um grid container */
+    grid-template-columns: repeat(3, 1fr); /* Cria 4 colunas de largura igual*/
+    /* border: 1px solid purple; Adiciona uma borda de 1px sólida roxa ao redor do grid container */
+    min-width: 945px; /* Define a largura mínima do grid container como 945 pixels */
+  }
+}
