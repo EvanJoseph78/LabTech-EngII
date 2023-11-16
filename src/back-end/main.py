@@ -1,78 +1,93 @@
 import mysql.connector
-from mysql.connector import Error
-from flask import Flask, jsonify
+from flask import Flask, make_response, jsonify, request
 from flask_cors import CORS
+
+try:
+    mydb = mysql.connector.connect(
+        host='172.17.0.2',
+        user='root',
+        password='root',
+        database='dump1'
+    )
+    print("MySQL Database connection successful")
+except Exception as e:
+    print(f"Error: '{e}'")
+    raise e
+
 
 app = Flask(__name__)
 CORS(app)
+cors = CORS(app, resources={r"/pedidos": {"origins": "http://localhost:4200"}})
+app.config['JSON_SORT_KEYS'] = False
 
-# root@172.17.0.2:3306
 
-connection = None
-try:
-    connection = mysql.connector.connect(
-        host="172.17.0.2",
-        user="root",
-        passwd="root",
-        # database="LabTech"
-        database="dump"
-    )
-    print("MySQL Database connection successful")
-except Error as err:
-    print(f"Error: '{err}'")
+@app.route('/produtos', methods=['GET'])
+def get_produtos():
 
-"""
-idproduto int PK
-nome varchar(200)
-valor decimal(5,2)
-peso decimal(5,2)
-descricao varchar(200)
-tamanho varchar(45)
-quantidade int
-urlimg text
-categoria text
-"""
+    my_cursor = mydb.cursor()
 
-def select_from_produto(connection):
-    cursor = connection.cursor()
     try:
-        cursor.execute("SELECT * FROM produto")
-        records = cursor.fetchall()
-        print("Total number of rows in produto is: ", cursor.rowcount)
 
-        print("\nPrinting each produto record")
+        my_cursor.execute('SELECT * FROM produto')
+        lista_produtos = my_cursor.fetchall()
 
-        listaProdutos = []
+        produtos = []
 
-        for row in records:
-            listaProdutos.append(
+        for produto in lista_produtos:
+            produtos.append(
                 {
-                    "idproduto": row[0],
-                    "nome": row[1],
-                    "valor": row[2],
-                    "peso": row[3],
-                    "descricao": row[4],
-                    "tamanho": row[5],
-                    "quantidade": row[6],
-                    "urlimg": row[7],
-                    "categoria": row[8]
+                    "idproduto": produto[0],
+                    "nome": produto[1],
+                    "valor": produto[2],
+                    "peso": produto[3],
+                    "descricao": produto[4],
+                    "tamanho": produto[5],
+                    "quantidade": produto[6],
+                    "urlimg": produto[7],
+                    "categoria": produto[8]
                 }
             )
 
-        return listaProdutos
-    except Error as err:
-        print(f"Error: '{err}'")
+        return make_response(
+            jsonify(
+                produtos=produtos
+            )
+        )
+
+    except Exception as e:
+        raise e
     finally:
-        cursor.close()
-
-@app.route("/produtos", methods=['GET'])
-def get_produtos():
-    return jsonify(produtos=select_from_produto(connection))
+        my_cursor.close()
 
 
+@app.route('/pedido', methods=['POST'])
+def criar_pedido():
+    my_cursor = mydb.cursor()
+    try:
+        pedido = request.json
+
+        idcliente = pedido['idcliente']
+        listapedido = pedido['listapedido']
+        valorfrete = pedido['valorfrete']
+        valortotalpedido = pedido['valortotalpedido']
+
+        for item in listapedido:
+            sql = f"INSERT INTO pedido(idcliente, idproduto, quantidadeproduto, precoproduto, subtotal, valorfrete, valortotalpedido) VALUES('{idcliente}', '{item['idproduto']}', '{item['quantidadeproduto']}', '{item['precoproduto']}', '{item['subtotal']}', '{valorfrete}', '{valortotalpedido}')"
+            my_cursor.execute(sql)
+            print(item['idproduto'])
+
+        mydb.commit()
+
+        return make_response(jsonify(
+            mensagem='Pedido criado',
+            pedido=pedido
+        ))
+
+    except Exception as e:
+        print(e)
+        raise e
+    finally:
+        my_cursor.close()
 
 
-
-
-if __name__ == "__main__":
-    app.run(port=3200, host='0.0.0.0')
+app.run()
