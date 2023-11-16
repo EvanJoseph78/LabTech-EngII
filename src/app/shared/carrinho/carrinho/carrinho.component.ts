@@ -70,6 +70,7 @@ export class CarrinhoComponent implements DoCheck {
         novoPedido.listapedido.push(aux);
       });
 
+      console.log('Produto inserido no banco');
       this.carrinhoService.criarPedido(novoPedido).subscribe();
     });
   }
