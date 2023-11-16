@@ -32,4 +32,8 @@ export class MenuBarComponent implements DoCheck {
 
     this.produtoService.setNomeProdutoPesquisar(valorPesquisa);
   }
+
+  limparPesquisa() {
+    this.produtoService.setNomeProdutoPesquisar('');
+  }
 }

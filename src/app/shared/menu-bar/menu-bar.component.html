@@ -9,18 +9,31 @@
       [routerLink]="['/']"
       [routerLinkActive]="['activated']"
       [routerLinkActiveOptions]="{ exact: true }"
+      (click)="limparPesquisa()"
       >Home</a
     >
-    <a [routerLink]="['/produtos']" [routerLinkActive]="['activated']"
+    <a
+      [routerLink]="['/produtos']"
+      [routerLinkActive]="['activated']"
+      (click)="limparPesquisa()"
       >Loja Virtual</a
     >
-    <a [routerLink]="['/proteses']" [routerLinkActive]="['activated']"
+    <a
+      [routerLink]="['/proteses']"
+      [routerLinkActive]="['activated']"
+      (click)="limparPesquisa()"
       >Próteses</a
     >
-    <a [routerLink]="['/servicos']" [routerLinkActive]="['activated']"
+    <a
+      [routerLink]="['/servicos']"
+      [routerLinkActive]="['activated']"
+      (click)="limparPesquisa()"
       >Serviços</a
     >
-    <a [routerLink]="['/contato']" [routerLinkActive]="['activated']"
+    <a
+      [routerLink]="['/contato']"
+      [routerLinkActive]="['activated']"
+      (click)="limparPesquisa()"
       >Contato</a
     >
   </div>

@@ -14,8 +14,8 @@ try:
         host="172.17.0.2",
         user="root",
         passwd="root",
-        database="LabTech"
-        #database="dump"
+        # database="LabTech"
+        database="dump"
     )
     print("MySQL Database connection successful")
 except Error as err:
