@@ -23,7 +23,7 @@ export class CarrinhoService {
   // Declara uma propriedade carrinhoAtivo do tipo Observable que os componentes podem assinar
   carrinhoAtivo: Observable<boolean> = this.carrinhoAtivoSubject.asObservable();
 
-  constructor() {}
+  constructor() { }
 
   /**
    * Método para obter o estado atual do carrinho e alternar seu valor.
@@ -31,7 +31,6 @@ export class CarrinhoService {
    */
   getEstadoCarrinho(): Observable<boolean> {
     // Alterna o valor do BehaviorSubject
-    // console.log(this.listaPedidos.value);
     if (this.carrinhoAtivoSubject.value) {
       this.carrinhoAtivoSubject.next(false);
     } else {
@@ -50,7 +49,6 @@ export class CarrinhoService {
     return this.listaPedidos.pipe(
       map((valor) => {
         let soma = 0;
-        console.log(valor);
         valor.lista_produtos.forEach((element) => {
           soma = soma + element.subtotal;
         });

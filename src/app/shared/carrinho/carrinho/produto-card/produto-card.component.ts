@@ -1,5 +1,7 @@
 import { Component, DoCheck, Input } from '@angular/core';
+import { Produto } from 'src/app/shared/models/produtos.model';
 import { CarrinhoService } from 'src/app/shared/service/carrinho.service';
+import { ProdutosService } from 'src/app/shared/service/produtos.service';
 
 @Component({
   selector: 'app-produto-card',
@@ -21,20 +23,39 @@ export class ProdutoCardComponent implements DoCheck {
   tamanho_produto: string = '';
   @Input()
   preco_produto: number = 0;
+  quantidade_produto_estoque: number = 0;
+  listaProdutos: Produto[] = [];
 
-  constructor(private carrinhoService: CarrinhoService) {
+  constructor(
+    private carrinhoService: CarrinhoService,
+    private produtoService: ProdutosService,
+  ) {
     this.preco_produto = Number(this.preco_produto.toFixed(2));
+    this.produtoService.getListaProdutos().subscribe((listaProdutos) => {
+      this.listaProdutos = listaProdutos;
+    });
   }
 
-  ngDoCheck(): void {}
+  ngDoCheck(): void { }
 
   definirQuantidadeProduto(acao: string) {
     this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
-      var somaValorTotal = 0;
       for (let index = 0; index < listaPedidos.lista_produtos.length; index++) {
         const element = listaPedidos.lista_produtos[index];
         if (element.produto_id == this.produto_id) {
-          if (acao == 'aumentar') {
+          this.listaProdutos.forEach((element) => {
+            if (Number(element.idproduto) == this.produto_id) {
+              this.quantidade_produto_estoque = element.quantidade;
+            }
+          });
+
+          if (
+            acao == 'aumentar' &&
+            !(
+              listaPedidos.lista_produtos[index].quantidade_produto >
+              this.quantidade_produto_estoque
+            )
+          ) {
             listaPedidos.lista_produtos[index].quantidade_produto =
               listaPedidos.lista_produtos[index].quantidade_produto + 1;
           } else if (acao == 'diminuir') {
@@ -56,7 +77,6 @@ export class ProdutoCardComponent implements DoCheck {
     this.carrinhoService
       .getListaPedidosProdutos()
       .subscribe((listaProdutos) => {
-        // console.log(this.produto_id);
         for (
           let index = 0;
           index < listaProdutos.lista_produtos.length;

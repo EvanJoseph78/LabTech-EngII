@@ -35,7 +35,7 @@ export class ProdutoPageComponent implements OnInit {
     private renderer: Renderer2,
     private el: ElementRef,
     private produtoService: ProdutosService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.parametrizador.paramMap.subscribe((value) => {
@@ -49,7 +49,6 @@ export class ProdutoPageComponent implements OnInit {
 
   definirValoresParaComponent(id: string | null) {
     this.produtoService.getListaProdutos().subscribe((dados) => {
-      // console.log(dados);
       for (let index = 0; index < dados.length; index++) {
         const element = dados[index];
         if (element.idproduto == this.id) {
@@ -58,9 +57,7 @@ export class ProdutoPageComponent implements OnInit {
           this.precoProduto = element.valor;
         }
       }
-      //
       // this.produtos = dados.produtos[Number(id) - 1];
-      // // console.log(this.produtos.urlimg);
       // this.imagemProduto = this.produtos.urlimg;
       // this.nomeProduto = this.produtos.nome;
       // this.precoProduto = this.produtos.valor;
@@ -68,9 +65,5 @@ export class ProdutoPageComponent implements OnInit {
 
     // const result = dataFake.filter((produto) => produto.id == id)[0];
     // const result = dataFake.filter((produto) => produto.id == id)[0];
-    // console.log(result.id);
-    // console.log(result.descricao);
-    // console.log(result.imagemProduto);
-    // console.log(result.nome);
   }
 }

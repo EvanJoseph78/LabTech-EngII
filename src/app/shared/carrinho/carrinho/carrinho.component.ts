@@ -38,7 +38,6 @@ export class CarrinhoComponent implements DoCheck {
 
   ngDoCheck(): void {
     this.carrinhoService.getValorTotalPedido().subscribe((valorTotal) => {
-      console.log(valorTotal);
       this.valorMaisFrete = valorTotal;
       this.valorSemFrete = valorTotal;
     });
@@ -56,14 +55,11 @@ export class CarrinhoComponent implements DoCheck {
   handleClick(event: Event): void {
     // Verifica se o clique ocorreu fora do componente
     if (!this.elRef.nativeElement.contains(event.target)) {
-      // console.log(this.carrinhoAtivo);
       console.log('Clicado fora do componente');
     }
   }
 
   finalizarCompra() {
-    this.carrinhoService
-      .getListaPedidosProdutos()
-      .subscribe((listaPedidos) => console.log(JSON.stringify(listaPedidos)));
+    this.carrinhoService.getListaPedidosProdutos();
   }
 }

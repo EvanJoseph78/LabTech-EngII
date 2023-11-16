@@ -46,17 +46,13 @@ export class ProdutoPageInfoComponent {
   ) {
     this.parametrizador.paramMap.subscribe((value) => {
       this.id = value.get('id');
-      // console.log(this.id);
     });
 
     this.produtoService.getProducts().subscribe((dados) => {
-      // console.log(dados.produtos[Number(this.id) - 1]);
       this.produto = dados.produtos[Number(this.id) - 1];
       this.descricaoProduto = dados.produtos[Number(this.id) - 1].descricao;
-      // console.log(this.produtos.urlimg);
-      // this.imagemProduto = this.produto.urlimg;
-      // this.nomeProduto = this.produto.nome;
-      // this.precoProduto = this.produto.valor.toString();
+      this.quantidadeDisponivel =
+        dados.produtos[Number(this.id) - 1].quantidade;
     });
   }
 
@@ -105,7 +101,6 @@ export class ProdutoPageInfoComponent {
   adicionarProduto() {
     this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
       listaPedidos.valor_frete = 10;
-      // console.log(this.isProdutoNaLista());
       this.isProdutoNaLista().subscribe((isProdutoNaLista) => {
         if (isProdutoNaLista) {
           for (

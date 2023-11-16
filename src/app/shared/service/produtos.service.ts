@@ -17,7 +17,6 @@ export class ProdutosService {
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<any> {
-    // console.log(this.listaProdutos);
     return this.http.get(this.apiUrl).pipe(
       tap((dados: any) => {
         // Atualizar a lista de produtos no BehaviorSubject
@@ -35,9 +34,6 @@ export class ProdutosService {
   }
 
   setNomeProdutoPesquisar(valorPesquisa: string): void {
-    // Faça algo com o valorPesquisa, se necessário
-    // console.log('Produto pesquisado no serviço: ', valorPesquisa);
-
     // Emita o valor usando BehaviorSubject para os assinantes
     this.nomeProdutoPesquisar.next(valorPesquisa);
   }
