@@ -34,6 +34,9 @@ export class MenuBarComponent implements DoCheck {
   }
 
   limparPesquisa() {
+    if (this.carrinhoService.isCarrinhoAtivo()) {
+      this.carrinhoService.getEstadoCarrinho();
+    }
     this.produtoService.setNomeProdutoPesquisar('');
   }
 }

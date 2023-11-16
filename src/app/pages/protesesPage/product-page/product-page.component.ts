@@ -33,7 +33,6 @@ export class ProtesesPage implements OnInit, DoCheck {
 
   ngDoCheck(): void {
     this.produtosService.getNomeProdutoPesquisar().subscribe((nome) => {
-      console.log(nome);
       if (nome == '') {
         this.produtos = this.produtosAux;
       } else {
@@ -43,7 +42,6 @@ export class ProtesesPage implements OnInit, DoCheck {
             novaLista.push(element);
           }
         });
-        console.log(novaLista);
         this.produtos = novaLista;
       }
     });

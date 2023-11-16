@@ -29,7 +29,6 @@ export class CarrinhoComponent implements DoCheck {
   constructor(
     private carrinhoService: CarrinhoService,
     private elRef: ElementRef,
-    private renderer: Renderer2,
   ) {
     this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
       this.ordemDePedido = listaPedidos;
@@ -49,14 +48,6 @@ export class CarrinhoComponent implements DoCheck {
       .subscribe((estadoCarrinhoComponent) => {
         this.carrinhoAtivo = estadoCarrinhoComponent;
       });
-  }
-
-  @HostListener('document:click', ['$event'])
-  handleClick(event: Event): void {
-    // Verifica se o clique ocorreu fora do componente
-    if (!this.elRef.nativeElement.contains(event.target)) {
-      console.log('Clicado fora do componente');
-    }
   }
 
   finalizarCompra() {

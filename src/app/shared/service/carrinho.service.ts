@@ -41,6 +41,10 @@ export class CarrinhoService {
     return this.carrinhoAtivoSubject.asObservable();
   }
 
+  isCarrinhoAtivo(): boolean {
+    return this.carrinhoAtivoSubject.value;
+  }
+
   getListaPedidosProdutos(): Observable<OrdemPedido> {
     return this.listaPedidos.asObservable();
   }
