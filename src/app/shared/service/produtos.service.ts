@@ -8,7 +8,8 @@ import { tap } from 'rxjs';
   providedIn: 'root',
 })
 export class ProdutosService {
-  private apiUrl = 'http://localhost:3200/produtos'; // Substitua pela URL da sua API
+  // private apiUrl = 'http://localhost:3200/produtos'; // Substitua pela URL da sua API
+  private apiUrl = 'http://localhost:5000/produtos'; // Substitua pela URL da sua API
 
   private listaProdutos = new BehaviorSubject<Produto[]>([]);
 

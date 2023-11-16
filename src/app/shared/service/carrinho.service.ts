@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { OrdemPedido } from '../models/ordemPedidoModel';
 import { map } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Pedido } from '../models/pedidoModel';
 
 @Injectable({
   providedIn: 'root',
@@ -17,13 +19,19 @@ export class CarrinhoService {
     valor_frete: 0,
   });
 
+  private apiUrl = 'http://localhost:5000/pedido';
+
   listaPedidosProdutos: Observable<OrdemPedido> =
     this.listaPedidos.asObservable();
 
   // Declara uma propriedade carrinhoAtivo do tipo Observable que os componentes podem assinar
   carrinhoAtivo: Observable<boolean> = this.carrinhoAtivoSubject.asObservable();
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  criarPedido(pedido: Pedido): Observable<any> {
+    return this.http.post(this.apiUrl, pedido);
+  }
 
   /**
    * Método para obter o estado atual do carrinho e alternar seu valor.

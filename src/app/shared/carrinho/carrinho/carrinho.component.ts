@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { CarrinhoService } from '../../service/carrinho.service';
 import { OrdemPedido } from '../../models/ordemPedidoModel';
+import { Pedido } from '../../models/pedidoModel';
 
 @Component({
   selector: 'app-carrinho',
@@ -51,6 +52,25 @@ export class CarrinhoComponent implements DoCheck {
   }
 
   finalizarCompra() {
-    this.carrinhoService.getListaPedidosProdutos();
+    this.carrinhoService.getListaPedidosProdutos().subscribe((dados) => {
+      let novoPedido: Pedido = {
+        idcliente: dados.client_id,
+        listapedido: [],
+        valorfrete: dados.valor_frete,
+        valortotalpedido: dados.valor_total,
+      };
+
+      dados.lista_produtos.forEach((element) => {
+        const aux: any = {
+          idproduto: element.produto_id,
+          quantidadeproduto: element.quantidade_produto,
+          precoproduto: element.preco_produto,
+          subtotal: element.subtotal,
+        };
+        novoPedido.listapedido.push(aux);
+      });
+
+      this.carrinhoService.criarPedido(novoPedido).subscribe();
+    });
   }
 }

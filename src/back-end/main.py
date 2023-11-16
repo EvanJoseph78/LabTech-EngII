@@ -69,5 +69,10 @@ def select_from_produto(connection):
 def get_produtos():
     return jsonify(produtos=select_from_produto(connection))
 
+
+
+
+
+
 if __name__ == "__main__":
     app.run(port=3200, host='0.0.0.0')
