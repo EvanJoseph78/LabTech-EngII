@@ -5,48 +5,17 @@
   </div>
   <div class="title-bar__nav-link">
     <!-- router link permite rotas single page -->
-    <a
-      [routerLink]="['/']"
-      [routerLinkActive]="['activated']"
-      [routerLinkActiveOptions]="{ exact: true }"
-      (click)="limparPesquisa()"
-      >Home</a
-    >
-    <a
-      [routerLink]="['/produtos']"
-      [routerLinkActive]="['activated']"
-      (click)="limparPesquisa()"
-      >Loja Virtual</a
-    >
-    <a
-      [routerLink]="['/proteses']"
-      [routerLinkActive]="['activated']"
-      (click)="limparPesquisa()"
-      >Próteses</a
-    >
-    <a
-      [routerLink]="['/servicos']"
-      [routerLinkActive]="['activated']"
-      (click)="limparPesquisa()"
-      >Serviços</a
-    >
-    <a
-      [routerLink]="['/contato']"
-      [routerLinkActive]="['activated']"
-      (click)="limparPesquisa()"
-      >Contato</a
-    >
+    <a [routerLink]="['/']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{ exact: true }"
+      (click)="limparPesquisa()">Home</a>
+    <a [routerLink]="['/produtos']" [routerLinkActive]="['activated']" (click)="limparPesquisa()">Loja Virtual</a>
+    <a [routerLink]="['/proteses']" [routerLinkActive]="['activated']" (click)="limparPesquisa()">Próteses</a>
+    <a [routerLink]="['/servicos']" [routerLinkActive]="['activated']" (click)="limparPesquisa()">Serviços</a>
+    <a [routerLink]="['/contato']" [routerLinkActive]="['activated']" (click)="limparPesquisa()">Contato</a>
   </div>
 
   <div class="title-bar__nav-buttons">
     <div class="search-container">
-      <input
-        type="text"
-        class="search-input"
-        placeholder="Pesquisar..."
-        value=""
-        [(ngModel)]="nomeProdutoPesquisar"
-      />
+      <input type="text" class="search-input" placeholder="Pesquisar..." value="" [(ngModel)]="nomeProdutoPesquisar" />
     </div>
 
     <div class="search-button" (click)="pesquisarProduto()">
@@ -54,13 +23,11 @@
     </div>
 
     <div class="nav-buttons_image">
-      <img src="../../../assets/menu-bar/icone-user.png" alt="" (click)="abrirPaginaLogin()"/>
+      <!-- <img src="../../../assets/menu-bar/icone-user.png" alt="" (click)="abrirPaginaLogin()" /> -->
+      <img src="../../../assets/menu-bar/icone-user.png" alt=" " [routerLink]="['/login']" />
     </div>
 
-    <div
-      class="nav-buttons_image carrinho-button"
-      (click)="abrirCarrinhoDeCompras()"
-    >
+    <div class=" nav-buttons_image carrinho-button" (click)="abrirCarrinhoDeCompras()">
       <img src="../../../assets/menu-bar/carrinho.png" alt="" />
 
       <!-- <app-carrinho *ngIf="carrinhoAtivo"></app-carrinho> -->

@@ -8,6 +8,7 @@ import { ServicosComponent } from './pages/servicos/servicos/servicos.component'
 import { ContatoComponent } from './pages/contato/contato/contato.component';
 
 import { ProtesesPage } from './pages/protesesPage/product-page/product-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page/login-page.component';
 
 // Onde as rotas são criadas
 const routes: Routes = [
@@ -29,11 +30,14 @@ const routes: Routes = [
   },
   { path: 'servicos', component: ServicosComponent, pathMatch: 'prefix' }, // redireciona para a rota principal
   { path: 'contato', component: ContatoComponent, pathMatch: 'prefix' }, // redireciona para a rota principal
+  { path: 'login', component: LoginPageComponent, pathMatch: 'prefix' }, // redireciona para a rota principal
   { path: '**', redirectTo: '' }, // redireciona para a rota principal
+
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
