@@ -13,6 +13,7 @@ import { RodapeComponent } from './shared/rodape/rodape.component';
 import { FormsModule } from '@angular/forms';
 import { CarrinhoModule } from './shared/carrinho/carrinho.module';
 import { ProtesesPageModule } from './pages/protesesPage/produtos.module';
+import { LoginPageModule } from './pages/login-page/login-page.module';
 
 @NgModule({
   declarations: [AppComponent, MenuBarComponent, RodapeComponent],
@@ -26,6 +27,7 @@ import { ProtesesPageModule } from './pages/protesesPage/produtos.module';
     FormsModule,
     CarrinhoModule,
     ProtesesPageModule,
+    LoginPageModule
   ],
   providers: [],
   bootstrap: [AppComponent],

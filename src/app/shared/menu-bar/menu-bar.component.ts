@@ -1,6 +1,7 @@
 import { Component, DoCheck } from '@angular/core';
 import { CarrinhoService } from '../service/carrinho.service';
 import { ProdutosService } from '../service/produtos.service';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-menu-bar',
@@ -13,6 +14,7 @@ export class MenuBarComponent implements DoCheck {
   constructor(
     private carrinhoService: CarrinhoService,
     private produtoService: ProdutosService,
+    private loginService: LoginService
   ) { }
 
   ngDoCheck(): void { }
@@ -39,4 +41,10 @@ export class MenuBarComponent implements DoCheck {
     }
     this.produtoService.setNomeProdutoPesquisar('');
   }
+
+  abrirPaginaLogin() {
+    this.loginService.setLoginPageState();
+
+  }
+
 }
