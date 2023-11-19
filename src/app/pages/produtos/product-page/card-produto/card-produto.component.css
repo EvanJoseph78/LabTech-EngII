@@ -17,7 +17,6 @@
   min-width: 226px;
   width: 100%; /* Certifique-se de que a div ocupa 100% da largura disponível */
   height: 226px; /* Defina a altura desejada */
-  overflow: hidden; /* Para cortar qualquer parte da imagem que exceda a div */
 }
 
 .image-container > img {
@@ -33,16 +32,16 @@
 }
 
 .nome-produto > h3 {
-  min-height: 51.4px;
+  max-height: 102.8px; /* Duas linhas a 51.4px cada */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   color: rgb(65, 65, 65);
   text-align: center;
-  /* text-transform: uppercase; */
-  font-family: montserrat, Sans-serif;
-  text-overflow: ellipsis; /* Adiciona reticências (...) quando o texto é cortado */
-  overflow: hidden; /* Esconde o conteúdo que excede o espaço disponível */
-  -webkit-line-clamp: 2; /* Limita o texto a no máximo duas quebras de linha (em navegadores baseados no WebKit) */
-  display: -webkit-box; /* Define o elemento como um bloco de caixa flexível (em navegadores baseados no WebKit) */
-  -webkit-box-orient: vertical; /* Orienta o bloco de caixa verticalmente (em navegadores baseados no WebKit) */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
 }
 
 .preco > p {
