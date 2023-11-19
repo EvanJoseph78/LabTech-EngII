@@ -23,6 +23,7 @@
 
 .title-bar__component-image_container > img {
   max-width: 218px;
+  cursor: pointer;
 }
 
 .title-bar__nav-buttons {
@@ -78,7 +79,9 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+  cursor: pointer;
 }
+
 
 .nav-buttons_image > img {
   max-width: 20px;

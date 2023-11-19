@@ -57,6 +57,10 @@
   text-align: right;
 }
 
+.info > a:hover{
+  color: blue;
+}
+
 .button {
   margin-top: 25px;
   width: 90%;
@@ -72,6 +76,14 @@
   background: #ff9100; /* Cor alternativa quando o mouse está sobre o botão */
 }
 
+.criar-conta-button {
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.criar-conta-button:hover {
+  color: blue;
+}
 
 
 
