@@ -1,1 +1,27 @@
-<p>signup-page works!</p>
+<div class="login-page-container">
+  <div class="login-box">
+    <h1>
+      CRIAR CONTA
+    </h1>
+
+    <div class="info">
+      <p>Nome:</p>
+      <input type="text" name="" value="Nome">
+      <p>Sobrenome:</p>
+      <input type="text" name="" value="Sobrenome">
+      <p>Email:</p>
+      <input type="email" name="" value="user@mail.com">
+      <p>Senha:</p>
+      <input type="password" name="" value="123456">
+      <p>Insira a senha novamente:</p>
+      <input type="password" name="" value="123456">
+    </div>
+
+    <button type="" class="button">Criar Conta</button>
+
+    <div class="criar-conta-button" [routerLink]="'/login'">
+      <p>Já possuí uma conta?</p>
+    </div>
+
+  </div>
+</div>
