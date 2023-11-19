@@ -62,6 +62,14 @@
   width: 90%;
   height: 55px;
   border-radius: 25px;
+  background: #ffa41c;
+  cursor: pointer;
+  transition: background 0.3s ease; /* Transição suave de cor em 0.3 segundos com aceleração suave */
+}
+
+
+.button:hover {
+  background: #ff9100; /* Cor alternativa quando o mouse está sobre o botão */
 }
 
 
