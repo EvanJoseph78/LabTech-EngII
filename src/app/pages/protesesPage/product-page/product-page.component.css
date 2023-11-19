@@ -50,7 +50,8 @@
 }
 
 .product-grid__box-filtros > .filtros {
-  /* border: 1px solid red; */
+  border-bottom: .5px solid gray;
+  padding-bottom: 15px;
   margin-top: 15px;
   display: flex;
   flex-direction: column;
@@ -62,6 +63,17 @@
   display: flex;
   flex-direction: column;
 }
+
+
+.product-grid__box-filtros > .cor > div > input {
+  cursor: pointer;
+}
+
+.product-grid__box-filtros > .cor > div > label:hover {
+  cursor: pointer;
+  color: blue;
+}
+
 
 .product-grid__box-filtros > hr {
   margin-top: 20px;
