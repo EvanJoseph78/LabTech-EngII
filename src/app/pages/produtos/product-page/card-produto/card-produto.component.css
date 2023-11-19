@@ -31,6 +31,11 @@
   object-position: center; /* Alinha o centro da imagem à div (pode ser ajustado conforme necessário) */
 }
 
+.nome-produto {
+  height: 42px;
+  margin-bottom: 12px;
+}
+
 .nome-produto > h3 {
   max-height: 102.8px; /* Duas linhas a 51.4px cada */
   overflow: hidden;

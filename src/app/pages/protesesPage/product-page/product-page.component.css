@@ -17,6 +17,24 @@
   min-width: 195px;
 }
 
+
+.product-grid__box-filtros {
+  border: 1px solid #d5d9d9;
+  border-radius: 15px;
+  padding: 5px;
+  height: 50%;
+  min-width: 195px;
+}
+
+.produtos > a {
+  text-decoration: none;
+  color: black;
+}
+
+.produtos > a:hover {
+  color: blue;
+}
+
 .product-grid__box-products {
   display: grid; /* Define o elemento com a classe .product-grid__box-products como um grid container */
   grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas de largura igual*/

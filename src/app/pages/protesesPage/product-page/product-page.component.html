@@ -3,11 +3,11 @@
     <div class="product-grid__box-filtros">
       <div class="produtos">
         <h3>Produtos</h3>
-        <div><a href="">Calçados</a></div>
-        <div><a href="">Órteses</a></div>
-        <div><a href="">Proteses</a></div>
-        <div><a href="">Marcas</a></div>
-        <div><a href="">Promoções</a></div>
+        <a href="">Calçados</a>
+        <a href="">Órteses</a>
+        <a [routerLink]="'/proteses'">Próteses</a>
+        <a href="">Marcas</a>
+        <a href="">Promoções</a>
       </div>
 
       <div class="filtros">
@@ -55,13 +55,9 @@
     </div>
 
     <div class="product-grid__box-products">
-      <app-card-produto-proteses
-        *ngFor="let produto of produtos"
-        [produtoId]="produto.idproduto"
-        [imagemProduto]="produto.urlimg"
-        [produtoNome]="produto.nome"
-        [produtoPreco]="produto.valor"
-      ></app-card-produto-proteses>
+      <app-card-produto-proteses *ngFor="let produto of produtos" [produtoId]="produto.idproduto"
+        [imagemProduto]="produto.urlimg" [produtoNome]="produto.nome"
+        [produtoPreco]="produto.valor"></app-card-produto-proteses>
     </div>
   </div>
 </div>

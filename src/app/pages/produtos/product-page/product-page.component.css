@@ -13,8 +13,21 @@
 }
 
 .product-grid__box-filtros {
-  /* border: 1px solid green; */
+  border: 1px solid #d5d9d9;
+  border-radius: 15px;
+  padding: 5px;
+  height: 50%;
   min-width: 195px;
+}
+
+
+.produtos > a {
+  text-decoration: none;
+  color: black;
+}
+
+.produtos > a:hover {
+  color: blue;
 }
 
 .product-grid__box-products {

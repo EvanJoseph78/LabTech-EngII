@@ -8,6 +8,7 @@ export class LoginService {
 
   private loginPageState = new BehaviorSubject<boolean>(true);
 
+
   getLoginPageState(): Observable<boolean> {
     return this.loginPageState.asObservable();
   }
