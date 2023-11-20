@@ -15,6 +15,7 @@ import { CarrinhoModule } from './shared/carrinho/carrinho.module';
 import { ProtesesPageModule } from './pages/protesesPage/produtos.module';
 import { LoginPageModule } from './pages/login-page/login-page.module';
 import { SignupPageModule } from './pages/signup-page/signup-page.module';
+import { AdminModule } from './pages/admin/admin.module';
 
 @NgModule({
   declarations: [AppComponent, MenuBarComponent, RodapeComponent],
@@ -29,7 +30,8 @@ import { SignupPageModule } from './pages/signup-page/signup-page.module';
     CarrinhoModule,
     ProtesesPageModule,
     LoginPageModule,
-    SignupPageModule
+    SignupPageModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent],

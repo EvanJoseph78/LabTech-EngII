@@ -12,7 +12,6 @@ export class AppComponent {
 
   carrinhoAtivo: boolean = false;
 
-  isLoginPageActive: boolean = false;
 
   constructor(private carrinhoService: CarrinhoService, private loginService: LoginService) {
     // Inscreve-se para receber notificações sobre mudanças no estado do carrinho
@@ -23,9 +22,6 @@ export class AppComponent {
         this.carrinhoAtivo = estadoCarrinhoComponent;
       });
 
-    this.loginService.getLoginPageState().subscribe((state) => {
-      this.isLoginPageActive = state
-    })
   }
 
 

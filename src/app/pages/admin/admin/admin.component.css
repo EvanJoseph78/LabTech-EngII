@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+  min-height: 80vh;
+}
+
+.box {
+  border: 1px solid red;
+  width: 1140px;
+  min-height: 100vh;
+}
+
+.menu-bar {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+}
+
+.tabela {
+  margin-top: 50px;
+}
+
+.tabela > table {
+  font-size: 12px;
+  width: 100%;
+  table-layout: fixed; /* Define o layout da tabela como fixo */
+  /* border: 1px solid #000; */
+  padding: 8px;
+}
+
+.tabela th {
+  background: rgba(255, 164, 28, 0.7);
+}
+
+.tabela th, .tabela td {
+  width: 33.33%; /* Divide igualmente entre as três colunas (ajuste conforme necessário) */
+  padding: 8px;
+  text-align: left; /* Alinhamento do texto (ajuste conforme necessário) */
+  border: 1px solid black;
+}
