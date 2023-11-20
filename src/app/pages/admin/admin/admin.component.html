@@ -19,14 +19,14 @@
             <th>Armazenagem</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let item of listaProdutosSaida">
           <tr>
-            <td>10-11-23</td>
-            <td>Protese</td>
-            <td>Braço Robótico</td>
-            <td>2</td>
-            <td>256,00</td>
-            <td>Estoque Local</td>
+            <td>{{item.data}}</td>
+            <td>{{item.classificacao}}</td>
+            <td>{{item.nome}}</td>
+            <td>{{item.quantidade}}</td>
+            <td>{{item.custoUnitario}}</td>
+            <td>Interna</td>
           </tr>
         </tbody>
       </table>
