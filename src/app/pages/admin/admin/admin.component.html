@@ -2,12 +2,43 @@
   <div class="box">
     <h1>Controle De Estoque - LabTech</h1>
     <div class="menu-bar">
-      <p class="itens-menu-bar" (click)="mudarAba('inicio')">Incial</p>
-      <p class="itens-menu-bar" (click)="mudarAba('cadastro')">Cadastro</p>
-      <p class="itens-menu-bar" (click)="mudarAba('movimentacao')">
+      <p
+        class="itens-menu-bar"
+        (click)="mudarAba('inicio')"
+        [ngStyle]="{
+          'border-bottom': inicioAtivo ? '2px solid black' : 'none'
+        }"
+      >
+        Incial
+      </p>
+
+      <p
+        class="itens-menu-bar"
+        (click)="mudarAba('cadastro')"
+        [ngStyle]="{
+          'border-bottom': cadastroAtivo ? '2px solid black' : 'none'
+        }"
+      >
+        Cadastro
+      </p>
+      <p
+        class="itens-menu-bar"
+        (click)="mudarAba('movimentacao')"
+        [ngStyle]="{
+          'border-bottom': movimentacaoAtivo ? '2px solid black' : 'none'
+        }"
+      >
         Movimentações
       </p>
-      <p class="itens-menu-bar" (click)="mudarAba('estoque')">Estoque</p>
+      <p
+        class="itens-menu-bar"
+        (click)="mudarAba('estoque')"
+        [ngStyle]="{
+          'border-bottom': estoqueAtivo ? '2px solid black' : 'none'
+        }"
+      >
+        Estoque
+      </p>
     </div>
 
     <div class="" *ngIf="inicioAtivo">Inicio</div>

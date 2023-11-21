@@ -19,6 +19,10 @@
   cursor: pointer;
 }
 
+.box > div > p:hover {
+  color: blue;
+}
+
 .menu-bar {
   background: rgba(255, 164, 28, 0.7);
   display: flex;
