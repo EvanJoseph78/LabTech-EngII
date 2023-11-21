@@ -4,23 +4,25 @@
 
     <div class="info">
       <p>Nome:</p>
-      <input type="text" name="" value="Nome" [(ngModel)]="nome" />
+      <input type="text" name="" placeholder="Nome" [(ngModel)]="nome" />
       <p>Sobrenome:</p>
-      <input type="text" name="" value="Sobrenome" [(ngModel)]="sobrenome" />
+      <input type="text" name="" placeholder="Sobrenome" [(ngModel)]="sobrenome" />
       <p>CPF:</p>
-      <input type="text" name="" value="xxx.xxx.xxx-xx" [(ngModel)]="cpf" />
+      <input type="text" name="" placeholder="xxx.xxx.xxx-xx" [(ngModel)]="cpf" />
       <p class="alert" *ngIf="!cpfValido">CPF inválido</p>
       <p>CEP:</p>
-      <input type="text" name="" value="xxxx-xxx" [(ngModel)]="cep" />
+      <input type="text" name="" placeholder="xxxx-xxx" [(ngModel)]="cep" />
       <p class="alert" *ngIf="!cepValido">CEP inválido</p>
       <p>Email:</p>
-      <input type="email" name="" value="user@mail.com" [(ngModel)]="email" />
+      <input type="email" name="" placeholder="user@mail.com" [(ngModel)]="email" />
       <p class="alert" *ngIf="!emailValido">Email Inválido</p>
       <p>Senha:</p>
-      <input type="password" name="" value="123456" [(ngModel)]="senha1" />
+      <input type="password" name="" placeholder="senha" [(ngModel)]="senha1" />
       <p>Insira a senha novamente:</p>
-      <input type="password" name="" value="123456" [(ngModel)]="senha2" />
-      <p class="alert" *ngIf="!senhaValida">senhas não conferem!</p>
+      <p class="alert" *ngIf="!senhaLonga">Senha muito curta</p>
+      <input type="password" name="" placeholder="repita a senha" [(ngModel)]="senha2" />
+      <p class="alert" *ngIf="!senhaValida">As senhas devem ser iguais</p>
+      <p class="alert" *ngIf="!senhaLonga">Senha muito curta</p>
     </div>
 
     <button type="" class="button" (click)="criarConta()">Criar Conta</button>

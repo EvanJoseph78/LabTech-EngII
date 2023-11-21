@@ -6,31 +6,47 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup-page.component.css'],
 })
 export class SignupPageComponent {
-  nome: string = 'nome';
-  sobrenome: string = 'sobrenome';
-  cpf: string = 'cpf';
-  cep: string = 'cep';
-  email: string = 'email';
-  senha1: string = 'senha1';
-  senha2: string = 'senha2';
+  nome: string = '';
+  sobrenome: string = '';
+  cpf: string = '';
+  cep: string = '';
+  email: string = '';
+  senha1: string = '';
+  senha2: string = '';
   cpfValido: boolean = true;
   cepValido: boolean = true;
   emailValido: boolean = true;
   senhaValida: boolean = true;
+  senhaLonga: boolean = true;
 
   criarConta() {
     this.cpfValido = this.validaCPF(this.cpf);
     this.cepValido = this.validaCEP(this.cep);
     this.emailValido = this.validaEmail(this.email);
     this.senhaValida = this.validaSenha();
-    console.log(this.cpfValido);
-    console.log(this.senhaValida);
-    console.log(this.cepValido);
-    console.log(this.emailValido);
+    this.senhaLonga = this.senhaCurta();
+    if (
+      this.emailValido &&
+      this.cepValido &&
+      this.cpfValido &&
+      this.senhaValida &&
+      this.senhaLonga
+    ) {
+      console.log('Conta cadastrada com sucesso');
+    } else {
+      console.log('Algo deu Errado');
+    }
   }
 
   validaSenha() {
     return this.senha1 == this.senha2;
+  }
+
+  senhaCurta() {
+    if (this.senha1.length < 5 || this.senha2.length < 5) {
+      return false;
+    }
+    return true;
   }
 
   validaCPF(cpf: string): boolean {
