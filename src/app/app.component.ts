@@ -12,8 +12,10 @@ export class AppComponent {
 
   carrinhoAtivo: boolean = false;
 
-
-  constructor(private carrinhoService: CarrinhoService, private loginService: LoginService) {
+  constructor(
+    private carrinhoService: CarrinhoService,
+    private loginService: LoginService,
+  ) {
     // Inscreve-se para receber notificações sobre mudanças no estado do carrinho
     this.carrinhoService
       .getEstadoCarrinho()
@@ -21,8 +23,5 @@ export class AppComponent {
         // Atualiza a variável carrinhoAtivo com o novo estado
         this.carrinhoAtivo = estadoCarrinhoComponent;
       });
-
   }
-
-
 }

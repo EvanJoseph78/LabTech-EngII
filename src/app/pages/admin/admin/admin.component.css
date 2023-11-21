@@ -6,15 +6,26 @@
 }
 
 .box {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 1140px;
   min-height: 100vh;
 }
 
+.box > h1 {
+  margin-bottom: 15px;
+}
+
+.box > div > p {
+  cursor: pointer;
+}
+
 .menu-bar {
+  background: rgba(255, 164, 28, 0.7);
   display: flex;
   justify-content: space-around;
+  align-items: center;
   border: 1px solid black;
+  height: 25px;
 }
 
 .tabela {
@@ -33,7 +44,8 @@
   background: rgba(255, 164, 28, 0.7);
 }
 
-.tabela th, .tabela td {
+.tabela th,
+.tabela td {
   width: 33.33%; /* Divide igualmente entre as três colunas (ajuste conforme necessário) */
   padding: 8px;
   text-align: left; /* Alinhamento do texto (ajuste conforme necessário) */
