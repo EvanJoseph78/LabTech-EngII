@@ -13,6 +13,8 @@ export class SignupPageComponent {
   email: string = '';
   senha1: string = '';
   senha2: string = '';
+  nomeValido: boolean = true;
+  sobrenomeValido: boolean = true;
   cpfValido: boolean = true;
   cepValido: boolean = true;
   emailValido: boolean = true;
@@ -20,6 +22,8 @@ export class SignupPageComponent {
   senhaLonga: boolean = true;
 
   criarConta() {
+    this.nomeValido = this.validaNome();
+    this.sobrenomeValido = this.validaSobrenome();
     this.cpfValido = this.validaCPF(this.cpf);
     this.cepValido = this.validaCEP(this.cep);
     this.emailValido = this.validaEmail(this.email);
@@ -30,12 +34,28 @@ export class SignupPageComponent {
       this.cepValido &&
       this.cpfValido &&
       this.senhaValida &&
-      this.senhaLonga
+      this.senhaLonga &&
+      this.nomeValido &&
+      this.sobrenomeValido
     ) {
       console.log('Conta cadastrada com sucesso');
     } else {
       console.log('Algo deu Errado');
     }
+  }
+
+  validaNome() {
+    if (this.nome == '') {
+      return false;
+    }
+    return true;
+  }
+
+  validaSobrenome() {
+    if (this.sobrenome == '') {
+      return false;
+    }
+    return true;
   }
 
   validaSenha() {

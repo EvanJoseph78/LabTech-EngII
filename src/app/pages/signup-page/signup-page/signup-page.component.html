@@ -5,8 +5,12 @@
     <div class="info">
       <p>Nome:</p>
       <input type="text" name="" placeholder="Nome" [(ngModel)]="nome" />
+      <p class="alert" *ngIf="!nomeValido">O campo nome não pode ficar vazio</p>
       <p>Sobrenome:</p>
       <input type="text" name="" placeholder="Sobrenome" [(ngModel)]="sobrenome" />
+      <p class="alert" *ngIf="!sobrenomeValido">
+        O campo sobrenome não pode ficar vazio
+      </p>
       <p>CPF:</p>
       <input type="text" name="" placeholder="xxx.xxx.xxx-xx" [(ngModel)]="cpf" />
       <p class="alert" *ngIf="!cpfValido">CPF inválido</p>
