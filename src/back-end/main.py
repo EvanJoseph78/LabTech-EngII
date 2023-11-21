@@ -1,8 +1,12 @@
 import mysql.connector
 from flask import Flask, jsonify, request, session
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+cors = CORS(app, resources={r"/pedidos": {"origins": "http://localhost:4200"}})
+app.config['JSON_SORT_KEYS'] = False
 app.secret_key = 'mortadela1'
 db_config = {
     "host": "172.17.0.2",
@@ -173,4 +177,4 @@ def get_pedidos():
 
 
 if __name__ == "__main__":
-    app.run(port=3000, host='0.0.0.0')
+    app.run(port=5000, host='0.0.0.0')
