@@ -1,22 +1,25 @@
 <div class="login-page-container">
   <div class="login-box">
-    <h1>
-      LOGIN
-    </h1>
+    <h1>LOGIN</h1>
 
     <div class="info">
       <p>Usuário:</p>
-      <input type="email" name="" value="user@mail.com">
+      <input type="email" name="" placeholder="user@mail.com" [(ngModel)]="email" />
       <p>Senha:</p>
-      <input type="password" name="" value="123456">
+      <input type="password" name="" value="12345" [(ngModel)]="senha" />
       <a href="">Esqueceu a senha?</a>
+      <p class="alert" *ngIf="isLoginInvalido" style="color: red; text-align: center">
+        Email ou senha incorreto
+      </p>
+      <p class="alert" *ngIf="isLoginSuccesfull" style="color: green; text-align: center">
+        Login realizado com sucesso!
+      </p>
     </div>
 
-    <button type="" class="button">LOGIN</button>
+    <button type="" class="button" (click)="loginCliente()">LOGIN</button>
 
     <div class="criar-conta-button" [routerLink]="'/signup'">
       <p>Criar Conta</p>
     </div>
-
   </div>
 </div>

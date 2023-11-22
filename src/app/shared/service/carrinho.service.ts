@@ -27,7 +27,7 @@ export class CarrinhoService {
   // Declara uma propriedade carrinhoAtivo do tipo Observable que os componentes podem assinar
   carrinhoAtivo: Observable<boolean> = this.carrinhoAtivoSubject.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   criarPedido(pedido: Pedido): Observable<any> {
     return this.http.post(this.apiUrl, pedido);
@@ -74,5 +74,14 @@ export class CarrinhoService {
         return soma;
       }),
     );
+  }
+
+  definirClientId(clientId: number): void {
+    // Obtém o valor atual do BehaviorSubject
+    const valorAtual = this.listaPedidos.value;
+    // Modifica o client_id
+    const novaOrdemPedido: OrdemPedido = { ...valorAtual, client_id: clientId };
+    // Emite o novo valor
+    this.listaPedidos.next(novaOrdemPedido);
   }
 }
