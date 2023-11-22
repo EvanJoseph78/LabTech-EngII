@@ -122,6 +122,7 @@ def select_from_pedidos():
                     "tamanho_produto": row[3],
                     "preco_produto": row[4],
                     "valor_total": row[5],
+
                 },
             )
 
@@ -155,6 +156,8 @@ def select_from_produto():
                     "tamanho": row[5],
                     "quantidade": row[6],
                     "urlimg": row[7],
+                    # Adicionando a nova coluna "categoria"
+                    "categoria": row[8],
                 },
             )
 

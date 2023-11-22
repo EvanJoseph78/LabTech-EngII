@@ -64,14 +64,15 @@ export class CarrinhoComponent implements DoCheck {
         const aux: any = {
           idproduto: element.produto_id,
           quantidadeproduto: element.quantidade_produto,
-          precoproduto: element.preco_produto,
-          subtotal: element.subtotal,
+          // precoproduto: element.preco_produto,
+          // subtotal: element.subtotal,
         };
         novoPedido.listapedido.push(aux);
+        console.log(novoPedido);
       });
 
       console.log('Produto inserido no banco');
-      this.carrinhoService.criarPedido(novoPedido).subscribe();
+      // this.carrinhoService.criarPedido(novoPedido).subscribe();
     });
   }
 }

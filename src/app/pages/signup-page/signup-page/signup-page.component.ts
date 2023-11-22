@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cliente } from 'src/app/shared/models/cliente.model';
 import { CadastroService } from 'src/app/shared/service/cadastro.service';
 
@@ -8,13 +9,13 @@ import { CadastroService } from 'src/app/shared/service/cadastro.service';
   styleUrls: ['./signup-page.component.css'],
 })
 export class SignupPageComponent {
-  nome: string = '';
-  sobrenome: string = '';
+  nome: string = 'Ednaldo';
+  sobrenome: string = 'Pereira';
   cpf: string = '162.175.633-55';
-  cep: string = '';
-  email: string = '';
-  senha1: string = '';
-  senha2: string = '';
+  cep: string = '88887777';
+  email: string = 'banido@desbanido.com';
+  senha1: string = '123456';
+  senha2: string = '123456';
   nomeValido: boolean = true;
   sobrenomeValido: boolean = true;
   cpfValido: boolean = true;
@@ -22,6 +23,7 @@ export class SignupPageComponent {
   emailValido: boolean = true;
   senhaValida: boolean = true;
   senhaLonga: boolean = true;
+  loginSucesso: boolean = false;
   cliente: Cliente = {
     nome: '',
     cpf: '',
@@ -30,7 +32,10 @@ export class SignupPageComponent {
     senha: '',
   };
 
-  constructor(private cadastroService: CadastroService) { }
+  constructor(
+    private cadastroService: CadastroService,
+    private router: Router,
+  ) {}
 
   criarConta() {
     this.nomeValido = this.validaNome();
@@ -50,18 +55,24 @@ export class SignupPageComponent {
       this.sobrenomeValido
     ) {
       this.cliente = {
-        nome: this.nome + this.sobrenome,
+        nome: this.nome + ' ' + this.sobrenome,
         cpf: this.cpf,
         cep: this.cep,
         email: this.email,
         senha: this.senha1,
       };
-      console.log('Conta cadastrada com sucesso');
+
       this.cadastroService
         .cadastrarCliente(this.cliente)
         .subscribe((cliente) => {
           console.log(cliente);
         });
+
+      this.loginSucesso = true;
+
+      setTimeout(() => {
+        this.router.navigate(['/']);
+      }, 1000);
     } else {
       console.log(this.cliente);
       console.log('Algo deu Errado');
