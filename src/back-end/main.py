@@ -1,5 +1,5 @@
 import mysql.connector
-from flask import Flask, jsonify, request, session
+from flask import Flask, jsonify, request, session, make_response
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 
@@ -12,7 +12,7 @@ db_config = {
     "host": "172.17.0.2",
     "user": "root",
     "passwd": "root",
-    "database": "LabTech",
+    "database": "labtech",
 }
 
 connection = mysql.connector.connect(**db_config)
@@ -75,28 +75,34 @@ def fazer_logout():
 def fazer_pedido():
     dados_json = request.get_json()
 
-    if (
-            "produto_id" not in dados_json
-            or "nome_produto" not in dados_json
-            or "quantidade_produto" not in dados_json
-            or "tamanho_produto" not in dados_json
-            or "preco_produto" not in dados_json
-            or "valor_total" not in dados_json
-    ):
-        return jsonify({"erro": "Campos inválidos"})
+    listaPedidos = dados_json['listapedido']
 
     try:
         with connection.cursor() as cursor:
-            query = "INSERT INTO pedido (nome_produto, quantidade_produto, tamanho_produto, preco_produto, valor_total) VALUES (%s, %s, %s, %s, %s)"
+            query = "INSERT INTO ordem_pedido(cliente_idcliente, valor_total , valor_frete) VALUES (%s, %s, %s)"
             values = (
-                dados_json["nome_produto"],
-                dados_json["quantidade_produto"],
-                dados_json["tamanho_produto"],
-                dados_json["preco_produto"],
-                dados_json["valor_total"],
+                dados_json["idcliente"],
+                dados_json["valortotalpedido"],
+                dados_json["valorfrete"],
             )
             cursor.execute(query, values)
             connection.commit()
+
+            id_inserido = cursor.lastrowid
+
+            for item in listaPedidos:
+                print(item)
+                query = "INSERT INTO produto_ordem_pedido(ordem_pedido_id, idproduto, quantidadeproduto, subtotal) VALUES (%s, %s, %s, %s)"
+                values = (
+                    id_inserido,
+                    item['idproduto'],
+                    item['quantidadeproduto'],
+                    item['subtotal']
+                )
+                cursor.execute(query, values)
+
+            connection.commit()
+
             return jsonify({"mensagem": "Produto adicionado com sucesso"})
     except Exception as e:
         return jsonify({"erro": f"Erro ao adicionar produto: {str(e)}"})
