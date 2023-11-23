@@ -6,18 +6,23 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class MovimentacaoService {
-  private apiUrl = 'http://localhost:5000/admin/movimentacao/saida';
+  private apiUrlMovimentacao = 'http://localhost:5000/admin/movimentacao/saida';
+  private apiUrlEstoque = 'http://localhost:5000/admin/estoque';
 
   constructor(private http: HttpClient) { }
   listaSaidaProdutos1: any = [];
 
   getMovimentacaoSaida(): Observable<any> {
-    return this.http.get(this.apiUrl).pipe(
+    return this.http.get(this.apiUrlMovimentacao).pipe(
       tap((dados: any) => {
         this.listaSaidaProdutos1 = dados.movimentacao_saida;
         // console.log(this.listaSaidaProdutos1);
       }),
     );
+  }
+
+  getEstoqueProdutos(): Observable<any> {
+    return this.http.get(this.apiUrlEstoque);
   }
 
   listaSaidaProdutos: any = [

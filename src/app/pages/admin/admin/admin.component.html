@@ -2,41 +2,25 @@
   <div class="box">
     <h1>Controle De Estoque - LabTech</h1>
     <div class="menu-bar">
-      <p
-        class="itens-menu-bar"
-        (click)="mudarAba('inicio')"
-        [ngStyle]="{
+      <p class="itens-menu-bar" (click)="mudarAba('inicio')" [ngStyle]="{
           'border-bottom': inicioAtivo ? '2px solid black' : 'none'
-        }"
-      >
+        }">
         Incial
       </p>
 
-      <p
-        class="itens-menu-bar"
-        (click)="mudarAba('cadastro')"
-        [ngStyle]="{
+      <p class="itens-menu-bar" (click)="mudarAba('cadastro')" [ngStyle]="{
           'border-bottom': cadastroAtivo ? '2px solid black' : 'none'
-        }"
-      >
+        }">
         Cadastro
       </p>
-      <p
-        class="itens-menu-bar"
-        (click)="mudarAba('movimentacao')"
-        [ngStyle]="{
+      <p class="itens-menu-bar" (click)="mudarAba('movimentacao')" [ngStyle]="{
           'border-bottom': movimentacaoAtivo ? '2px solid black' : 'none'
-        }"
-      >
+        }">
         Movimentações
       </p>
-      <p
-        class="itens-menu-bar"
-        (click)="mudarAba('estoque')"
-        [ngStyle]="{
+      <p class="itens-menu-bar" (click)="mudarAba('estoque')" [ngStyle]="{
           'border-bottom': estoqueAtivo ? '2px solid black' : 'none'
-        }"
-      >
+        }">
         Estoque
       </p>
     </div>
@@ -54,7 +38,7 @@
             <th>Nome/Produto</th>
             <th>Quantidade</th>
             <th>Custo Unitário</th>
-            <th>Armazenagem</th>
+            <th>SubTotal</th>
           </tr>
         </thead>
         <tbody *ngFor="let item of listaProdutosSaida">
@@ -63,13 +47,32 @@
             <td>{{ item.classificacao }}</td>
             <td>{{ item.nome }}</td>
             <td>{{ item.quantidade }}</td>
+            <td>{{ item.quantidade }}</td>
             <td>{{ item.custoUnitario }}</td>
-            <td>Interna</td>
+            <td>{{ item.subtotal }}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="" *ngIf="estoqueAtivo">Estoque</div>
+    <div class="tabela-estoque" *ngIf="estoqueAtivo">
+      <thead>
+        <tr>
+          <th>Nome produto</th>
+          <th>Quantidade em estoque</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of listaProdutoEstoque">
+        <tr>
+          <td>{{ item.nome }}</td>
+          <td *ngIf="item.quantidade < 15" style="color: red">
+            {{ item.quantidade }}
+          </td>
+          <td *ngIf="item.quantidade >= 15" style="color: green">
+            {{ item.quantidade }}
+          </td>
+        </tr>
+      </tbody>
+    </div>
   </div>
 </div>

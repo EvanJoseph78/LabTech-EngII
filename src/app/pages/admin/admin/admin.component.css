@@ -55,3 +55,27 @@
   text-align: left; /* Alinhamento do texto (ajuste conforme necessário) */
   border: 1px solid black;
 }
+
+.tabela-estoque {
+  margin-top: 50px;
+}
+
+.tabela-estoque > table {
+  font-size: 12px;
+  width: 100%;
+  table-layout: fixed; /* Define o layout da tabela como fixo */
+  /* border: 1px solid #000; */
+  padding: 8px;
+}
+
+.tabela-estoque th {
+  background: rgba(255, 164, 28, 0.7);
+}
+
+.tabela-estoque th,
+.tabela-estoque td {
+  width: 3.33%; /* Divide igualmente entre as três colunas (ajuste conforme necessário) */
+  padding: 8px;
+  text-align: left; /* Alinhamento do texto (ajuste conforme necessário) */
+  border: 1px solid black;
+}

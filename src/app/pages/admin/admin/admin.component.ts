@@ -8,18 +8,15 @@ import { MovimentacaoService } from 'src/app/shared/service/movimentacao.service
 })
 export class AdminComponent {
   listaProdutosSaida: any = [];
+  listaProdutoEstoque: any = [];
   inicioAtivo: boolean = true;
   cadastroAtivo: boolean = false;
   movimentacaoAtivo: boolean = false;
   estoqueAtivo: boolean = false;
 
   constructor(private movimentacaoService: MovimentacaoService) {
-    this.listaProdutosSaida = movimentacaoService.listaSaidaProdutos;
+    // this.listaProdutosSaida = movimentacaoService.listaSaidaProdutos;
     // console.log(this.listaProdutosSaida);
-    this.movimentacaoService.getMovimentacaoSaida().subscribe((dados) => {
-      console.log(dados.movimentacao_saida);
-      this.listaProdutosSaida = dados.movimentacao_saida;
-    });
   }
 
   mudarAba(aba: string) {
@@ -36,9 +33,19 @@ export class AdminComponent {
         this.cadastroAtivo = true;
         break;
       case 'movimentacao':
+        this.movimentacaoService.getMovimentacaoSaida().subscribe((dados) => {
+          console.log(dados.movimentacao_saida);
+          this.listaProdutosSaida = dados.movimentacao_saida;
+        });
         this.movimentacaoAtivo = true;
         break;
       case 'estoque':
+        this.movimentacaoService.getEstoqueProdutos().subscribe((dados) => {
+          console.log(dados.estoque_produtos);
+          console.log(this.listaProdutoEstoque);
+          this.listaProdutoEstoque = dados.estoque_produtos;
+          console.log(this.listaProdutoEstoque[0].nome);
+        });
         this.estoqueAtivo = true;
         break;
       default:

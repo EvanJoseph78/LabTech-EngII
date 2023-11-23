@@ -206,6 +206,39 @@ def select_from_movimentacao_saida():
             cursor.close()
 
 
+def select_from_produto_estoque():
+    cursor = connection.cursor()
+    try:
+        cursor.execute(
+            "SELECT nome, quantidade FROM produto;")
+        records = cursor.fetchall()
+        print("Total number of rows in produto is: ", cursor.rowcount)
+
+        print("\nPrinting each produto record")
+
+        listaprodutos = []
+
+        for row in records:
+            listaprodutos.append(
+                {
+                    "nome": row[0],
+                    "quantidade": row[1],
+                },
+            )
+
+        return listaprodutos
+    except Exception as e:
+        return jsonify({"erro": f"Erro ao obter dados de produto: {str(e)}"})
+    finally:
+        if connection.is_connected():
+            cursor.close()
+
+
+@app.route("/admin/estoque", methods=['GET'])
+def get_produto_estoque():
+    return jsonify(estoque_produtos=select_from_produto_estoque())
+
+
 @app.route("/admin/movimentacao/saida", methods=['GET'])
 def get_movimentacao_saida():
     return jsonify(movimentacao_saida=select_from_movimentacao_saida())
