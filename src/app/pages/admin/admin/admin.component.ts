@@ -15,7 +15,11 @@ export class AdminComponent {
 
   constructor(private movimentacaoService: MovimentacaoService) {
     this.listaProdutosSaida = movimentacaoService.listaSaidaProdutos;
-    console.log(this.listaProdutosSaida);
+    // console.log(this.listaProdutosSaida);
+    this.movimentacaoService.getMovimentacaoSaida().subscribe((dados) => {
+      console.log(dados.movimentacao_saida);
+      this.listaProdutosSaida = dados.movimentacao_saida;
+    });
   }
 
   mudarAba(aba: string) {

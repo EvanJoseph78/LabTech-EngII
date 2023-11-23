@@ -189,11 +189,11 @@ def select_from_movimentacao_saida():
         for row in records:
             listaprodutos.append(
                 {
-                    "data_pedido": row[0],
+                    "data": row[0],
                     "classificacao": row[1],
                     "nome": row[2],
                     "quantidade": row[3],
-                    "custo_unitario": row[4],
+                    "custoUnitario": row[4],
                     "subtotal": row[5],
                 },
             )
