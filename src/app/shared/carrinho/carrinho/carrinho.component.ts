@@ -13,6 +13,7 @@ export class CarrinhoComponent implements DoCheck {
   carrinhoAtivo: boolean = false;
   isUserLogado: boolean = true;
   compraFinalizada: boolean = false;
+  carrinhoVazio: boolean = false;
 
   ordemDePedido: OrdemPedido = {
     client_id: 0,
@@ -68,17 +69,31 @@ export class CarrinhoComponent implements DoCheck {
       });
 
       if (this.carrinhoService.getClientId() > 0) {
-        console.log(this.carrinhoService.getClientId());
-        this.carrinhoService.criarPedido(novoPedido);
-        this.compraFinalizada = true;
+        // verifica se o carrinho está vazio
+        if (this.ordemDePedido.lista_produtos.length == 0) {
+          this.carrinhoVazio = true;
+        } else {
+          this.carrinhoVazio = false;
+          this.carrinhoService.criarPedido(novoPedido).subscribe((res) => {
+            console.log(res);
+          });
+          this.compraFinalizada = true;
+        }
         setTimeout(() => {
-          this.ordemDePedido.lista_produtos = [];
+          this.router.navigate(['/produtos']);
         }, 1000);
       } else {
         this.isUserLogado = false;
         setTimeout(() => {
           this.carrinhoService.getEstadoCarrinho();
           this.router.navigate(['/login']);
+        }, 1000);
+      }
+
+      if (this.isUserLogado && this.compraFinalizada) {
+        setTimeout(() => {
+          this.ordemDePedido.lista_produtos = [];
+          this.carrinhoService.getEstadoCarrinho();
         }, 1000);
       }
     });

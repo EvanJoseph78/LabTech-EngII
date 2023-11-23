@@ -62,13 +62,15 @@
 }
 
 .botao-comprar {
+  cursor: pointer;
   margin-top: 25px;
   height: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 25px;
   background: #ffa41c;
+  transition: background 0.3s ease; /* Transição suave de cor em 0.3 segundos com aceleração suave */
 }
 
 .botao-comprar:hover {
