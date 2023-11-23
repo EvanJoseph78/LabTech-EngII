@@ -175,6 +175,42 @@ def select_from_produto():
             cursor.close()
 
 
+def select_from_movimentacao_saida():
+    cursor = connection.cursor()
+    try:
+        cursor.execute("SELECT * FROM movimentacao_saida;")
+        records = cursor.fetchall()
+        print("Total number of rows in produto is: ", cursor.rowcount)
+
+        print("\nPrinting each produto record")
+
+        listaprodutos = []
+
+        for row in records:
+            listaprodutos.append(
+                {
+                    "data_pedido": row[0],
+                    "classificacao": row[1],
+                    "nome": row[2],
+                    "quantidade": row[3],
+                    "custo_unitario": row[4],
+                    "subtotal": row[5],
+                },
+            )
+
+        return listaprodutos
+    except Exception as e:
+        return jsonify({"erro": f"Erro ao obter dados de produto: {str(e)}"})
+    finally:
+        if connection.is_connected():
+            cursor.close()
+
+
+@app.route("/admin/movimentacao/saida", methods=['GET'])
+def get_movimentacao_saida():
+    return jsonify(movimentacao_saida=select_from_movimentacao_saida())
+
+
 @app.route("/produtos", methods=['GET'])
 def get_produtos():
     return jsonify(produtos=select_from_produto())
