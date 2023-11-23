@@ -27,7 +27,11 @@ export class CarrinhoService {
   // Declara uma propriedade carrinhoAtivo do tipo Observable que os componentes podem assinar
   carrinhoAtivo: Observable<boolean> = this.carrinhoAtivoSubject.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
+
+  getClientId(): number {
+    return this.listaPedidos.value.client_id;
+  }
 
   criarPedido(pedido: Pedido): Observable<any> {
     return this.http.post(this.apiUrl, pedido);

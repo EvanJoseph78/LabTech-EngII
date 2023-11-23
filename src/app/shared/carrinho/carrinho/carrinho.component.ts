@@ -1,13 +1,8 @@
-import {
-  Component,
-  DoCheck,
-  ElementRef,
-  HostListener,
-  Renderer2,
-} from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { CarrinhoService } from '../../service/carrinho.service';
 import { OrdemPedido } from '../../models/ordemPedidoModel';
 import { Pedido } from '../../models/pedidoModel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrinho',
@@ -17,6 +12,7 @@ import { Pedido } from '../../models/pedidoModel';
 export class CarrinhoComponent implements DoCheck {
   carrinhoAtivo: boolean = false;
   isUserLogado: boolean = true;
+  compraFinalizada: boolean = false;
 
   ordemDePedido: OrdemPedido = {
     client_id: 0,
@@ -30,7 +26,7 @@ export class CarrinhoComponent implements DoCheck {
 
   constructor(
     private carrinhoService: CarrinhoService,
-    private elRef: ElementRef,
+    private router: Router,
   ) {
     this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
       this.ordemDePedido = listaPedidos;
@@ -69,17 +65,22 @@ export class CarrinhoComponent implements DoCheck {
           subtotal: element.subtotal,
         };
         novoPedido.listapedido.push(aux);
-        console.log(novoPedido);
       });
 
-      console.log('Produto inserido no banco');
-      this.carrinhoService.criarPedido(novoPedido).subscribe((res) => {
-        if (res.erro) {
-          console.log('Você precisa estar logado para realizar um pedido!');
-          this.isUserLogado = false;
-        } else {
-        }
-      });
+      if (this.carrinhoService.getClientId() > 0) {
+        console.log(this.carrinhoService.getClientId());
+        this.carrinhoService.criarPedido(novoPedido);
+        this.compraFinalizada = true;
+        setTimeout(() => {
+          this.ordemDePedido.lista_produtos = [];
+        }, 1000);
+      } else {
+        this.isUserLogado = false;
+        setTimeout(() => {
+          this.carrinhoService.getEstadoCarrinho();
+          this.router.navigate(['/login']);
+        }, 1000);
+      }
     });
   }
 }
