@@ -16,6 +16,7 @@ import { Pedido } from '../../models/pedidoModel';
 })
 export class CarrinhoComponent implements DoCheck {
   carrinhoAtivo: boolean = false;
+  isUserLogado: boolean = true;
 
   ordemDePedido: OrdemPedido = {
     client_id: 0,
@@ -65,14 +66,20 @@ export class CarrinhoComponent implements DoCheck {
           idproduto: element.produto_id,
           quantidadeproduto: element.quantidade_produto,
           // precoproduto: element.preco_produto,
-          // subtotal: element.subtotal,
+          subtotal: element.subtotal,
         };
         novoPedido.listapedido.push(aux);
         console.log(novoPedido);
       });
 
       console.log('Produto inserido no banco');
-      // this.carrinhoService.criarPedido(novoPedido).subscribe();
+      this.carrinhoService.criarPedido(novoPedido).subscribe((res) => {
+        if (res.erro) {
+          console.log('Você precisa estar logado para realizar um pedido!');
+          this.isUserLogado = false;
+        } else {
+        }
+      });
     });
   }
 }

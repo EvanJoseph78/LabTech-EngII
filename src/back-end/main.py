@@ -1,5 +1,5 @@
 import mysql.connector
-from flask import Flask, jsonify, request, session, make_response
+from flask import Flask, jsonify, request, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 

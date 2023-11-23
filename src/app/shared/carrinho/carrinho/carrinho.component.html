@@ -9,16 +9,10 @@
       <p>SUBTOTAL</p>
     </div>
 
-    <app-produto-card
-      *ngFor="let produto of ordemDePedido.lista_produtos"
-      [nome_produto]="produto.nome_produto"
-      [srcImagem]="produto.imagem_produto"
-      [preco_produto]="produto.preco_produto"
-      [subtotal]="produto.subtotal"
-      [quantidade_produto]="produto.quantidade_produto"
-      [produto_id]="produto.produto_id"
-      [tamanho_produto]="produto.tamanho_produto"
-    ></app-produto-card>
+    <app-produto-card *ngFor="let produto of ordemDePedido.lista_produtos" [nome_produto]="produto.nome_produto"
+      [srcImagem]="produto.imagem_produto" [preco_produto]="produto.preco_produto" [subtotal]="produto.subtotal"
+      [quantidade_produto]="produto.quantidade_produto" [produto_id]="produto.produto_id"
+      [tamanho_produto]="produto.tamanho_produto"></app-produto-card>
 
     <div class="preco-parcial">
       <h5>SUBTOTAL (sem frete):</h5>
@@ -37,6 +31,9 @@
     <div class="botao-comprar" (click)="finalizarCompra()">
       FINALIZAR COMPRA
     </div>
+    <p style="color: red; text-align: center" *ngIf="!isUserLogado">
+      Você precisa estar logado para realizar um pedido!
+    </p>
     <input type="" name="" value="" />
   </div>
 </div>
