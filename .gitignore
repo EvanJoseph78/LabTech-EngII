@@ -5,8 +5,8 @@
 /tmp
 /out-tsc
 /bazel-out
-/src/back-end/path
-/src/back-end-evan/path
+/src/back-end/venv
+/src/back-end-evan/venv
 # Node
 /node_modules
 npm-debug.log

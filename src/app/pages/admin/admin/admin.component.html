@@ -65,7 +65,7 @@
         <tr>
           <td>{{ item.nome }}</td>
           <td *ngIf="item.quantidade < 15" style="color: red">
-            {{ item.quantidade }}
+            {{ item.quantidade }} - Estoque de produto baixo
           </td>
           <td *ngIf="item.quantidade >= 15" style="color: green">
             {{ item.quantidade }}
