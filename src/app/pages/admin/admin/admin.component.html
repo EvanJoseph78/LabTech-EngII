@@ -27,7 +27,80 @@
 
     <div class="" *ngIf="inicioAtivo">Inicio</div>
 
-    <div class="" *ngIf="cadastroAtivo">Cadastro</div>
+    <div class="" *ngIf="cadastroAtivo" class="tabela-cadastro">
+      <!-- <thead> -->
+      <!--   <tr> -->
+      <!--     <th>Campos</th> -->
+      <!--     <th>Dados novo produto</th> -->
+      <!--   </tr> -->
+      <!-- </thead> -->
+      <!-- <tbody> -->
+      <!--   <tr> -->
+      <!--     <td>Nome</td> -->
+      <!--     <td><input type="" name="" value="" /></td> -->
+      <!--   </tr> -->
+      <!--   <tr> -->
+      <!--     <td>Categoria</td> -->
+      <!--     <td><input type="" name="" value="" /></td> -->
+      <!--   </tr> -->
+      <!--   <tr> -->
+      <!--     <td>Preço</td> -->
+      <!--     <td><input type="" name="" value="" /></td> -->
+      <!--   </tr> -->
+      <!--   <tr> -->
+      <!--     <td>Quantidade</td> -->
+      <!--     <td><input type="" name="" value="" /></td> -->
+      <!--   </tr> -->
+      <!---->
+      <!--   <tr> -->
+      <!--     <td>Tamanho</td> -->
+      <!--     <td><input type="" name="" value="" /></td> -->
+      <!--   </tr> -->
+      <!---->
+      <!--   <tr> -->
+      <!--     <td>Url Imagem</td> -->
+      <!--     <td><input type="" name="" value="" /></td> -->
+      <!--   </tr> -->
+      <!---->
+      <!--   <tr> -->
+      <!--     <td>Peso</td> -->
+      <!--     <td><input type="" name="" value="" /></td> -->
+      <!--   </tr> -->
+      <!---->
+      <!--   <tr> -->
+      <!--     <td>Descrição</td> -->
+      <!--     <td><input type="" name="" value="" /></td> -->
+      <!--   </tr> -->
+      <!-- </tbody> -->
+
+      <!-- <div class="campo"> -->
+      <!--   <div>Nome do produto:</div> -->
+      <!--   <div>Nome do produto:</div> -->
+      <!-- </div> -->
+      <!-- <div class="dados-produto"> -->
+      <!--   <input type="text" name="" value="" placeholder="nome produto" /> -->
+      <!-- </div> -->
+
+      <div class="box-cadastro">
+        <div class="box-left">Nome Produto:</div>
+        <div class="box-right">
+          <input type="text" name="" value="evan" />
+        </div>
+      </div>
+
+      <div class="box-cadastro">
+        <div class="box-left">Categoria Produto:</div>
+        <div class="box-right">
+          <!-- <input type="text" name="" value="Protese" /> -->
+          <select id="produtos" name="produtos">
+            <option value="Prótese">Prótese</option>
+            <option value="Órtese">Órtese</option>
+            <option value="Calçado">Calçado</option>
+            <!-- Adicione mais opções conforme necessário -->
+          </select>
+        </div>
+      </div>
+    </div>
 
     <div class="tabela" *ngIf="movimentacaoAtivo">
       <table>

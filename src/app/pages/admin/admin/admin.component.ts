@@ -9,14 +9,13 @@ import { MovimentacaoService } from 'src/app/shared/service/movimentacao.service
 export class AdminComponent {
   listaProdutosSaida: any = [];
   listaProdutoEstoque: any = [];
-  inicioAtivo: boolean = true;
-  cadastroAtivo: boolean = false;
+  inicioAtivo: boolean = false;
+  cadastroAtivo: boolean = true;
   movimentacaoAtivo: boolean = false;
   estoqueAtivo: boolean = false;
 
   constructor(private movimentacaoService: MovimentacaoService) {
     // this.listaProdutosSaida = movimentacaoService.listaSaidaProdutos;
-    // console.log(this.listaProdutosSaida);
   }
 
   mudarAba(aba: string) {
