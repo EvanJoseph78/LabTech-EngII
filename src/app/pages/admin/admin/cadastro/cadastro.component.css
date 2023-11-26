@@ -87,3 +87,45 @@
   resize: none;
   outline: none;
 }
+
+.botoes {
+  /* background: red; */
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+}
+
+.botoes > button {
+  /* border: 1px solid black; */
+  cursor: pointer;
+}
+
+.botoes > button {
+  margin-top: 25px;
+  width: 150px;
+  height: 30px;
+  border-radius: 25px;
+  /* background: #ffa41c; */
+  cursor: pointer;
+  transition: background 0.3s ease; /* Transição suave de cor em 0.3 segundos com aceleração suave */
+}
+
+.limpar {
+  background-color: #f76;
+}
+
+.adicionar {
+  /* background: #93faa5; */
+  background: #ffa41c;
+}
+
+.limpar:hover {
+  background-color: #f76169;
+}
+
+.adicionar:hover {
+  background: #ff9100; /* Cor alternativa quando o mouse está sobre o botão */
+}

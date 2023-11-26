@@ -2,7 +2,7 @@
   <div class="box-cadastro">
     <div class="box-left">Nome Produto:</div>
     <div class="box-right">
-      <input type="text" name="" value="evan" />
+      <input type="text" name="" placeholder="Nome Produto" [(ngModel)]="nome" />
     </div>
   </div>
 
@@ -22,14 +22,14 @@
   <div class="box-cadastro">
     <div class="box-left">Preço Produto:</div>
     <div class="box-right">
-      <input type="text" name="" value="10.00" />
+      <input type="text" name="" value="" placeholder="R$" />
     </div>
   </div>
 
   <div class="box-cadastro">
     <div class="box-left">Quantidade Produto:</div>
     <div class="box-right">
-      <input type="text" name="" value="evan" />
+      <input type="text" name="" value="" placeholder="quantidade" />
     </div>
   </div>
 
@@ -38,9 +38,9 @@
     <div class="box-right">
       <!-- <input type="text" name="" value="Protese" /> -->
       <select id="produtos" name="produtos">
-        <option value="Prótese">P</option>
-        <option value="Órtese">M</option>
-        <option value="Calçado">L</option>
+        <option value="P">P</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
         <!-- Adicione mais opções conforme necessário -->
       </select>
     </div>
@@ -49,14 +49,14 @@
   <div class="box-cadastro">
     <div class="box-left">Imagem URL:</div>
     <div class="box-right">
-      <input type="text" name="" value="link" />
+      <input type="text" name="" value="" placeholder="link" />
     </div>
   </div>
 
   <div class="box-cadastro">
     <div class="box-left">Peso Produto:</div>
     <div class="box-right">
-      <input type="text" name="" value="10kg" />
+      <input type="text" name="" value="" placeholder="kg" />
     </div>
   </div>
 
@@ -65,5 +65,10 @@
     <div class="box-right">
       <textarea id="comentario" name="comentario" rows="4" cols="50" placeholder="Descrição do produto"></textarea>
     </div>
+  </div>
+
+  <div class="botoes">
+    <button type="" class="limpar">Limpar Campos</button>
+    <button type="" class="adicionar">Adicionar Produto</button>
   </div>
 </div>
