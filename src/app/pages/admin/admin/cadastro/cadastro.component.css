@@ -14,14 +14,17 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  border: 1px solid black;
   /* border: 1px solid black; */
   /* background: red; */
 }
 
 .box-left {
-  width: 33%;
-  border: 1px solid black;
-  padding: 7.5px 8px;
+  width: 20%;
+  border-right: 1px solid black;
+  /* padding: 7.5px 8px; */
+  padding: 10px;
+  background: rgba(255, 164, 28, 0.5);
 }
 
 .box-right {
@@ -35,10 +38,12 @@
   /* height: 100%; */
   width: 100%;
   border: none;
-  padding: 10px 10px;
+  /* padding: 10px 10px; */
+  padding: 10px;
   /* margin: 8px 0; */
   /* box-sizing: border-box; */
   border: 1px solid black;
+  border: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
@@ -46,6 +51,7 @@
 
 .box-right > input:focus {
   border: 1px solid blue;
+  border: none;
 }
 
 .box-right > select {
@@ -53,11 +59,31 @@
   /* height: 100%; */
   width: 100%;
   border: none;
-  padding: 9px 9px;
+  /* padding: 9px 9px; */
+  padding: 10px;
   /* margin: 8px 0; */
   /* box-sizing: border-box; */
   border: 1px solid black;
+  border: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  outline: none;
+}
+
+.box-right > textarea {
+  /* border: 1px solid red; */
+  /* height: 100%; */
+  width: 100%;
+  height: 40.5px;
+  border: none;
+  /* padding: 9px 9px; */
+  padding: 10px;
+  /* margin: 8px 0; */
+  /* box-sizing: border-box; */
+  /* border: 1px solid black; */
+  border: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  resize: none;
   outline: none;
 }
