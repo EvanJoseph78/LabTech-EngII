@@ -79,3 +79,21 @@
   text-align: left; /* Alinhamento do texto (ajuste conforme necessário) */
   border: 1px solid black;
 }
+
+.box-linha {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box-linha > button {
+  border: 1px solid black;
+  background: none;
+  padding: 1px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.box-linha > button:hover {
+  background: gray;
+  background-color: rgba(235, 144, 59, 0.5);
+}

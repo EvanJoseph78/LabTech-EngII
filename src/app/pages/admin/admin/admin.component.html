@@ -67,10 +67,22 @@
         <tr>
           <td>{{ item.nome }}</td>
           <td *ngIf="item.quantidade < 15" style="color: red">
-            {{ item.quantidade }} - Estoque de produto baixo
+            <div class="box-linha">
+              <p>{{ item.quantidade }} - Estoque de produto baixo</p>
+              <button type="" (click)="mostrarId(item.idproduto)">
+                Editar
+              </button>
+            </div>
           </td>
           <td *ngIf="item.quantidade >= 15" style="color: green">
-            {{ item.quantidade }}
+            <div class="box-linha">
+              <p>
+                {{ item.quantidade }}
+              </p>
+              <button type="" (click)="mostrarId(item.idproduto)">
+                Editar
+              </button>
+            </div>
           </td>
         </tr>
       </tbody>

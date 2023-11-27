@@ -237,7 +237,7 @@ def select_from_produto_estoque():
     cursor = connection.cursor()
     try:
         cursor.execute(
-            "SELECT nome, quantidade FROM produto;")
+            "SELECT idproduto, nome, quantidade FROM produto;")
         records = cursor.fetchall()
         print("Total number of rows in produto is: ", cursor.rowcount)
 
@@ -248,8 +248,9 @@ def select_from_produto_estoque():
         for row in records:
             listaprodutos.append(
                 {
-                    "nome": row[0],
-                    "quantidade": row[1],
+                    "idproduto": row[0],
+                    "nome": row[1],
+                    "quantidade": row[2]
                 },
             )
 

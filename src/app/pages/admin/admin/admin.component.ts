@@ -34,17 +34,23 @@ export class AdminComponent {
       case 'movimentacao':
         this.movimentacaoService.getMovimentacaoSaida().subscribe((dados) => {
           this.listaProdutosSaida = dados.movimentacao_saida;
+          // console.log(this.listaProdutosSaida);
         });
         this.movimentacaoAtivo = true;
         break;
       case 'estoque':
         this.movimentacaoService.getEstoqueProdutos().subscribe((dados) => {
           this.listaProdutoEstoque = dados.estoque_produtos;
+          console.log(this.listaProdutoEstoque);
         });
         this.estoqueAtivo = true;
         break;
       default:
         break;
     }
+  }
+
+  mostrarId(produtoid: string) {
+    console.log(produtoid);
   }
 }
