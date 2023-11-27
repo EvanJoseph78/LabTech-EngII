@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MovimentacaoService } from 'src/app/shared/service/movimentacao.service';
+import { ProdutosService } from 'src/app/shared/service/produtos.service';
 
 @Component({
   selector: 'app-admin',
@@ -13,8 +14,12 @@ export class AdminComponent {
   cadastroAtivo: boolean = true;
   movimentacaoAtivo: boolean = false;
   estoqueAtivo: boolean = false;
+  atualizarProdutoAtivo: boolean = false;
 
-  constructor(private movimentacaoService: MovimentacaoService) {
+  constructor(
+    private movimentacaoService: MovimentacaoService,
+    private produtoService: ProdutosService,
+  ) {
     // this.listaProdutosSaida = movimentacaoService.listaSaidaProdutos;
   }
 
@@ -27,9 +32,11 @@ export class AdminComponent {
     switch (aba) {
       case 'inicio':
         this.inicioAtivo = true;
+        this.atualizarProdutoAtivo = false;
         break;
       case 'cadastro':
         this.cadastroAtivo = true;
+        this.atualizarProdutoAtivo = false;
         break;
       case 'movimentacao':
         this.movimentacaoService.getMovimentacaoSaida().subscribe((dados) => {
@@ -37,6 +44,7 @@ export class AdminComponent {
           // console.log(this.listaProdutosSaida);
         });
         this.movimentacaoAtivo = true;
+        this.atualizarProdutoAtivo = false;
         break;
       case 'estoque':
         this.movimentacaoService.getEstoqueProdutos().subscribe((dados) => {
@@ -44,13 +52,26 @@ export class AdminComponent {
           console.log(this.listaProdutoEstoque);
         });
         this.estoqueAtivo = true;
+        this.atualizarProdutoAtivo = false;
+
+        this.produtoService.getListaProdutos().subscribe();
         break;
       default:
         break;
     }
   }
 
-  mostrarId(produtoid: string) {
-    console.log(produtoid);
+  editarProduto(produtoid: string) {
+    this.produtoService.getProducts().subscribe((dados) => {
+      const listaProdutos = dados.produtos;
+      for (let index = 0; index < listaProdutos.length; index++) {
+        const element = listaProdutos[index];
+        if (element.idproduto == produtoid) {
+          console.log(element);
+          this.estoqueAtivo = false;
+          this.atualizarProdutoAtivo = true;
+        }
+      }
+    });
   }
 }

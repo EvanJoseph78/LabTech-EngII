@@ -69,7 +69,7 @@
           <td *ngIf="item.quantidade < 15" style="color: red">
             <div class="box-linha">
               <p>{{ item.quantidade }} - Estoque de produto baixo</p>
-              <button type="" (click)="mostrarId(item.idproduto)">
+              <button type="" (click)="editarProduto(item.idproduto)">
                 Editar
               </button>
             </div>
@@ -79,13 +79,17 @@
               <p>
                 {{ item.quantidade }}
               </p>
-              <button type="" (click)="mostrarId(item.idproduto)">
+              <button type="" (click)="editarProduto(item.idproduto)">
                 Editar
               </button>
             </div>
           </td>
         </tr>
       </tbody>
+    </div>
+
+    <div class="atualizar-produto" *ngIf="atualizarProdutoAtivo">
+      <app-atualizar-produto> </app-atualizar-produto>
     </div>
   </div>
 </div>
