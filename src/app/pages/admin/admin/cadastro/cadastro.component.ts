@@ -40,10 +40,12 @@ export class CadastroComponent {
     };
 
     this.movimentacaoService.adicionarProduto(produto).subscribe((res) => {
+      console.log(res);
       if (res.mensagem == 'Produto adicionado com sucesso') {
         this.produtoInserido = true;
         setTimeout(() => {
           this.produtoInserido = false;
+          this.limparCampos();
         }, 3000);
       } else {
         this.produtoNaoInserido = true;

@@ -2,12 +2,12 @@
   <div class="box">
     <h1>Controle De Estoque - LabTech</h1>
     <div class="menu-bar">
-      <p class="itens-menu-bar" (click)="mudarAba('inicio')" [ngStyle]="{
-          'border-bottom': inicioAtivo ? '2px solid black' : 'none'
-        }">
-        Incial
-      </p>
-
+      <!-- <p class="itens-menu-bar" (click)="mudarAba('inicio')" [ngStyle]="{ -->
+      <!--     'border-bottom': inicioAtivo ? '2px solid black' : 'none' -->
+      <!--   }"> -->
+      <!--   Incial -->
+      <!-- </p> -->
+      <!---->
       <p class="itens-menu-bar" (click)="mudarAba('cadastro')" [ngStyle]="{
           'border-bottom': cadastroAtivo ? '2px solid black' : 'none'
         }">
@@ -25,7 +25,7 @@
       </p>
     </div>
 
-    <div class="" *ngIf="inicioAtivo">Inicio</div>
+    <!-- <div class="" *ngIf="inicioAtivo">Inicio</div> -->
 
     <div class="" *ngIf="cadastroAtivo" class="tabela-cadastro">
       <app-cadastro></app-cadastro>

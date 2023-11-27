@@ -1,13 +1,13 @@
 <div class="tabela-cadastro">
   <div class="box-cadastro">
-    <div class="box-left">Nome Produto:</div>
+    <div class="box-left descricao-produto">Nome Produto:</div>
     <div class="box-right">
       <input type="text" name="" placeholder="Nome Produto" [(ngModel)]="nome" />
     </div>
   </div>
 
   <div class="box-cadastro">
-    <div class="box-left">Categoria Produto:</div>
+    <div class="box-left descricao-produto">Categoria Produto:</div>
     <div class="box-right">
       <!-- <input type="text" name="" value="Protese" /> -->
       <select id="produtos" name="produtos" [(ngModel)]="categoria">
@@ -20,21 +20,21 @@
   </div>
   <!-- {{ valorMaisFrete | currency: "BRL" : "symbol" : "1.2-2" }} -->
   <div class="box-cadastro">
-    <div class="box-left">Preço Produto:</div>
+    <div class="box-left descricao-produto">Preço Produto:</div>
     <div class="box-right">
       <input type="number" name="" value="" placeholder="R$" [(ngModel)]="valor" />
     </div>
   </div>
 
   <div class="box-cadastro">
-    <div class="box-left">Quantidade Produto:</div>
+    <div class="box-left descricao-produto">Quantidade Produto:</div>
     <div class="box-right">
       <input type="number" name="" value="" placeholder="quantidade" [(ngModel)]="quantidade" />
     </div>
   </div>
 
   <div class="box-cadastro">
-    <div class="box-left">Tamanho Produto:</div>
+    <div class="box-left descricao-produto">Tamanho Produto:</div>
     <div class="box-right">
       <select id="produtos" name="produtos" [(ngModel)]="tamanho">
         <option value="P">P</option>
@@ -45,20 +45,20 @@
   </div>
 
   <div class="box-cadastro">
-    <div class="box-left">Imagem URL:</div>
+    <div class="box-left descricao-produto">Imagem URL:</div>
     <div class="box-right">
       <input type="text" name="" value="" placeholder="link" [(ngModel)]="urlimg" />
     </div>
   </div>
 
   <div class="box-cadastro">
-    <div class="box-left">Peso Produto:</div>
+    <div class="box-left descricao-produto">Peso Produto:</div>
     <div class="box-right">
       <input type="number" name="" value="" placeholder="kg" [(ngModel)]="peso" />
     </div>
   </div>
 
-  <div class="box-cadastro">
+  <div class="box-cadastro descricao-produto">
     <div class="box-left">Descrição Produto:</div>
     <div class="box-right">
       <textarea id="comentario" name="comentario" rows="4" cols="50" placeholder="Descrição do produto"
