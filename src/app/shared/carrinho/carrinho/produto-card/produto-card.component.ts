@@ -43,16 +43,20 @@ export class ProdutoCardComponent implements DoCheck {
       for (let index = 0; index < listaPedidos.lista_produtos.length; index++) {
         const element = listaPedidos.lista_produtos[index];
         if (element.produto_id == this.produto_id) {
-          this.listaProdutos.forEach((element) => {
-            if (Number(element.idproduto) == this.produto_id) {
-              this.quantidade_produto_estoque = element.quantidade;
-            }
-          });
+          this.quantidade_produto_estoque =
+            this.produtoService.getEstoqueProduto(this.produto_id);
+          console.log(this.quantidade_produto_estoque);
+
+          // this.listaProdutos.forEach((element) => {
+          //   if (Number(element.idproduto) == this.produto_id) {
+          //     this.quantidade_produto_estoque = element.quantidade;
+          //   }
+          // });
 
           if (
             acao == 'aumentar' &&
             !(
-              listaPedidos.lista_produtos[index].quantidade_produto >
+              listaPedidos.lista_produtos[index].quantidade_produto >=
               this.quantidade_produto_estoque
             )
           ) {

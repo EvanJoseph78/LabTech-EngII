@@ -38,4 +38,15 @@ export class ProdutosService {
     // Emita o valor usando BehaviorSubject para os assinantes
     this.nomeProdutoPesquisar.next(valorPesquisa);
   }
+
+  getEstoqueProduto(id: number): number {
+    let quantidade: number = 0;
+    const listaProdutos = this.listaProdutos.value;
+    listaProdutos.forEach((element) => {
+      if (Number(element.idproduto) == id) {
+        quantidade = Number(element.quantidade);
+      }
+    });
+    return Number(quantidade);
+  }
 }

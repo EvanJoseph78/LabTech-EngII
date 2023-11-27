@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, DoCheck, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Produto } from 'src/app/shared/models/produtos.model';
@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   templateUrl: './produto-page-info.component.html',
   styleUrls: ['./produto-page-info.component.css'],
 })
-export class ProdutoPageInfoComponent {
+export class ProdutoPageInfoComponent implements DoCheck {
   @Input()
   nomeProduto: string = '';
   @Input()
@@ -35,7 +35,7 @@ export class ProdutoPageInfoComponent {
 
   tamanhoProduto: string = 'P';
   quantidade: number = 1;
-  quantidadeDisponivel: number = 10;
+  quantidadeDisponivel: number = 1;
   carrinhoAtivo: boolean = false;
   novoProduto: Object = {};
 
@@ -51,9 +51,16 @@ export class ProdutoPageInfoComponent {
     this.produtoService.getProducts().subscribe((dados) => {
       this.produto = dados.produtos[Number(this.id) - 1];
       this.descricaoProduto = dados.produtos[Number(this.id) - 1].descricao;
-      this.quantidadeDisponivel =
-        dados.produtos[Number(this.id) - 1].quantidade;
+      // this.quantidadeDisponivel =
+      // dados.produtos[Number(this.id) - 1].quantidade;
     });
+    // this.produtoService.getEstoqueProduto(Number(this.id));
+  }
+
+  ngDoCheck(): void {
+    this.quantidadeDisponivel = this.produtoService.getEstoqueProduto(
+      Number(this.id),
+    );
   }
 
   carregarImagemPadrao() {
@@ -110,8 +117,14 @@ export class ProdutoPageInfoComponent {
           ) {
             const element = listaPedidos.lista_produtos[index];
             if ((element.produto_id = Number(this.id))) {
-              element.quantidade_produto =
-                element.quantidade_produto + this.quantidade;
+              let soma = element.quantidade_produto + this.quantidade;
+              if (soma > this.quantidadeDisponivel) {
+                console.log('Quantidade indisponivel');
+                element.quantidade_produto = this.quantidadeDisponivel;
+              } else {
+                element.quantidade_produto = soma;
+              }
+
               element.subtotal =
                 element.quantidade_produto * this.produto.valor;
               listaPedidos.valor_total =
