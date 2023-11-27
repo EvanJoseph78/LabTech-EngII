@@ -74,4 +74,12 @@
       Adicionar Produto
     </button>
   </div>
+
+  <p class="alert" *ngIf="produtoNaoInserido" style="color: red">
+    algo deu errado ao tentar inserir produto!
+  </p>
+
+  <p class="alert" *ngIf="produtoInserido" style="color: green">
+    Produto adicionado com sucesso!
+  </p>
 </div>

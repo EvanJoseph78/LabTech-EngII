@@ -8,7 +8,10 @@ import { MovimentacaoService } from 'src/app/shared/service/movimentacao.service
   styleUrls: ['./cadastro.component.css'],
 })
 export class CadastroComponent {
-  constructor(private movimentacaoService: MovimentacaoService) { }
+  produtoNaoInserido: boolean = false;
+  produtoInserido: boolean = false;
+
+  constructor(private movimentacaoService: MovimentacaoService) {}
 
   categoria: string = 'Prótese';
   descricao: string =
@@ -24,17 +27,6 @@ export class CadastroComponent {
   valor: string = '921.32';
 
   adicionarProduto() {
-    const dados = {
-      nome: this.nome,
-      categoria: this.categoria,
-      valor: this.valor,
-      quantidade: this.quantidade,
-      tamanho: this.tamanho,
-      urlimg: this.urlimg,
-      peso: this.peso,
-      descricao: this.descricao,
-    };
-
     const produto: Produto = {
       nome: this.nome,
       descricao: this.descricao,
@@ -48,7 +40,17 @@ export class CadastroComponent {
     };
 
     this.movimentacaoService.adicionarProduto(produto).subscribe((res) => {
-      console.log(res);
+      if (res.mensagem == 'Produto adicionado com sucesso') {
+        this.produtoInserido = true;
+        setTimeout(() => {
+          this.produtoInserido = false;
+        }, 3000);
+      } else {
+        this.produtoNaoInserido = true;
+        setTimeout(() => {
+          this.produtoNaoInserido = false;
+        }, 3000);
+      }
     });
   }
 
