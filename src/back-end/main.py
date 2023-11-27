@@ -140,6 +140,33 @@ def select_from_pedidos():
             cursor.close()
 
 
+@app.route("/admin/adicionar/produto", methods=['POST'])
+def adicionar_produto():
+    dados_json = request.get_json()
+
+    try:
+        with connection.cursor() as cursor:
+            query = "INSERT INTO produto(nome, valor , peso, descricao, tamanho, quantidade, urlimg, categoriaProduto) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+            values = (
+                dados_json["nome"],
+                dados_json["valor"],
+                dados_json["peso"],
+                dados_json["descricao"],
+                dados_json["tamanho"],
+                dados_json["quantidade"],
+                dados_json["urlimg"],
+                dados_json["categoria"],
+            )
+
+            cursor.execute(query, values)
+
+            connection.commit()
+
+            return jsonify({"mensagem": "Produto adicionado com sucesso"})
+    except Exception as e:
+        return jsonify({"erro": f"Erro ao adicionar produto: {str(e)}"})
+
+
 def select_from_produto():
     cursor = connection.cursor()
     try:
