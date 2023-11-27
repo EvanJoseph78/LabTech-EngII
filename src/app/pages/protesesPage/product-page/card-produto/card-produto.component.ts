@@ -17,9 +17,7 @@ export class CardProdutoComponent {
   parcelaProduto: number = 0;
   precoProdutoParcelado: number = 0;
 
-  constructor() {
-    // console.log(this.imagemProduto);
-  }
+  constructor() { }
 
   ngOnChanges() {
     if (this.produtoPreco <= 100) {

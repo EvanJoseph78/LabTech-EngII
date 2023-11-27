@@ -29,16 +29,12 @@ export class CarrinhoComponent implements DoCheck {
     private carrinhoService: CarrinhoService,
     private router: Router,
   ) {
-    this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
-      this.ordemDePedido = listaPedidos;
-    });
+    this.ordemDePedido = this.carrinhoService.obterListaPedido();
   }
 
   ngDoCheck(): void {
-    this.carrinhoService.getValorTotalPedido().subscribe((valorTotal) => {
-      this.valorMaisFrete = valorTotal;
-      this.valorSemFrete = valorTotal;
-    });
+    this.valorMaisFrete = this.carrinhoService.obterValorTotalPedido() + 10;
+    this.valorSemFrete = this.carrinhoService.obterValorTotalPedido();
   }
 
   abrirCarrinhoDeCompras() {
@@ -78,6 +74,7 @@ export class CarrinhoComponent implements DoCheck {
             console.log(res);
           });
           this.compraFinalizada = true;
+          console.log('Compra finalizada produto inserido');
         }
         setTimeout(() => {
           this.router.navigate(['/produtos']);

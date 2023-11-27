@@ -33,17 +33,13 @@ export class AdminComponent {
         break;
       case 'movimentacao':
         this.movimentacaoService.getMovimentacaoSaida().subscribe((dados) => {
-          console.log(dados.movimentacao_saida);
           this.listaProdutosSaida = dados.movimentacao_saida;
         });
         this.movimentacaoAtivo = true;
         break;
       case 'estoque':
         this.movimentacaoService.getEstoqueProdutos().subscribe((dados) => {
-          console.log(dados.estoque_produtos);
-          console.log(this.listaProdutoEstoque);
           this.listaProdutoEstoque = dados.estoque_produtos;
-          console.log(this.listaProdutoEstoque[0].nome);
         });
         this.estoqueAtivo = true;
         break;

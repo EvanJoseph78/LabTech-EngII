@@ -35,7 +35,7 @@ export class SignupPageComponent {
   constructor(
     private cadastroService: CadastroService,
     private router: Router,
-  ) {}
+  ) { }
 
   criarConta() {
     this.nomeValido = this.validaNome();

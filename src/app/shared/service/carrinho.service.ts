@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, elementAt } from 'rxjs';
 import { OrdemPedido } from '../models/ordemPedidoModel';
 import { map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -81,11 +81,19 @@ export class CarrinhoService {
   }
 
   definirClientId(clientId: number): void {
-    // Obtém o valor atual do BehaviorSubject
-    const valorAtual = this.listaPedidos.value;
-    // Modifica o client_id
-    const novaOrdemPedido: OrdemPedido = { ...valorAtual, client_id: clientId };
-    // Emite o novo valor
-    this.listaPedidos.next(novaOrdemPedido);
+    this.listaPedidos.value.client_id = clientId;
+  }
+
+  obterValorTotalPedido(): number {
+    const valor = this.listaPedidos.value;
+    let soma = 0;
+    valor.lista_produtos.forEach((element) => {
+      soma += element.subtotal;
+    });
+    return soma;
+  }
+
+  obterListaPedido(): OrdemPedido {
+    return this.listaPedidos.value;
   }
 }
