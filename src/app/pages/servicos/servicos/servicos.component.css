@@ -9,6 +9,8 @@
 
 .servico > h3 {
   text-align: justify; /* Justifica o texto */
+  font-weight: 100;
+  margin-bottom: 15px;
 }
 
 .servico {
