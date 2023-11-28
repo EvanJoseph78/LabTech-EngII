@@ -8,8 +8,8 @@ import { ProdutosService } from 'src/app/shared/service/produtos.service';
   styleUrls: ['./atualizar-produto.component.css'],
 })
 export class AtualizarProdutoComponent {
-  produtoNaoInserido: boolean = false;
-  produtoInserido: boolean = false;
+  produtoNaoAtualizado: boolean = false;
+  produtoAtualizado: boolean = false;
   @Input()
   categoria: string = 'Prótese';
   @Input()
@@ -71,6 +71,19 @@ export class AtualizarProdutoComponent {
     };
     this.produtoService.atualizarProduto(this.produto).subscribe((dados) => {
       console.log(dados);
+
+      if (dados.mensagem == 'Produto atualizado com sucesso') {
+        this.produtoAtualizado = true;
+        setTimeout(() => {
+          this.produtoAtualizado = false;
+          this.limparCampos();
+        }, 3000);
+      } else {
+        this.produtoNaoAtualizado = true;
+        setTimeout(() => {
+          this.produtoAtualizado = false;
+        }, 3000);
+      }
     });
   }
 }
