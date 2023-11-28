@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MovimentacaoService } from 'src/app/shared/service/movimentacao.service';
 import { ProdutosService } from 'src/app/shared/service/produtos.service';
+import { Produto } from 'src/app/shared/models/produtos.model';
 
 @Component({
   selector: 'app-admin',
@@ -15,6 +16,17 @@ export class AdminComponent {
   movimentacaoAtivo: boolean = false;
   estoqueAtivo: boolean = false;
   atualizarProdutoAtivo: boolean = false;
+  produto: Produto = {
+    nome: '',
+    descricao: '',
+    idproduto: '',
+    peso: '',
+    quantidade: 0,
+    tamanho: '',
+    urlimg: '',
+    valor: 0,
+    categoria: '',
+  };
 
   constructor(
     private movimentacaoService: MovimentacaoService,
@@ -67,7 +79,7 @@ export class AdminComponent {
       for (let index = 0; index < listaProdutos.length; index++) {
         const element = listaProdutos[index];
         if (element.idproduto == produtoid) {
-          console.log(element);
+          this.produto = element;
           this.estoqueAtivo = false;
           this.atualizarProdutoAtivo = true;
         }

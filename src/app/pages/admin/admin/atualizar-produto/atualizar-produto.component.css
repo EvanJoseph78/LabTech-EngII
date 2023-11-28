@@ -1,0 +1,141 @@
+.tabela-cadastro {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 35px;
+}
+
+.box-cadastro {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 1px solid black;
+  /* border: 1px solid black; */
+  /* background: red; */
+}
+
+.box-left {
+  width: 20%;
+  /* padding: 7.5px 8px; */
+  padding: 10px;
+  /* background: rgba(255, 164, 28, 0.5); */
+}
+
+.box-right {
+  width: 100%;
+  display: flex;
+  /* border: 1px solid blue; */
+}
+
+.box-right > input {
+  /* border: 1px solid red; */
+  /* height: 100%; */
+  width: 100%;
+  border: none;
+  /* padding: 10px 10px; */
+  padding: 10px;
+  /* margin: 8px 0; */
+  /* box-sizing: border-box; */
+  border: 1px solid black;
+  border: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+.box-right > input:focus {
+  border: 1px solid blue;
+  border: none;
+}
+
+.box-right > select {
+  /* border: 1px solid red; */
+  /* height: 100%; */
+  width: 100%;
+  border: none;
+  /* padding: 9px 9px; */
+  padding: 10px;
+  /* margin: 8px 0; */
+  /* box-sizing: border-box; */
+  border: 1px solid black;
+  border: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+.box-right > textarea {
+  /* border: 1px solid red; */
+  /* height: 100%; */
+  width: 100%;
+  height: 40.5px;
+  height: 60.5px;
+  border: none;
+  /* padding: 9px 9px; */
+  padding: 10px;
+  /* margin: 8px 0; */
+  /* box-sizing: border-box; */
+  /* border: 1px solid black; */
+  border: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  resize: none;
+  outline: none;
+}
+
+.botoes {
+  /* background: red; */
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+}
+
+.botoes > button {
+  /* border: 1px solid black; */
+  cursor: pointer;
+}
+
+.botoes > button {
+  margin-top: 25px;
+  width: 150px;
+  height: 30px;
+  border-radius: 25px;
+  /* background: #ffa41c; */
+  cursor: pointer;
+  transition: background 0.3s ease; /* Transição suave de cor em 0.3 segundos com aceleração suave */
+}
+
+.limpar {
+  background-color: #f76;
+}
+
+.adicionar {
+  /* background: #93faa5; */
+  background: #ffa41c;
+}
+
+.limpar:hover {
+  background-color: #f76169;
+}
+
+.adicionar:hover {
+  background: #ff9100; /* Cor alternativa quando o mouse está sobre o botão */
+}
+
+.descricao-produto {
+  background: rgba(255, 164, 28, 0.5);
+  border-right: 1px solid black;
+}
+
+.descricao-produto > .box-left {
+  height: 100%;
+  border-right: 1px solid black;
+}

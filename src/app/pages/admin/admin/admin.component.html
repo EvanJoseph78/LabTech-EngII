@@ -89,7 +89,10 @@
     </div>
 
     <div class="atualizar-produto" *ngIf="atualizarProdutoAtivo">
-      <app-atualizar-produto> </app-atualizar-produto>
+      <app-atualizar-produto [nome]="produto.nome" [categoria]="produto.categoria" [valor]="produto.valor"
+        [quantidade]="produto.quantidade" [tamanho]="produto.tamanho" [urlimg]="produto.urlimg" [peso]="produto.peso"
+        [descricao]="produto.descricao" [idproduto]="produto.idproduto">
+      </app-atualizar-produto>
     </div>
   </div>
 </div>

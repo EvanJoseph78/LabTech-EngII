@@ -11,6 +11,9 @@ export class ProdutosService {
   // private apiUrl = 'http://localhost:3200/produtos'; // Substitua pela URL da sua API
   private apiUrl = 'http://localhost:5000/produtos'; // Substitua pela URL da sua API
 
+  private apiUrlAtualizarProduto =
+    'http://localhost:5000/admin/atualizar/produto'; // Substitua pela URL da sua API
+
   private listaProdutos = new BehaviorSubject<Produto[]>([]);
 
   private nomeProdutoPesquisar = new BehaviorSubject<string>('');
@@ -24,6 +27,10 @@ export class ProdutosService {
         this.listaProdutos.next(dados.produtos);
       }),
     );
+  }
+
+  atualizarProduto(produto: Produto): Observable<any> {
+    return this.http.post(this.apiUrlAtualizarProduto, produto);
   }
 
   getListaProdutos(): Observable<Produto[]> {

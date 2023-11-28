@@ -167,6 +167,34 @@ def adicionar_produto():
         return jsonify({"erro": f"Erro ao adicionar produto: {str(e)}"})
 
 
+@app.route("/admin/atualizar/produto", methods=['POST'])
+def atualizar_produto():
+    dados_json = request.get_json()
+
+    try:
+        with connection.cursor() as cursor:
+            query = "UPDATE produto SET nome = %s, valor = %s, peso = %s, descricao = %s, tamanho = %s, quantidade = %s, urlimg = %s, categoriaProduto = %s WHERE idproduto = %s"
+            values = (
+                dados_json["nome"],
+                dados_json["valor"],
+                dados_json["peso"],
+                dados_json["descricao"],
+                dados_json["tamanho"],
+                dados_json["quantidade"],
+                dados_json["urlimg"],
+                dados_json["categoria"],
+                dados_json["idproduto"],
+            )
+
+            cursor.execute(query, values)
+
+            connection.commit()
+
+            return jsonify({"mensagem": "Produto atualizado com sucesso"})
+    except Exception as e:
+        return jsonify({"erro": f"Erro ao adicionar produto: {str(e)}"})
+
+
 def select_from_produto():
     cursor = connection.cursor()
     try:

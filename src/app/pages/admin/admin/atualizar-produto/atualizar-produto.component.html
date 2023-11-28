@@ -1,1 +1,85 @@
-<p>atualizar-produto works!</p>
+<div class="tabela-cadastro">
+  <div class="box-cadastro">
+    <div class="box-left descricao-produto">Nome Produto:</div>
+    <div class="box-right">
+      <input type="text" name="" placeholder="Nome Produto" [(ngModel)]="nome" />
+    </div>
+  </div>
+
+  <div class="box-cadastro">
+    <div class="box-left descricao-produto">Categoria Produto:</div>
+    <div class="box-right">
+      <!-- <input type="text" name="" value="Protese" /> -->
+      <select id="produtos" name="produtos" [(ngModel)]="categoria">
+        <option value="Prótese">Prótese</option>
+        <option value="Órtese">Órtese</option>
+        <option value="Calçado">Calçado</option>
+        <!-- Adicione mais opções conforme necessário -->
+      </select>
+    </div>
+  </div>
+  <!-- {{ valorMaisFrete | currency: "BRL" : "symbol" : "1.2-2" }} -->
+  <div class="box-cadastro">
+    <div class="box-left descricao-produto">Preço Produto:</div>
+    <div class="box-right">
+      <input type="number" name="" value="" placeholder="R$" [(ngModel)]="valor" />
+    </div>
+  </div>
+
+  <div class="box-cadastro">
+    <div class="box-left descricao-produto">Quantidade Produto:</div>
+    <div class="box-right">
+      <input type="number" name="" value="" placeholder="quantidade" [(ngModel)]="quantidade" />
+    </div>
+  </div>
+
+  <div class="box-cadastro">
+    <div class="box-left descricao-produto">Tamanho Produto:</div>
+    <div class="box-right">
+      <select id="produtos" name="produtos" [(ngModel)]="tamanho">
+        <option value="P">P</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="box-cadastro">
+    <div class="box-left descricao-produto">Imagem URL:</div>
+    <div class="box-right">
+      <input type="text" name="" value="" placeholder="link" [(ngModel)]="urlimg" />
+    </div>
+  </div>
+
+  <div class="box-cadastro">
+    <div class="box-left descricao-produto">Peso Produto:</div>
+    <div class="box-right">
+      <input type="number" name="" value="" placeholder="kg" [(ngModel)]="peso" />
+    </div>
+  </div>
+
+  <div class="box-cadastro descricao-produto">
+    <div class="box-left">Descrição Produto:</div>
+    <div class="box-right">
+      <textarea id="comentario" name="comentario" rows="4" cols="50" placeholder="Descrição do produto"
+        [(ngModel)]="descricao"></textarea>
+    </div>
+  </div>
+
+  <div class="botoes">
+    <button type="" class="limpar" (click)="limparCampos()">
+      Limpar Campos
+    </button>
+    <button type="" class="adicionar" (click)="atualizarProduto()">
+      Atualizar Produto
+    </button>
+  </div>
+
+  <p class="alert" *ngIf="produtoNaoInserido" style="color: red">
+    algo deu errado ao tentar inserir produto!
+  </p>
+
+  <p class="alert" *ngIf="produtoInserido" style="color: green">
+    Produto adicionado com sucesso!
+  </p>
+</div>
