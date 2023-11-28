@@ -22,7 +22,7 @@ export class ProtesesPage implements OnInit, DoCheck {
       let listaProdutos: Produto[] = dados.produtos;
 
       listaProdutos.forEach((element) => {
-        if (element.categoria == 'protese') {
+        if (element.categoria == 'Prótese') {
           this.produtos.push(element);
         }
       });
