@@ -1,5 +1,7 @@
 # FrontEcommerce - Instruções de Desenvolvimento
 
+Este projeto foi executado durante a disciplina de engenharia de software da Universida Federal do Pará
+
 ## Pré-requisitos
 
 - Node.js
@@ -118,3 +120,7 @@ Execute o programa Python:
 python main.py
 
 ```
+
+### Documentação
+
+[Documentação LabTech](src/assets/documentacao/LabTech.pdf)
