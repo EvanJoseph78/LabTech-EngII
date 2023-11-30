@@ -49,12 +49,14 @@ export class ProdutoPageInfoComponent implements DoCheck {
     });
 
     this.produtoService.getProducts().subscribe((dados) => {
-      this.produto = dados.produtos[Number(this.id) - 1];
-      this.descricaoProduto = dados.produtos[Number(this.id) - 1].descricao;
-      // this.quantidadeDisponivel =
-      // dados.produtos[Number(this.id) - 1].quantidade;
+      for (let index = 0; index < dados.produtos.length; index++) {
+        const element = dados.produtos[index];
+        if (element.idproduto == this.id) {
+          console.log(element);
+          this.produto = element;
+        }
+      }
     });
-    // this.produtoService.getEstoqueProduto(Number(this.id));
   }
 
   ngDoCheck(): void {
@@ -108,6 +110,7 @@ export class ProdutoPageInfoComponent implements DoCheck {
   adicionarProduto() {
     this.carrinhoService.getListaPedidosProdutos().subscribe((listaPedidos) => {
       listaPedidos.valor_frete = 10;
+      // console.log(listaPedidos);
       this.isProdutoNaLista().subscribe((isProdutoNaLista) => {
         if (isProdutoNaLista) {
           for (
