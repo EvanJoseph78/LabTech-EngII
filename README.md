@@ -49,20 +49,6 @@ DB_DATABASE=seu-banco
 
 ## Back-End
 
-cd /src/Back-End
-
-dependecias python3
-
-crie ambiente virtual python
-
-execute o ambiente virtual source
-
-instale as dependecias python install requirements
-
-execute o programa python main.py
-
-## Back-End
-
 Para configurar e executar o Back-End, siga as instruções abaixo:
 
 ### Pré-requisitos
