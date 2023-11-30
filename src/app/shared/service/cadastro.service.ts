@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cliente } from '../models/cliente.model';
 import { Observable } from 'rxjs';
+import { environment } from 'src/app/environments/environments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CadastroService {
-  private apiUrl = 'http://localhost:5000/cadastro'; // Substitua pela URL da sua API
+  private apiUrl = `${environment.apiBaseUrl}/cadastro`;
 
   constructor(private http: HttpClient) { }
 

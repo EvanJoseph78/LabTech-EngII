@@ -1,27 +1,120 @@
-# FrontEcommerce
+# FrontEcommerce - Instruções de Desenvolvimento
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
+## Pré-requisitos
 
-## Development server
+- Node.js
+- Angular CLI
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Certifique-se de ter o Node.js e o Angular CLI instalados em seu sistema antes de prosseguir.
 
-## Code scaffolding
+## Instalação de Dependências
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Após clonar o projeto, navegue até o diretório raiz e execute o seguinte comando para instalar as dependências:
 
-## Build
+```bash
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Execução do Projeto
 
-## Running unit tests
+Com as dependências instaladas, execute o seguinte comando para iniciar o servidor de desenvolvimento:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
 
-## Running end-to-end tests
+ng serve
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
 
-## Further help
+Isso iniciará o servidor de desenvolvimento e o FrontEcommerce estará acessível em http://localhost:4200/. Abra seu navegador e acesse esse endereço para visualizar a aplicação.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Banco de Dados
+
+O script do banco de dados está localizado em src/banco/Dump20231128LabTech. Certifique-se de executar esse script no MySQL para configurar o banco de dados necessário para o projeto.
+
+Ao executar o banco MySQL, configure as variáveis de ambiente do banco no arquivo .env.
+
+Configuração do Banco de Dados
+No arquivo .env, configure as variáveis relacionadas ao banco de dados conforme necessário. Exemplo:
+
+```bash
+
+DB_HOST=seu-host
+DB_USER=seu-usuario
+DB_PASSWORD=sua-senha
+DB_DATABASE=seu-banco
+
+```
+
+## Back-End
+
+cd /src/Back-End
+
+dependecias python3
+
+crie ambiente virtual python
+
+execute o ambiente virtual source
+
+instale as dependecias python install requirements
+
+execute o programa python main.py
+
+## Back-End
+
+Para configurar e executar o Back-End, siga as instruções abaixo:
+
+### Pré-requisitos
+
+- Python 3
+
+### Configuração do Ambiente Virtual
+
+1. Navegue até o diretório src/Back-End:
+
+```bash
+cd /src/Back-End
+
+```
+
+2. Crie um ambiente virtual Python:
+
+```bash
+python3 -m venv venv
+Ative o ambiente virtual:
+
+```
+
+No Linux/macOS:
+
+```bash
+source venv/bin/activate
+
+```
+
+```bash
+No Windows:
+
+```
+
+```bash
+.\venv\Scripts\activate
+
+```
+
+### Instalação de Dependências
+
+3. Instale as dependências Python:
+
+```bash
+pip install -r requirements.txt
+
+```
+
+4. Execução do Programa
+
+Execute o programa Python:
+
+```bash
+python main.py
+
+```

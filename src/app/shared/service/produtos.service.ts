@@ -42,7 +42,6 @@ export class ProdutosService {
   }
 
   setNomeProdutoPesquisar(valorPesquisa: string): void {
-    // Emita o valor usando BehaviorSubject para os assinantes
     this.nomeProdutoPesquisar.next(valorPesquisa);
   }
 
@@ -55,27 +54,5 @@ export class ProdutosService {
       }
     });
     return Number(quantidade);
-  }
-
-  getProduto(id: number): Produto {
-    let quantidade: number = 0;
-    let produto: Produto = {
-      nome: '',
-      descricao: '',
-      idproduto: '',
-      peso: '',
-      quantidade: 0,
-      tamanho: '',
-      urlimg: '',
-      valor: 0,
-      categoria: '',
-    };
-    const listaProdutos = this.listaProdutos.value;
-    listaProdutos.forEach((element) => {
-      if (Number(element.idproduto) == id) {
-        produto = element;
-      }
-    });
-    return produto;
   }
 }

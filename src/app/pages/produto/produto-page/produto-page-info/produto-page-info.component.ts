@@ -52,7 +52,6 @@ export class ProdutoPageInfoComponent implements DoCheck {
       for (let index = 0; index < dados.produtos.length; index++) {
         const element = dados.produtos[index];
         if (element.idproduto == this.id) {
-          console.log(element);
           this.produto = element;
         }
       }

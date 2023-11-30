@@ -74,7 +74,6 @@ export class SignupPageComponent {
         this.router.navigate(['/']);
       }, 1000);
     } else {
-      console.log(this.cliente);
       console.log('Algo deu Errado');
     }
   }

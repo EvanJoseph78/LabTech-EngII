@@ -4,6 +4,7 @@ import { OrdemPedido } from '../models/ordemPedidoModel';
 import { map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Pedido } from '../models/pedidoModel';
+import { environment } from 'src/app/environments/environments';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class CarrinhoService {
     valor_frete: 0,
   });
 
-  private apiUrl = 'http://localhost:5000/pedido';
+  private apiUrl = `${environment.apiBaseUrl}/pedido`;
 
   listaPedidosProdutos: Observable<OrdemPedido> =
     this.listaPedidos.asObservable();

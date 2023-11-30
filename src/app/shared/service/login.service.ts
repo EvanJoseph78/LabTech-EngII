@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { environment } from 'src/app/environments/environments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  private apiUrl = 'http://localhost:5000/login'; // Substitua pela URL da sua API
+  private apiUrl = `${environment.apiBaseUrl}/login`;
 
   constructor(private http: HttpClient) { }
 

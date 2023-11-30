@@ -45,13 +45,6 @@ export class ProdutoCardComponent implements DoCheck {
         if (element.produto_id == this.produto_id) {
           this.quantidade_produto_estoque =
             this.produtoService.getEstoqueProduto(this.produto_id);
-          console.log(this.quantidade_produto_estoque);
-
-          // this.listaProdutos.forEach((element) => {
-          //   if (Number(element.idproduto) == this.produto_id) {
-          //     this.quantidade_produto_estoque = element.quantidade;
-          //   }
-          // });
 
           if (
             acao == 'aumentar' &&
