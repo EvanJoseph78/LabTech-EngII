@@ -79,10 +79,7 @@ source venv/bin/activate
 
 ```
 
-```bash
 No Windows:
-
-```
 
 ```bash
 .\venv\Scripts\activate
