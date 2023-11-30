@@ -1,6 +1,6 @@
 # FrontEcommerce - Instruções de Desenvolvimento
 
-Este projeto foi executado durante a disciplina de engenharia de software da Universida Federal do Pará
+Este projeto foi executado durante a disciplina de engenharia de software da Universidade Federal do Pará
 
 ## Pré-requisitos
 
