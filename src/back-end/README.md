@@ -1,22 +1,65 @@
 # ESII_api
 
-Documentação:
+Bem-vindo à documentação da API ESII!
 
-rota /produtos lista todos os produtos do banco de dados.
+## Rotas
 
-<img src="https://i.imgur.com/dhgD7Iz.png" alt="imagem da consutla" />
+### Listar Produtos
 
+- **Endpoint:** `/produtos`
+- **Método:** GET
+- **Descrição:** Lista todos os produtos do banco de dados.
 
-modificações:
+### Listar Protéses
 
-criação de endpoint com metodo 'GET' para proteses: @app.rout("/protese").
-criação de endpoint com metodo 'GET' para pedidos: @app.rout("/pedidos").
-criação do endpoint com metodo 'POST' para pedidos: @app.rout("/pedido").
+- **Endpoint:** `/proteses`
+- **Método:** GET
+- **Descrição:** Lista todas as próteses do banco de dados.
 
-modificação da tabela "pedido" no banco de dados para comportar as colunas:
-produto_id,
-nome_produto,
-quantidade_produto,
-tamanho_produto,
-preco_produto,
-valor_total
+### Listar Pedidos
+
+- **Endpoint:** `/pedidos`
+- **Método:** GET
+- **Descrição:** Lista todos os pedidos do banco de dados.
+
+### Logout
+
+- **Endpoint:** `/logout`
+- **Método:** GET
+- **Descrição:** Realiza o logout do usuário.
+
+### Criar Pedido
+
+- **Endpoint:** `/pedido`
+- **Método:** POST
+- **Descrição:** Cria um novo pedido.
+
+### Cadastro de Usuário
+
+- **Endpoint:** `/cadastro`
+- **Método:** POST
+- **Descrição:** Realiza o cadastro de um novo usuário.
+
+### Login
+
+- **Endpoint:** `/login`
+- **Método:** POST
+- **Descrição:** Realiza o login do usuário.
+
+### Adicionar Produto (Admin)
+
+- **Endpoint:** `/admin/adicionar/produto`
+- **Método:** POST
+- **Descrição:** Adiciona um novo produto ao banco de dados (somente para administradores).
+
+### Atualizar Produto (Admin)
+
+- **Endpoint:** `/admin/atualizar/produto`
+- **Método:** POST
+- **Descrição:** Atualiza informações de um produto no banco de dados (somente para administradores).
+
+### Movimentação de Saída (Admin)
+
+- **Endpoint:** `/admin/movimentacao/saida`
+- **Método:** POST
+- **Descrição:** Registra uma movimentação de saída de produto (somente para administradores).

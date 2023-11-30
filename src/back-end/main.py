@@ -2,17 +2,23 @@ import mysql.connector
 from flask import Flask, jsonify, request, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
+from dotenv import load_dotenv
+import os
+
+# Carrega variáveis de ambiente a partir do arquivo .env
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 cors = CORS(app, resources={r"/pedidos": {"origins": "http://localhost:4200"}})
 app.config['JSON_SORT_KEYS'] = False
-app.secret_key = 'mortadela1'
+app.secret_key = os.getenv('SECRET_KEY')
+
 db_config = {
-    "host": "172.17.0.2",
-    "user": "root",
-    "passwd": "root",
-    "database": "labtech",
+    "host": os.getenv('DATABASE_HOST'),
+    "user": os.getenv('DATABASE_USER'),
+    "passwd": os.getenv('DATABASE_PASSWORD'),
+    "database": os.getenv('DATABASE_NAME'),
 }
 
 connection = mysql.connector.connect(**db_config)
@@ -311,4 +317,6 @@ def get_pedidos():
 
 
 if __name__ == "__main__":
-    app.run(port=5000, host='0.0.0.0')
+    port = int(os.getenv('FLASK_PORT', 5000))
+    host = os.getenv('FLASK_HOST', '0.0.0.0')
+    app.run(port=port, host=host)
